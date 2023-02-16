@@ -6,21 +6,17 @@ const router = express.Router();
  * GET route template
  */
 router.get("/", (req, res) => {
-    console.log("req query: ", req.query);
-  // GET route code here
-    const queryText = `SELECT * FROM "poem" WHERE "id" = $1;`;
-    pool 
-        .query(queryText, [req.query.id])
-        .then((result) => {
-            res.send(result.rows);
-        }
-    )
-        .catch((error) => {
-            console.log("Error in poem.router GET: ", error);
-            res.sendStatus(500);
-        }
-    )
-    
+  console.log("in poetry get router");
+  const queryString = `SELECT * FROM "poem" WHERE "id" = 1;`;
+  pool
+    .query(queryString)
+    .then((results) => {
+      res.send(results.rows);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
 });
 
 /**
