@@ -15,17 +15,19 @@ function Poem1Page(props) {
   const word = useSelector((store) => store.word);
   const params = useParams();
   const poemIDParam = params.id;
-  const [heading, setHeading] =
-    useState("Poem 1");
+  const [heading, setHeading] = useState(
+    `Poem ${poemIDParam}`
+  );
 
   const [poemID, setPoemID] = useState(null);
   useEffect(() => {
     setPoemID(poemIDParam);
+    setHeading(`Poem ${poemIDParam}`);
     dispatch({
       type: "FETCH_POEM",
       payload: Number(poemIDParam),
     });
-  }, []);
+  }, [params.id]);
 
   function selection() {
     if (window.getSelection)
@@ -53,6 +55,7 @@ function Poem1Page(props) {
       <div className="word">
         <p>Word:</p>
         {word[0] && <p>{word[0].english}</p>}
+        {word[0] && <p>{word[0].pinyin}</p>}
       </div>
     </div>
   );

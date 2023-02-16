@@ -8,7 +8,7 @@ const router = express.Router();
 //query the database where the chinese is the same as after the slash
 //send back the english
 router.get("/:chinese", (req, res) => {
-  const queryText = `SELECT "english" FROM "word" WHERE "chinese" = $1;`;
+  const queryText = `SELECT * FROM "word" WHERE "chinese" = $1;`;
   pool
     .query(queryText, [req.params.chinese])
     .then((result) => {
