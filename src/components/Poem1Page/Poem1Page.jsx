@@ -30,13 +30,23 @@ function Poem1Page(props) {
     return window.getSelection();
   }
 
+  window.onkeypress = function (event) {
+    if (event.keyCode == 41) {
+      // do a function
+    }
+  };
   return (
     <div>
       <h2>{heading}</h2>
       {/* console log the poem reducer */}
       {/* stringify */}
       {/* if poem reducer is not null */}
-      {poem[0] && <p>{poem[0].chinese}</p>}
+      {poem[0] && (
+        <p onMouseUp={selection}>
+          {poem[0].chinese}
+        </p>
+      )}
+      {/* input that says hi */}
       <button onClick={selection}>Select</button>
     </div>
     // button to trigger selection function
