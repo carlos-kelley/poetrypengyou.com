@@ -14,6 +14,8 @@ function Poem1Page(props) {
   const word = useSelector((store) => store.word);
   const [heading, setHeading] =
     useState("Poem 1");
+  
+
 
   useEffect(() => {
     dispatch({
@@ -45,6 +47,14 @@ function Poem1Page(props) {
           </p>
         )}
       </div>
+      <div className="word">
+        <p>Word:</p>
+        {word[0] && (
+          <p>
+            {word[0].english}
+          </p>
+        )}
+        </div>
     </div>
   );
 }
