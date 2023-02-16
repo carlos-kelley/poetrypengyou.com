@@ -21,12 +21,25 @@ function Poem1Page(props) {
     });
   }, []);
 
+  function selection() {
+    if (window.getSelection)
+      console.log(
+        "selected:",
+        window.getSelection().toString()
+      );
+    return window.getSelection();
+  }
+
   return (
     <div>
       <h2>{heading}</h2>
       {/* console log the poem reducer */}
-      <p>{poem[0].english}</p>
+      {/* stringify */}
+      {/* if poem reducer is not null */}
+      {poem[0] && <p>{poem[0].chinese}</p>}
+      <button onClick={selection}>Select</button>
     </div>
+    // button to trigger selection function
   );
 }
 
