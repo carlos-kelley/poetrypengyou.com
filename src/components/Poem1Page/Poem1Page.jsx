@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -12,15 +13,17 @@ function Poem1Page(props) {
   const dispatch = useDispatch();
   const poem = useSelector((store) => store.poem);
   const word = useSelector((store) => store.word);
+  const params = useParams();
+  const poemIDParam = params.id;
   const [heading, setHeading] =
     useState("Poem 1");
-  
 
-
+  const [poemID, setPoemID] = useState(null);
   useEffect(() => {
+    setPoemID(poemIDParam);
     dispatch({
       type: "FETCH_POEM",
-      payload: 1,
+      payload: Number(poemIDParam),
     });
   }, []);
 
@@ -49,12 +52,8 @@ function Poem1Page(props) {
       </div>
       <div className="word">
         <p>Word:</p>
-        {word[0] && (
-          <p>
-            {word[0].english}
-          </p>
-        )}
-        </div>
+        {word[0] && <p>{word[0].english}</p>}
+      </div>
     </div>
   );
 }

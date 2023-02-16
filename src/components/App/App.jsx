@@ -105,7 +105,7 @@ function App() {
             )}
           </Route>
 
-          <Route exact path="/poem1">
+          <Route exact path="/poem/:id">
             <Poem1Page />
           </Route>
 

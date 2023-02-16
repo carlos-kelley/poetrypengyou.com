@@ -4,31 +4,19 @@ import {
   takeLatest,
 } from "redux-saga/effects";
 
-// function* fetchPoem(action) {
-//   let poem = action.payload;
-//   console.log("in fetchPoem:", poem);
-//   try {
-//     const poem = yield axios.get(
-//       `/api/poem/${poem}`
-//     );
-//     console.log("get poem:", response.data);
-//     yield put({
-//       type: "SET_POEM",
-//       payload: response.data,
-//     });
-//   } catch (error) {
-//     console.log("Error with poem GET:", error);
-//   }
-// }
-
 function* fetchPoem(action) {
   //get poem from the poem router
   try {
-    const poem = yield axios.get(`/api/poem/`);
-    console.log("get poem:", poem.data);
+    const response = yield axios.get(
+      `/api/poem/${action.payload}`
+    );
+    console.log(
+      "poem response.data:",
+      response.data
+    );
     yield put({
       type: "SET_POEM",
-      payload: poem.data,
+      payload: response.data,
     });
   } catch (error) {
     console.log("Error with poem GET:", error);
