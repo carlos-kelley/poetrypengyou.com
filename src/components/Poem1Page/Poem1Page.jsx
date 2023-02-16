@@ -21,6 +21,9 @@ function Poem1Page(props) {
 
   const [poemID, setPoemID] = useState(null);
   useEffect(() => {
+    dispatch({
+      type: "UNSET_WORD",
+    });
     setPoemID(poemIDParam);
     setHeading(`Poem ${poemIDParam}`);
     dispatch({
