@@ -11,6 +11,7 @@ function Poem1Page(props) {
   // a default value of 'Functional Component'
   const dispatch = useDispatch();
   const poem = useSelector((store) => store.poem);
+  const word = useSelector((store) => store.word);
   const [heading, setHeading] =
     useState("Poem 1");
 
@@ -27,29 +28,24 @@ function Poem1Page(props) {
         "selected:",
         window.getSelection().toString()
       );
-    return window.getSelection();
+    // dispatch to word reducer
+    dispatch({
+      type: "LOOKUP_WORD",
+      payload: window.getSelection().toString(),
+    });
   }
 
-  window.onkeypress = function (event) {
-    if (event.keyCode == 41) {
-      // do a function
-    }
-  };
   return (
     <div>
       <h2>{heading}</h2>
-      {/* console log the poem reducer */}
-      {/* stringify */}
-      {/* if poem reducer is not null */}
-      {poem[0] && (
-        <p onMouseUp={selection}>
-          {poem[0].chinese}
-        </p>
-      )}
-      {/* input that says hi */}
-      <button onClick={selection}>Select</button>
+      <div className="poem">
+        {poem[0] && (
+          <p onMouseUp={selection}>
+            {poem[0].chinese}
+          </p>
+        )}
+      </div>
     </div>
-    // button to trigger selection function
   );
 }
 
