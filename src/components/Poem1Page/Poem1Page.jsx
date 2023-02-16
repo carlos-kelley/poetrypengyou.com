@@ -10,7 +10,7 @@ function Poem1Page(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
   const dispatch = useDispatch();
-  const store = useSelector((store) => store);
+  const poem = useSelector((store) => store.poem);
   const [heading, setHeading] =
     useState("Poem 1");
 
@@ -24,6 +24,8 @@ function Poem1Page(props) {
   return (
     <div>
       <h2>{heading}</h2>
+      {/* console log the poem reducer */}
+      <p>{poem[0].english}</p>
     </div>
   );
 }
