@@ -5,18 +5,21 @@ const router = express.Router();
 /**
  * GET route template
  */
-router.get("/", (req, res) => {
-  console.log("in word get router");
-  //query the database where the chinese is the same as the payload
-  const queryString = `SELECT * FROM "word" WHERE "chinese" = '红';`;
+//query the database where the chinese is the same as after the slash
+//send back the english
+router.get("/:chinese", (req, res) => {
+  const queryText = `SELECT "english" FROM "word" WHERE "chinese" = $1;`;
   pool
-    .query(queryString)
-    .then((results) => {
-      res.send(results.rows);
-      console.log("results.rows:", results.rows);
+    .query(queryText, [req.params.chinese])
+    .then((result) => {
+      res.send(result.rows);
+      console.log("result.rows:", result.rows);
     })
     .catch((err) => {
-      console.log(err);
+      console.log(
+        "Error completing SELECT word query",
+        err
+      );
       res.sendStatus(500);
     });
 });
