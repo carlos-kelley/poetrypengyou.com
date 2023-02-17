@@ -33,6 +33,10 @@ function PoemPage(props) {
     useState(false);
   const [titleTraditional, setTitleTraditional] =
     useState("");
+  const [poemTraditional, setPoemTraditional] =
+    useState("");
+  const [authorTraditional, setAuthorTraditional] =
+    useState("");
 
   const params = useParams();
 
@@ -72,18 +76,18 @@ function PoemPage(props) {
   //   );
   // }, [poem]);
 
-  function setTitleTraditionalFunc() {
-    // setPoemTraditional((converter(`${poem[0].poem_simplified}`)));
-    console.log(converter(`${poem[0].title_simplified}`))
+  // function setTitleTraditionalFunc() {
+  //   // setPoemTraditional((converter(`${poem[0].poem_simplified}`)));
+  //   console.log(converter(`${poem[0].title_simplified}`))
 
-  }
+  // }
 
-  function logPoemTraditional() {
-    console.log(
-      "titleTraditional:",
-      titleTraditional
-    );
-  }
+  // function logPoemTraditional() {
+  //   console.log(
+  //     "titleTraditional:",
+  //     titleTraditional
+  //   );
+  // }
   function selection() {
     if (window.getSelection)
       console.log(
@@ -116,15 +120,34 @@ function PoemPage(props) {
             setTitleTraditional(
               converter(poem[0].title_simplified)
             );
+          setPoemTraditional(
+            converter(poem[0].poem_simplified)
+          );
+          setAuthorTraditional(
+            converter(poem[0].author_simplified)
+          );
+          
           // if still null or empty try again
           titleTraditional === null &&
             setTitleTraditional(
               converter(poem[0].title_simplified)
             );
+          setPoemTraditional(
+            converter(poem[0].poem_simplified)
+          );
+          setAuthorTraditional(
+            converter(poem[0].author_simplified)
+          );
           titleTraditional === "" &&
             setTitleTraditional(
               converter(poem[0].title_simplified)
             );
+          setPoemTraditional(
+            converter(poem[0].poem_simplified)
+          );
+          setAuthorTraditional(
+            converter(poem[0].author_simplified)
+          );
 
           console.log(
             "titleTraditional:",
@@ -177,12 +200,12 @@ function PoemPage(props) {
           )}
         {poem[0] &&
           localCharacter === "traditional" && (
-            <h3>{poem[0].author_traditional}</h3>
+            <h3>{authorTraditional}</h3>
           )}
         {poem[0] &&
           localCharacter === "traditional" && (
             <p onMouseUp={selection}>
-              {poem[0].poem_traditional}
+              {poemTraditional}
             </p>
           )}
       </div>
