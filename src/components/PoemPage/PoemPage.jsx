@@ -36,7 +36,7 @@ function PoemPage(props) {
   );
   const [localCharacter, setLocalCharacter] =
     useState("simplified");
-  
+
   const [titleTraditional, setTitleTraditional] =
     useState("");
   const [poemTraditional, setPoemTraditional] =
@@ -48,12 +48,13 @@ function PoemPage(props) {
 
   const params = useParams();
 
-  const poemIDParam = params.id;
+  const poemNumberParam = params.number;
   const poemTitle = null;
   // const poemTraditional =
   //   "";
 
-  const [poemID, setPoemID] = useState(null);
+  const [poemNumber, setPoemNumber] =
+    useState(null);
   useEffect(() => {
     console.log(
       "titleTraditional:",
@@ -62,21 +63,20 @@ function PoemPage(props) {
     setTitleTraditional("");
     setPoemTraditional("");
     setAuthorTraditional("");
-    
 
     dispatch({
       type: "UNSET_WORD",
     });
-    setPoemID(poemIDParam);
+    setPoemNumber(poemNumberParam);
 
     dispatch({
       type: "FETCH_POEM",
-      payload: Number(poemIDParam),
+      payload: Number(poemNumberParam),
     });
     // then set poemTraditional
 
     // set poemTraditional
-  }, [params.id]);
+  }, [params.number]);
 
   // useEffect(() => {
   //   setPoemTraditional(poem[0].poem_simplified);
@@ -165,7 +165,6 @@ function PoemPage(props) {
         {localCharacter === "traditional" &&
           "Switch to Simplified"}
       </button>
-      
 
       <div className="poem">
         {/* if poem[0] exists and character is simplified */}

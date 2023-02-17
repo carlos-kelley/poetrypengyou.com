@@ -5,11 +5,11 @@ const router = express.Router();
 /**
  * GET route template
  */
-router.get("/:id", (req, res) => {
+router.get("/:number", (req, res) => {
   console.log("in poetry get router");
-  const queryString = `SELECT * FROM "poem" WHERE "id" = $1;`;
+  const queryString = `SELECT * FROM "poem" WHERE "number" = $1;`;
   pool
-    .query(queryString, [req.params.id])
+    .query(queryString, [req.params.number])
     .then((results) => {
       res.send(results.rows);
     })

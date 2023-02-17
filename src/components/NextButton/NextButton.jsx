@@ -13,7 +13,15 @@ function NextButton(props) {
   const poem = useSelector((store) => store.poem);
   const dispatch = useDispatch();
   function pushNext() {
-    history.push("/poem/3");
+    console.log("poem.number:", poem[0].number);
+    history.push(`/poem/${poem[0].number + 1}`);
+    //   if not a number, add one again
+    if (!poem) {
+      console.log("poem is null");
+      history.push(`/poem/${poem[0].number + 1}`);
+    } else if ((poem = !null)) {
+      console.log("poem is not null");
+    }
   }
 
   return (
