@@ -1,14 +1,19 @@
 .pinyinRedClass {
-  color: #ff0000;
+  /* dark red */
+  color: #b00000;
+  font-weight: 800;
 }
 .pinyinOrangeClass {
-  color: #ff6600;
+  color: #ff8737;
+  font-weight: 800;
 }
 .pinyinGreenClass {
   color: #00ff00;
+  font-weight: 800;
 }
 .pinyinBlueClass {
   color: #0000ff;
+  font-weight: 800;
 }
 
 /* use notosans font */
