@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
+import zhConvertor from "zhconvertor";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the

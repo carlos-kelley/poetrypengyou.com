@@ -4,6 +4,8 @@ import registrationSaga from './registration.saga';
 import userSaga from './user.saga';
 import fetchPoemSaga from './poem.saga';
 import lookupWordSaga from './word.saga';
+import fetchAllPoemsSaga from './allPoems.saga';
+
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -19,5 +21,6 @@ export default function* rootSaga() {
     userSaga(),
     fetchPoemSaga(),
     lookupWordSaga(),
+    fetchAllPoemsSaga()
   ]);
 }

@@ -1,5 +1,9 @@
-import React, { useState } from "react";
+import React, {
+  useEffect,
+  useState,
+} from "react";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -7,16 +11,22 @@ import { useSelector } from "react-redux";
 function PoemSelectPage(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
-  const store = useSelector((store) => store);
+  const dispatch = useDispatch();
+  const poems = useSelector(
+    (store) => store.poem
+  );
   const [heading, setHeading] = useState(
     "Select a Poem"
   );
 
-  return (
-    <div>
-      <h2>{heading}</h2>
-    </div>
-  );
+  useEffect(() => {
+    // dispatch to get all poems
+    dispatch({
+      type: "FETCH_ALL_POEMS",
+    });
+  }, []);
+
+  return <div></div>;
 }
 
 export default PoemSelectPage;
