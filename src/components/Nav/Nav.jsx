@@ -29,6 +29,9 @@ function Nav() {
             <Link className="navLink" to="/user">
               Home
             </Link>
+            <Link className="navLink" to="/poemselect">
+              Poems
+            </Link>
 
             <LogOutButton className="navLink" />
           </>

@@ -22,9 +22,10 @@ import LandingPage from "../LandingPage/LandingPage";
 import LoginPage from "../LoginPage/LoginPage";
 import RegisterPage from "../RegisterPage/RegisterPage";
 import CharacterToggle from "../CharacterToggle/CharacterToggle";
+import PoemSelectPage from "../PoemSelectPage/PoemSelectPage";
 
 import "./App.css";
-import Poem1Page from "../Poem1Page/Poem1Page";
+import PoemPage from "../PoemPage/PoemPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -52,6 +53,11 @@ function App() {
           >
             <AboutPage />
           </Route>
+          <ProtectedRoute
+            exact path="/poemselect"
+          >
+            <PoemSelectPage />
+          </ProtectedRoute>
 
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
@@ -99,7 +105,7 @@ function App() {
           </Route>
 
           <Route exact path="/poem/:id">
-            <Poem1Page />
+            <PoemPage />
           </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}
