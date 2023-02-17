@@ -19,10 +19,14 @@ function PoemPage(props) {
   const poem = useSelector((store) => store.poem);
   const word = useSelector((store) => store.word);
   // const OpenCC = require("opencc");
-  // Convert Traditional Chinese (Hong Kong) to Simplified Chinese (Mainland China)
+
   const converter = OpenCC.Converter({
     from: "cn",
     to: "hk",
+  });
+  const converterSimp = OpenCC.Converter({
+    from: "hk",
+    to: "cn",
   });
   const character = useSelector(
     (store) => store.character
@@ -95,12 +99,12 @@ function PoemPage(props) {
     if (window.getSelection)
       console.log(
         "selected:",
-        window.getSelection().toString()
+        converterSimp(window.getSelection().toString())
       );
     // dispatch to word reducer
     dispatch({
       type: "LOOKUP_WORD",
-      payload: window.getSelection().toString(),
+      payload: converterSimp(window.getSelection().toString()),
     });
   }
 
