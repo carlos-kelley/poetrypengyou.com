@@ -5,6 +5,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -15,7 +16,13 @@ function NextButton(props) {
   const history = useHistory();
   const poem = useSelector((store) => store.poem);
   const location = useLocation();
+  const dispatch = useDispatch();
   function pushNext() {
+    dispatch({
+      type: "FETCH_NEXT_POEM",
+      payload: poem[0].number,
+    });
+
     console.log("poem.number:", poem[0].number);
     history.push(`/poem/${poem[0].number + 1}`);
     //   refresh page
@@ -27,9 +34,9 @@ function NextButton(props) {
     );
   }
 
-//   useEffect(() => {
-//     fetchData();
-//   }, [location.key]);
+  //   useEffect(() => {
+  //     fetchData();
+  //   }, [location.key]);
 
   return (
     <div>
