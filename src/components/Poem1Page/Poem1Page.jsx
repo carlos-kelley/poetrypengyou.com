@@ -16,6 +16,8 @@ function Poem1Page(props) {
   const character = useSelector(
     (store) => store.character
   );
+  const [localCharacter, setLocalCharacter] =
+    useState("simplified");
   const params = useParams();
 
   const poemIDParam = params.id;
@@ -51,18 +53,37 @@ function Poem1Page(props) {
 
   return (
     <div>
+      {/* onclick set local character to traditional */}
+      <button
+        onClick={() => {
+          localCharacter === "simplified"
+            ? setLocalCharacter("traditional")
+            : setLocalCharacter("simplified");
+          console.log(
+            "character:",
+            localCharacter
+          );
+        }}
+      >
+        {localCharacter === "simplified" &&
+          "Switch to Traditional"}
+        {localCharacter === "traditional" &&
+          "Switch to Simplified"}
+      </button>
       <h2>{heading}</h2>
       <div className="poem">
         {/* if poem[0] exists and character is simplified */}
         {poem[0] &&
-          character === "simplified" && (
+          localCharacter === "simplified" && (
             <p onMouseUp={selection}>
               {poem[0].simplified}
             </p>
           )}
         {poem[0] &&
-          character === "traditional" && (
-            <p onMouseUp = {selection}>{poem[0].traditional}</p>
+          localCharacter === "traditional" && (
+            <p onMouseUp={selection}>
+              {poem[0].traditional}
+            </p>
           )}
       </div>
       <div className="word">
