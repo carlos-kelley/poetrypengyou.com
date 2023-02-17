@@ -35,8 +35,10 @@ function PoemPage(props) {
     useState("");
   const [poemTraditional, setPoemTraditional] =
     useState("");
-  const [authorTraditional, setAuthorTraditional] =
-    useState("");
+  const [
+    authorTraditional,
+    setAuthorTraditional,
+  ] = useState("");
 
   const params = useParams();
 
@@ -51,8 +53,9 @@ function PoemPage(props) {
       "titleTraditional:",
       titleTraditional
     );
-    // console.log("OpenCC version", OpenCC.version);
-    console.log(converter("漢語")); // output: 汉语
+    setTitleTraditional("");
+    setPoemTraditional("");
+    setAuthorTraditional("");
 
     dispatch({
       type: "UNSET_WORD",
@@ -62,7 +65,7 @@ function PoemPage(props) {
     dispatch({
       type: "FETCH_POEM",
       payload: Number(poemIDParam),
-    })
+    });
     // then set poemTraditional
 
     // set poemTraditional
@@ -116,6 +119,7 @@ function PoemPage(props) {
             "character:",
             localCharacter
           );
+
           localCharacter === "traditional" &&
             setTitleTraditional(
               converter(poem[0].title_simplified)
@@ -126,18 +130,18 @@ function PoemPage(props) {
           setAuthorTraditional(
             converter(poem[0].author_simplified)
           );
-          
+
           // if still null or empty try again
-          titleTraditional === null &&
-            setTitleTraditional(
-              converter(poem[0].title_simplified)
-            );
-          setPoemTraditional(
-            converter(poem[0].poem_simplified)
-          );
-          setAuthorTraditional(
-            converter(poem[0].author_simplified)
-          );
+          // titleTraditional === null &&
+          //   setTitleTraditional(
+          //     converter(poem[0].title_simplified)
+          //   );
+          // setPoemTraditional(
+          //   converter(poem[0].poem_simplified)
+          // );
+          // setAuthorTraditional(
+          //   converter(poem[0].author_simplified)
+          // );
           titleTraditional === "" &&
             setTitleTraditional(
               converter(poem[0].title_simplified)
@@ -148,6 +152,7 @@ function PoemPage(props) {
           setAuthorTraditional(
             converter(poem[0].author_simplified)
           );
+          // wait 1 second then clear
 
           console.log(
             "titleTraditional:",
@@ -162,6 +167,9 @@ function PoemPage(props) {
       </button>
       <button
         onClick={() => {
+          dispatch({
+            type: "UNSET_WORD",
+          });
           englishToggle === false
             ? setEnglishToggle(true)
             : setEnglishToggle(false);
