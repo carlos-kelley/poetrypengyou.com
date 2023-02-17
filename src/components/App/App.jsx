@@ -24,9 +24,10 @@ import RegisterPage from "../RegisterPage/RegisterPage";
 import CharacterToggle from "../CharacterToggle/CharacterToggle";
 import PoemSelectPage from "../PoemSelectPage/PoemSelectPage";
 import WordPage from "../WordPage/WordPage";
-
+import NextButton from "../NextButton/NextButton";
 import "./App.css";
 import PoemPage from "../PoemPage/PoemPage";
+import BackButton from "../BackButton/BackButton";
 
 function App() {
   const dispatch = useDispatch();
@@ -55,7 +56,8 @@ function App() {
             <AboutPage />
           </Route>
           <ProtectedRoute
-            exact path="/poemselect"
+            exact
+            path="/poemselect"
           >
             <PoemSelectPage />
           </ProtectedRoute>
@@ -114,6 +116,8 @@ function App() {
             <h1>404</h1>
           </Route>
         </Switch>
+        <BackButton />
+        <NextButton />
         <Footer />
       </div>
     </Router>
