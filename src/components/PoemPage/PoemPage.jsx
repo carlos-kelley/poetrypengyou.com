@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import * as OpenCC from "opencc-js";
 // import css
 import WordPage from "../WordPage/WordPage";
+import EnglishPage from "../EnglishPage/EnglishPage";
 
 // import opencc
 // import { OpenCC } from "opencc";
@@ -35,8 +36,7 @@ function PoemPage(props) {
   );
   const [localCharacter, setLocalCharacter] =
     useState("simplified");
-  const [englishToggle, setEnglishToggle] =
-    useState(false);
+  
   const [titleTraditional, setTitleTraditional] =
     useState("");
   const [poemTraditional, setPoemTraditional] =
@@ -62,7 +62,7 @@ function PoemPage(props) {
     setTitleTraditional("");
     setPoemTraditional("");
     setAuthorTraditional("");
-    setEnglishToggle(false);
+    
 
     dispatch({
       type: "UNSET_WORD",
@@ -165,25 +165,7 @@ function PoemPage(props) {
         {localCharacter === "traditional" &&
           "Switch to Simplified"}
       </button>
-      <button
-        onClick={() => {
-          dispatch({
-            type: "UNSET_WORD",
-          });
-          englishToggle === false
-            ? setEnglishToggle(true)
-            : setEnglishToggle(false);
-          console.log(
-            "englishToggle:",
-            englishToggle
-          );
-        }}
-      >
-        {englishToggle === true && "Hide English"}
-
-        {englishToggle === false &&
-          "Show English"}
-      </button>
+      
 
       <div className="poem">
         {/* if poem[0] exists and character is simplified */}
@@ -217,21 +199,7 @@ function PoemPage(props) {
             </p>
           )}
       </div>
-      <div className="englishTitleClass">
-        {englishToggle === true && poem[0] && (
-          <h2>{poem[0].title_english}</h2>
-        )}
-      </div>
-      <div className="englishAuthorClass">
-        {englishToggle === true && poem[0] && (
-          <h3>{poem[0].author_english}</h3>
-        )}
-      </div>
-      <div className="englishPoemClass">
-        {englishToggle === true && poem[0] && (
-          <p>{poem[0].poem_english}</p>
-        )}
-      </div>
+      <EnglishPage />
       <WordPage />
     </div>
   );
