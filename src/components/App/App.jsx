@@ -23,6 +23,7 @@ import LoginPage from "../LoginPage/LoginPage";
 import RegisterPage from "../RegisterPage/RegisterPage";
 import CharacterToggle from "../CharacterToggle/CharacterToggle";
 import PoemSelectPage from "../PoemSelectPage/PoemSelectPage";
+import WordPage from "../WordPage/WordPage";
 
 import "./App.css";
 import PoemPage from "../PoemPage/PoemPage";

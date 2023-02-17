@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 // import opencc-js
 import * as OpenCC from "opencc-js";
 // import css
-import "./PoemPage.css";
+import WordPage from "../WordPage/WordPage";
 
 // import opencc
 // import { OpenCC } from "opencc";
@@ -19,7 +19,7 @@ function PoemPage(props) {
   // a default value of 'Functional Component'
   const dispatch = useDispatch();
   const poem = useSelector((store) => store.poem);
-  const word = useSelector((store) => store.word);
+
   // const OpenCC = require("opencc");
 
   const converter = OpenCC.Converter({
@@ -62,6 +62,7 @@ function PoemPage(props) {
     setTitleTraditional("");
     setPoemTraditional("");
     setAuthorTraditional("");
+    setEnglishToggle(false);
 
     dispatch({
       type: "UNSET_WORD",
@@ -141,17 +142,6 @@ function PoemPage(props) {
             converter(poem[0].author_simplified)
           );
 
-          // if still null or empty try again
-          // titleTraditional === null &&
-          //   setTitleTraditional(
-          //     converter(poem[0].title_simplified)
-          //   );
-          // setPoemTraditional(
-          //   converter(poem[0].poem_simplified)
-          // );
-          // setAuthorTraditional(
-          //   converter(poem[0].author_simplified)
-          // );
           titleTraditional === "" &&
             setTitleTraditional(
               converter(poem[0].title_simplified)
@@ -242,35 +232,7 @@ function PoemPage(props) {
           <p>{poem[0].poem_english}</p>
         )}
       </div>
-
-      <p>Word:</p>
-      {word[0] && <p>{word[0].english}</p>}
-      <div className="pinyinClass">
-        {/* if word[0].tone is 1, change class to pinyinRedClass */}
-        {word[0] && word[0].tone === 1 && (
-          <p className="pinyinRedClass">
-            {word[0].pinyin}
-          </p>
-        )}
-        {/* if word[0].tone is 2, change class to pinyinOrangeClass */}
-        {word[0] && word[0].tone === 2 && (
-          <p className="pinyinOrangeClass">
-            {word[0].pinyin}
-          </p>
-        )}
-        {/* if word[0].tone is 3, change class to pinyinGreenClass */}
-        {word[0] && word[0].tone === 3 && (
-          <p className="pinyinGreenClass">
-            {word[0].pinyin}
-          </p>
-        )}
-        {/* if word[0].tone is 4, change class to pinyinBlueClass */}
-        {word[0] && word[0].tone === 4 && (
-          <p className="pinyinBlueClass">
-            {word[0].pinyin}
-          </p>
-        )}
-      </div>
+      <WordPage />
     </div>
   );
 }
