@@ -13,7 +13,11 @@ function Poem1Page(props) {
   const dispatch = useDispatch();
   const poem = useSelector((store) => store.poem);
   const word = useSelector((store) => store.word);
+  const character = useSelector(
+    (store) => store.character
+  );
   const params = useParams();
+
   const poemIDParam = params.id;
   const [heading, setHeading] = useState(
     `Poem ${poemIDParam}`
@@ -49,11 +53,17 @@ function Poem1Page(props) {
     <div>
       <h2>{heading}</h2>
       <div className="poem">
-        {poem[0] && (
-          <p onMouseUp={selection}>
-            {poem[0].chinese}
-          </p>
-        )}
+        {/* if poem[0] exists and character is simplified */}
+        {poem[0] &&
+          character === "simplified" && (
+            <p onMouseUp={selection}>
+              {poem[0].simplified}
+            </p>
+          )}
+        {poem[0] &&
+          character === "traditional" && (
+            <p onMouseUp = {selection}>{poem[0].traditional}</p>
+          )}
       </div>
       <div className="word">
         <p>Word:</p>

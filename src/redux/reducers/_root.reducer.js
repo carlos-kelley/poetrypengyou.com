@@ -3,6 +3,7 @@ import errors from './errors.reducer';
 import user from './user.reducer';
 import poem from './poem.reducer';
 import word from './word.reducer';
+import character from './character.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   poem, // will have poem data
   word, // will have word data
+  character, // will have character data
 });
 
 export default rootReducer;

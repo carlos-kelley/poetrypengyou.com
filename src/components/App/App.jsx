@@ -21,6 +21,7 @@ import UserPage from "../UserPage/UserPage";
 import LandingPage from "../LandingPage/LandingPage";
 import LoginPage from "../LoginPage/LoginPage";
 import RegisterPage from "../RegisterPage/RegisterPage";
+import CharacterToggle from "../CharacterToggle/CharacterToggle";
 
 import "./App.css";
 import Poem1Page from "../Poem1Page/Poem1Page";
@@ -38,6 +39,7 @@ function App() {
     <Router>
       <div>
         <Nav />
+        <CharacterToggle />
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />
