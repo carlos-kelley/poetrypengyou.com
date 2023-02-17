@@ -73,6 +73,7 @@ function PoemPage(props) {
       type: "FETCH_POEM",
       payload: Number(poemNumberParam),
     });
+    
     // then set poemTraditional
 
     // set poemTraditional
