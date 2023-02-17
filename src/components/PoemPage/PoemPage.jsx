@@ -5,6 +5,8 @@ import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 // import opencc-js
 import * as OpenCC from "opencc-js";
+// import css
+import "./PoemPage.css";
 
 // import opencc
 // import { OpenCC } from "opencc";
@@ -99,12 +101,16 @@ function PoemPage(props) {
     if (window.getSelection)
       console.log(
         "selected:",
-        converterSimp(window.getSelection().toString())
+        converterSimp(
+          window.getSelection().toString()
+        )
       );
     // dispatch to word reducer
     dispatch({
       type: "LOOKUP_WORD",
-      payload: converterSimp(window.getSelection().toString()),
+      payload: converterSimp(
+        window.getSelection().toString()
+      ),
     });
   }
 
@@ -236,10 +242,34 @@ function PoemPage(props) {
           <p>{poem[0].poem_english}</p>
         )}
       </div>
-      <div className="word">
-        <p>Word:</p>
-        {word[0] && <p>{word[0].english}</p>}
-        {word[0] && <p>{word[0].pinyin}</p>}
+
+      <p>Word:</p>
+      {word[0] && <p>{word[0].english}</p>}
+      <div className="pinyinClass">
+        {/* if word[0].tone is 1, change class to pinyinRedClass */}
+        {word[0] && word[0].tone === 1 && (
+          <p className="pinyinRedClass">
+            {word[0].pinyin}
+          </p>
+        )}
+        {/* if word[0].tone is 2, change class to pinyinOrangeClass */}
+        {word[0] && word[0].tone === 2 && (
+          <p className="pinyinOrangeClass">
+            {word[0].pinyin}
+          </p>
+        )}
+        {/* if word[0].tone is 3, change class to pinyinGreenClass */}
+        {word[0] && word[0].tone === 3 && (
+          <p className="pinyinGreenClass">
+            {word[0].pinyin}
+          </p>
+        )}
+        {/* if word[0].tone is 4, change class to pinyinBlueClass */}
+        {word[0] && word[0].tone === 4 && (
+          <p className="pinyinBlueClass">
+            {word[0].pinyin}
+          </p>
+        )}
       </div>
     </div>
   );

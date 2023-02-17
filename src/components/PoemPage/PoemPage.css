@@ -1,0 +1,14 @@
+.pinyinRedClass {
+  color: #ff0000;
+}
+.pinyinOrangeClass {
+  color: #ff6600;
+}
+.pinyinGreenClass {
+  color: #00ff00;
+}
+.pinyinBlueClass {
+  color: #0000ff;
+}
+
+/* use notosans font */

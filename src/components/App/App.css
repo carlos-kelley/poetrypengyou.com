@@ -5,13 +5,39 @@ body,
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana,
+    sans-serif;
   margin: 0px;
 }
 
 img {
   display: inline-block;
   max-width: 100%;
+}
+
+h2 {
+  /* noto sans jp bold */
+  font-family: "Noto Sans JP", sans-serif;
+  /* font-weight: 700; */
+  font-size: 1.5rem;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-family: "Noto Sans JP", sans-serif;
+  /* font-weight: 700; */
+  font-size: 1.3rem;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+p {
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  margin: 0;
+  margin-bottom: 10px;
 }
 
 /* --------------------------------------------------------------------------------
