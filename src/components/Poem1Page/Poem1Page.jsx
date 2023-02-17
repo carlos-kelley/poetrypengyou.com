@@ -18,12 +18,14 @@ function Poem1Page(props) {
   );
   const [localCharacter, setLocalCharacter] =
     useState("simplified");
+  const [englishToggle, setEnglishToggle] =
+    useState(false);
+
   const params = useParams();
 
   const poemIDParam = params.id;
-  const [heading, setHeading] = useState(
-    `Poem ${poemIDParam}`
-  );
+  const poemTitle = null;
+  const [heading, setHeading] = useState(`$}`);
 
   const [poemID, setPoemID] = useState(null);
   useEffect(() => {
@@ -31,13 +33,17 @@ function Poem1Page(props) {
       type: "UNSET_WORD",
     });
     setPoemID(poemIDParam);
-    setHeading(`Poem ${poemIDParam}`);
+    setHeading(`${poemTitle}`);
     dispatch({
       type: "FETCH_POEM",
       payload: Number(poemIDParam),
     });
   }, [params.id]);
 
+  function logPoem() {
+    console.log("poem:", poem);
+    console.log("poemTitle:", poemTitle);
+  }
   function selection() {
     if (window.getSelection)
       console.log(
@@ -56,6 +62,9 @@ function Poem1Page(props) {
       {/* onclick set local character to traditional */}
       <button
         onClick={() => {
+          dispatch({
+            type: "UNSET_WORD",
+          });
           localCharacter === "simplified"
             ? setLocalCharacter("traditional")
             : setLocalCharacter("simplified");
@@ -70,21 +79,69 @@ function Poem1Page(props) {
         {localCharacter === "traditional" &&
           "Switch to Simplified"}
       </button>
-      <h2>{heading}</h2>
+      <button
+        onClick={() => {
+          englishToggle === false
+            ? setEnglishToggle(true)
+            : setEnglishToggle(false);
+          console.log(
+            "englishToggle:",
+            englishToggle
+          );
+        }}
+      >
+        {englishToggle === true && "Hide English"}
+
+        {englishToggle === false &&
+          "Show English"}
+      </button>
+
       <div className="poem">
         {/* if poem[0] exists and character is simplified */}
         {poem[0] &&
           localCharacter === "simplified" && (
+            <h2>{poem[0].title_simplified}</h2>
+          )}
+        {poem[0] &&
+          localCharacter === "simplified" && (
+            <h3>{poem[0].author_simplified}</h3>
+          )}
+        {poem[0] &&
+          localCharacter === "simplified" && (
             <p onMouseUp={selection}>
-              {poem[0].simplified}
+              {poem[0].poem_simplified}
             </p>
+          )}
+
+        {poem[0] &&
+          localCharacter === "traditional" && (
+            <h2>{poem[0].title_traditional}</h2>
+          )}
+        {poem[0] &&
+          localCharacter === "traditional" && (
+            <h3>{poem[0].author_traditional}</h3>
           )}
         {poem[0] &&
           localCharacter === "traditional" && (
             <p onMouseUp={selection}>
-              {poem[0].traditional}
+              {poem[0].poem_traditional}
             </p>
           )}
+      </div>
+      <div className="englishTitleClass">
+        {englishToggle === true && poem[0] && (
+          <h2>{poem[0].title_english}</h2>
+        )}
+      </div>
+      <div className="englishAuthorClass">
+        {englishToggle === true && poem[0] && (
+          <h3>{poem[0].author_english}</h3>
+        )}
+      </div>
+      <div className="englishPoemClass">
+        {englishToggle === true && poem[0] && (
+          <p>{poem[0].poem_english}</p>
+        )}
       </div>
       <div className="word">
         <p>Word:</p>
