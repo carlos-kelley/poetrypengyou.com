@@ -21,8 +21,8 @@ function PoemPage(props) {
   // const OpenCC = require("opencc");
   // Convert Traditional Chinese (Hong Kong) to Simplified Chinese (Mainland China)
   const converter = OpenCC.Converter({
-    from: "hk",
-    to: "cn",
+    from: "cn",
+    to: "hk",
   });
   const character = useSelector(
     (store) => store.character
@@ -31,7 +31,7 @@ function PoemPage(props) {
     useState("simplified");
   const [englishToggle, setEnglishToggle] =
     useState(false);
-  const [poemTraditional, setPoemTraditional] =
+  const [titleTraditional, setTitleTraditional] =
     useState("");
 
   const params = useParams();
@@ -44,8 +44,8 @@ function PoemPage(props) {
   const [poemID, setPoemID] = useState(null);
   useEffect(() => {
     console.log(
-      "poemTraditional:",
-      poemTraditional
+      "titleTraditional:",
+      titleTraditional
     );
     // console.log("OpenCC version", OpenCC.version);
     console.log(converter("漢語")); // output: 汉语
@@ -58,7 +58,9 @@ function PoemPage(props) {
     dispatch({
       type: "FETCH_POEM",
       payload: Number(poemIDParam),
-    });
+    })
+    // then set poemTraditional
+
     // set poemTraditional
   }, [params.id]);
 
@@ -70,8 +72,17 @@ function PoemPage(props) {
   //   );
   // }, [poem]);
 
+  function setTitleTraditionalFunc() {
+    // setPoemTraditional((converter(`${poem[0].poem_simplified}`)));
+    console.log(converter(`${poem[0].title_simplified}`))
+
+  }
+
   function logPoemTraditional() {
-    console.log("poemTraditional:", poemTraditional);
+    console.log(
+      "titleTraditional:",
+      titleTraditional
+    );
   }
   function selection() {
     if (window.getSelection)
@@ -88,7 +99,6 @@ function PoemPage(props) {
 
   return (
     <div>
-       <button onClick={logPoemTraditional}>Log Poem</button>
       {/* onclick set local character to traditional */}
       <button
         onClick={() => {
@@ -102,30 +112,24 @@ function PoemPage(props) {
             "character:",
             localCharacter
           );
-          localCharacter === "traditional"
-            && setPoemTraditional(
+          localCharacter === "traditional" &&
+            setTitleTraditional(
               converter(poem[0].title_simplified)
             );
           // if still null or empty try again
-          poemTraditional === null &&
-            setPoemTraditional(
+          titleTraditional === null &&
+            setTitleTraditional(
               converter(poem[0].title_simplified)
             );
-          poemTraditional === "" &&
-            setPoemTraditional(
+          titleTraditional === "" &&
+            setTitleTraditional(
               converter(poem[0].title_simplified)
             );
-          
-              
-         
 
           console.log(
-            "poemTraditional:",
-            poemTraditional
+            "titleTraditional:",
+            titleTraditional
           );
-            
-          
-
         }}
       >
         {localCharacter === "simplified" &&
@@ -169,10 +173,7 @@ function PoemPage(props) {
 
         {poem[0] &&
           localCharacter === "traditional" && (
-            <h2>
-              `converter(
-              {poem[0].title_traditional})
-            </h2>
+            <h2>{titleTraditional}</h2>
           )}
         {poem[0] &&
           localCharacter === "traditional" && (
