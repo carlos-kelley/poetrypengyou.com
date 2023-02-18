@@ -51,7 +51,7 @@ function PoemSelectPage(props) {
               onClick={() => {
                 goToPoem(poem.number);
               }}
-            >
+            > {poem.number} &nbsp;
               {poem.author_simplified}《
               {poem.title_simplified}》
               <br />

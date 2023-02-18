@@ -7,7 +7,7 @@ const router = express.Router();
  */
 router.get("/", (req, res) => {
   console.log("in poetry get all router");
-  const queryString = `SELECT * FROM "poem";`;
+  const queryString = `SELECT * FROM "poem" ORDER BY "number" ASC;`;
   pool
     .query(queryString)
     .then((results) => {
