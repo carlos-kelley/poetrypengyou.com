@@ -15,9 +15,6 @@ function PoemSelectPage(props) {
   const poems = useSelector(
     (store) => store.poem
   );
-  const [heading, setHeading] = useState(
-    "Select a Poem"
-  );
 
   useEffect(() => {
     // dispatch to get all poems
@@ -26,7 +23,9 @@ function PoemSelectPage(props) {
     });
   }, []);
 
-  return <div></div>;
+  return <div>
+    <h2>Select a Poem</h2>
+  </div>;
 }
 
 export default PoemSelectPage;

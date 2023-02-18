@@ -8,7 +8,7 @@ function* fetchAllPoems(action) {
   //get poem from the poem router
   try {
     const response = yield axios.get(
-      `/api/poem/`
+      `/api/allpoems/`
     );
     console.log(
       "poem response.data:",
