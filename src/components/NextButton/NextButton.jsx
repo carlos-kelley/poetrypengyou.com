@@ -112,7 +112,9 @@ function NextButton(props) {
 
   return (
     <div>
-      <button onClick={pushNext}> Next Poem </button>
+       {nextPoemLocal !== 0   && (
+        <button onClick={pushNext}> Next Poem </button>
+      )}
     </div>
   );
 }

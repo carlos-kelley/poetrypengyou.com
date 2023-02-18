@@ -112,7 +112,12 @@ function LastButton(props) {
 
   return (
     <div>
-      <button onClick={pushLast}> Last Poem </button>
+      {/* if lastpoemlocal exists */}
+      {lastPoemLocal !== 0   && (
+        <button onClick={pushLast}> Last Poem </button>
+      )}
+
+          
     </div>
   );
 }
