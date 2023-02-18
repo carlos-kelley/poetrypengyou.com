@@ -2,18 +2,26 @@
   /* dark red */
   color: #b00000;
   font-weight: 800;
+   border: 0;
+  outline: 0;
 }
 .pinyinOrangeClass {
   color: #ffa162;
   font-weight: 800;
+   border: 0;
+  outline: 0;
 }
 .pinyinGreenClass {
   color: #00ff00;
   font-weight: 800;
+   border: 0;
+  outline: 0;
 }
 .pinyinBlueClass {
   color: #0000ff;
   font-weight: 800;
+   border: 0;
+  outline: 0;
 }
 
 /* use notosans font */

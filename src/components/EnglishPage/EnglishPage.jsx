@@ -4,7 +4,8 @@ import React, {
 } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import FontDownloadIcon from "@mui/icons-material/FontDownload";
+import { ReactComponent as FontDownloadIcon } from "./font_download.svg";
+import { ReactComponent as FontDownloadOffIcon } from "./font_download_off.svg";
 // import css
 
 // Basic functional component structure for React with default state
@@ -24,29 +25,39 @@ function EnglishPage(props) {
 
   return (
     <div>
-      <FontDownloadIcon
-        onClick={() => {
-          dispatch({
-            type: "UNSET_WORD",
-          });
-          englishToggle === false
-            ? setEnglishToggle(true)
-            : setEnglishToggle(false);
-          console.log(
-            "englishToggle:",
-            englishToggle
-          );
-        }}
-        // change color to disabled if no english
-        color={
-          englishToggle === true ? "" : "disabled"
-        }
-      >
-        {englishToggle === true && "Hide English"}
+      {/* if english false */}
+      {englishToggle === false && (
+        <FontDownloadOffIcon
+          className="englishIconClass"
+          onClick={() => {
+            dispatch({
+              type: "UNSET_WORD",
+            });
+            setEnglishToggle(true);
+            console.log(
+              "englishToggle:",
+              englishToggle
+            );
+          }}
+        ></FontDownloadOffIcon>
+      )}
+      {/* if english true */}
+      {englishToggle === true && (
+        <FontDownloadIcon
+          className="englishIconClass"
+          onClick={() => {
+            dispatch({
+              type: "UNSET_WORD",
+            });
+            setEnglishToggle(false);
+            console.log(
+              "englishToggle:",
+              englishToggle
+            );
+          }}
+        ></FontDownloadIcon>
+      )}
 
-        {englishToggle === false &&
-          "Show English"}
-      </FontDownloadIcon>
       <div className="englishTitleClass">
         {englishToggle === true && poem[0] && (
           <h2>{poem[0].title_english}</h2>

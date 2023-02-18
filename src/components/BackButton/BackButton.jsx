@@ -3,7 +3,7 @@ import {
   useHistory,
   useLocation,
 } from "react-router-dom";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { ReactComponent as BackButtonIcon } from "./arrow_back.svg";
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name TemplateFunction with the name for the new component.
@@ -18,7 +18,7 @@ function BackButton(props) {
 
   return (
     <div>
-      <ArrowBackIcon className="backButton"
+      <BackButtonIcon className="backButton"
         onClick={pushBack}
         color="disabled"
         sx={{
@@ -28,7 +28,7 @@ function BackButton(props) {
       >
         {" "}
         Select Poem{" "}
-      </ArrowBackIcon>
+      </BackButtonIcon>
     </div>
   );
 }

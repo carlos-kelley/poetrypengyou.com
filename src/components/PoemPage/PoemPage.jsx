@@ -11,7 +11,7 @@ import EnglishPage from "../EnglishPage/EnglishPage";
 import NextButton from "../NextButton/NextButton";
 import LastButton from "../LastButton/LastButton";
 import BackButton from "../BackButton/BackButton";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+
 
 // import opencc
 // import { OpenCC } from "opencc";
@@ -173,9 +173,10 @@ function PoemPage(props) {
           }}
         >
           {localCharacter === "simplified" &&
-            "繁"}
+            "简"}
+          
           {localCharacter === "traditional" &&
-            "简 "}
+            "繁 "}
         </button>
       </div>
       <div className="poem">
