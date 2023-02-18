@@ -20,6 +20,7 @@ function WordPage(props) {
     <div>
       <div className="definitionClass">
         <div className="wordClass">
+          
           {word[0] && (
             <p className="singleWordClass">
               {word[0].english}
