@@ -83,6 +83,11 @@ function PoemPage(props) {
   }, [params.number]);
 
   // useEffect(() => {
+    // if selection is an empty string
+    // if (window.getSelection().toString() === "") {
+      
+
+  // useEffect(() => {
   //   setPoemTraditional(poem[0].poem_simplified);
   //   console.log(
   //     "poemTraditional:",
@@ -121,144 +126,159 @@ function PoemPage(props) {
 
   return (
     <div>
-      {/* onclick set local character to traditional */}
-      <BackButton />
-      <div className="characterButtonClass">
-        <button
-          className="characterButton"
-          onClick={() => {
-            dispatch({
-              type: "UNSET_WORD",
-            });
-            localCharacter === "simplified"
-              ? setLocalCharacter("traditional")
-              : setLocalCharacter("simplified");
-            console.log(
-              "character:",
-              localCharacter
-            );
+      <div
+        className="selectionField"
+        onMouseUp={selection}
+      >
+        {/* onclick set local character to traditional */}
+        <BackButton />
+        <div className="characterButtonClass">
+          <button
+            className="characterButton"
+            onClick={() => {
+              dispatch({
+                type: "UNSET_WORD",
+              });
+              localCharacter === "simplified"
+                ? setLocalCharacter("traditional")
+                : setLocalCharacter("simplified");
+              console.log(
+                "character:",
+                localCharacter
+              );
 
-            localCharacter === "traditional" &&
-              setTitleTraditional(
+              localCharacter === "traditional" &&
+                setTitleTraditional(
+                  converter(
+                    poem[0].title_simplified
+                  )
+                );
+              setPoemTraditional(
+                converter(poem[0].poem_simplified)
+              );
+              setAuthorTraditional(
                 converter(
-                  poem[0].title_simplified
+                  poem[0].author_simplified
                 )
               );
-            setPoemTraditional(
-              converter(poem[0].poem_simplified)
-            );
-            setAuthorTraditional(
-              converter(poem[0].author_simplified)
-            );
 
-            titleTraditional === "" &&
-              setTitleTraditional(
+              titleTraditional === "" &&
+                setTitleTraditional(
+                  converter(
+                    poem[0].title_simplified
+                  )
+                );
+              setPoemTraditional(
+                converter(poem[0].poem_simplified)
+              );
+              setAuthorTraditional(
                 converter(
-                  poem[0].title_simplified
+                  poem[0].author_simplified
                 )
               );
-            setPoemTraditional(
-              converter(poem[0].poem_simplified)
-            );
-            setAuthorTraditional(
-              converter(poem[0].author_simplified)
-            );
-            // wait 1 second then clear
+              // wait 1 second then clear
 
-            console.log(
-              "titleTraditional:",
-              titleTraditional
-            );
-          }}
-        >
-          {localCharacter === "simplified" &&
-            "简"}
+              console.log(
+                "titleTraditional:",
+                titleTraditional
+              );
+            }}
+          >
+            {localCharacter === "simplified" &&
+              "简"}
 
-          {localCharacter === "traditional" &&
-            "繁 "}
-        </button>
-      </div>
-
-      {poem[0] &&
-        localCharacter === "simplified" && (
-      <div className="poem">
-        <div className="info">
-          {poem[0] &&
-            localCharacter === "simplified" && (
-              <h3
-                className="titleClass"
-                onMouseUp={selection}
-              >
-                {poem[0].title_simplified}
-              </h3>
-            )}
-          {poem[0] &&
-            localCharacter === "simplified" && (
-              <h3
-                className="authorClass"
-                onMouseUp={selection}
-              >
-                {poem[0].author_simplified}
-              </h3>
-            )}
+            {localCharacter === "traditional" &&
+              "繁 "}
+          </button>
         </div>
 
         {poem[0] &&
           localCharacter === "simplified" && (
-            <p
-              className="poemBody"
-              onMouseUp={selection}
-            >
-              {poem[0].poem_simplified}
-            </p>
-          )}
-      </div>
-        )}
+            <div className="poem">
+              <div className="info">
+                {poem[0] &&
+                  localCharacter ===
+                    "simplified" && (
+                    <h3
+                      className="titleClass"
+                      onMouseUp={selection}
+                    >
+                      {poem[0].title_simplified}
+                    </h3>
+                  )}
+                {poem[0] &&
+                  localCharacter ===
+                    "simplified" && (
+                    <h3
+                      className="authorClass"
+                      onMouseUp={selection}
+                    >
+                      {poem[0].author_simplified}
+                    </h3>
+                  )}
+              </div>
 
-      {poem[0] &&
-        localCharacter === "traditional" && (
-        <div className="poem">
-          <div className="info">
-      {poem[0] &&
-        localCharacter === "traditional" && (
-          <h3
-            className="titleClass"
-            onMouseUp={selection}
-          >
-            {titleTraditional}
-          </h3>
-        )}
-      {poem[0] &&
-        localCharacter === "traditional" && (
-          <h3
-            className="authorClass"
-            onMouseUp={selection}
-          >
-            {authorTraditional}
-          </h3>
-              )}
+              {poem[0] &&
+                localCharacter ===
+                  "simplified" && (
+                  <p
+                    className="poemBody"
+                    // onMouseUp={selection}
+                  >
+                    {poem[0].poem_simplified}
+                  </p>
+                )}
+            </div>
+          )}
+
+        {poem[0] &&
+          localCharacter === "traditional" && (
+            <div className="poem">
+              <div className="info">
+                {poem[0] &&
+                  localCharacter ===
+                    "traditional" && (
+                    <h3
+                      className="titleClass"
+                      onMouseUp={selection}
+                    >
+                      {titleTraditional}
+                    </h3>
+                  )}
+                {poem[0] &&
+                  localCharacter ===
+                    "traditional" && (
+                    <h3
+                      className="authorClass"
+                      onMouseUp={selection}
+                    >
+                      {authorTraditional}
+                    </h3>
+                  )}
+              </div>
+              {poem[0] &&
+                localCharacter ===
+                  "traditional" && (
+                  <p
+                    classname="poemBody"
+                    onMouseUp={selection}
+                  >
+                    {poemTraditional}
+                  </p>
+                )}
+            </div>
+          )}
+
+        <EnglishPage />
+        <WordPage />
+
+        <div className="navContainer">
+          <div className="leftNav">
+            <LastButton />
           </div>
-      {poem[0] &&
-        localCharacter === "traditional" && (
-          <p
-            classname="poemBody"
-            onMouseUp={selection}
-          >
-            {poemTraditional}
-          </p>
-          )}
-      </div>
-        )}
-
-      <EnglishPage />
-      <WordPage />
-
-      <div className="navContainer">
-        <div className="leftNav">
-          <LastButton />
-        </div>
-        <div className="rightNav">
-          <NextButton />
+          <div className="rightNav">
+            <NextButton />
+          </div>
         </div>
       </div>
     </div>
