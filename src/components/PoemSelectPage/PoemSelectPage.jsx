@@ -4,6 +4,7 @@ import React, {
 } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -12,6 +13,8 @@ function PoemSelectPage(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
   const dispatch = useDispatch();
+  const history = useHistory();
+
   const allPoems = useSelector(
     (store) => store.allPoems
   );
@@ -27,6 +30,14 @@ function PoemSelectPage(props) {
     );
   }, []);
 
+  const goToPoem = (poemNumber) => {
+    console.log(
+      "In PoemSelectPage, goToPoem, poemNumber:",
+      poemNumber
+    );
+    history.push(`/poem/${poemNumber}`);
+  };
+
   return (
     <div>
       <h2>Select a Poem</h2>
@@ -35,7 +46,12 @@ function PoemSelectPage(props) {
       ) : (
         <ul>
           {allPoems.map((poem, index) => (
-            <li key={poem.id}>
+            <li
+              key={poem.id}
+              onClick={() => {
+                goToPoem(poem.number);
+              }}
+            >
               {poem.title_simplified}
             </li>
           ))}
