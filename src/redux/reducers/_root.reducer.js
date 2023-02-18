@@ -1,11 +1,12 @@
-import { combineReducers } from 'redux';
-import errors from './errors.reducer';
-import user from './user.reducer';
-import poem from './poem.reducer';
-import word from './word.reducer';
-import character from './character.reducer';
-import nextPoem from './nextPoem.reducer';
-import lastPoem from './lastPoem.reducer';
+import { combineReducers } from "redux";
+import errors from "./errors.reducer";
+import user from "./user.reducer";
+import poem from "./poem.reducer";
+import word from "./word.reducer";
+import character from "./character.reducer";
+import nextPoem from "./nextPoem.reducer";
+import lastPoem from "./lastPoem.reducer";
+import allPoems from "./allPoems.reducer";
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   character, // will have character data
   nextPoem, // will have next poem data
   lastPoem, // will have last poem data
+  allPoems, // will have all poems data
 });
 
 export default rootReducer;

@@ -12,8 +12,8 @@ function PoemSelectPage(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
   const dispatch = useDispatch();
-  const poems = useSelector(
-    (store) => store.poem
+  const allPoems = useSelector(
+    (store) => store.allPoems
   );
 
   useEffect(() => {
@@ -21,11 +21,28 @@ function PoemSelectPage(props) {
     dispatch({
       type: "FETCH_ALL_POEMS",
     });
+    console.log(
+      "In PoemSelectPage, allPoems:",
+      allPoems
+    );
   }, []);
 
-  return <div>
-    <h2>Select a Poem</h2>
-  </div>;
+  return (
+    <div>
+      <h2>Select a Poem</h2>
+      {!allPoems ? (
+        <p>...loading...</p>
+      ) : (
+        <ul>
+          {allPoems.map((poem, index) => (
+            <li key={poem.id}>
+              {poem.title_simplified}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
 }
 
 export default PoemSelectPage;
