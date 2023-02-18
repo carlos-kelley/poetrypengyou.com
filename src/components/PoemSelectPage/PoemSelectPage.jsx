@@ -52,7 +52,11 @@ function PoemSelectPage(props) {
                 goToPoem(poem.number);
               }}
             >
-              {poem.title_simplified}
+              {poem.author_simplified}《
+              {poem.title_simplified}》
+              <br />
+              {poem.author_english} &nbsp; "
+              {poem.title_english}""
             </li>
           ))}
         </ul>
