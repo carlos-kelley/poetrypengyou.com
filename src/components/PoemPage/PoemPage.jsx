@@ -124,6 +124,7 @@ function PoemPage(props) {
     <div>
       {/* onclick set local character to traditional */}
       <BackButton />
+      <div className="characterButtonClass">
       <button
         className="characterButton"
         onClick={() => {
@@ -170,9 +171,10 @@ function PoemPage(props) {
         {localCharacter === "simplified" && "繁"}
         {localCharacter === "traditional" &&
           "简 "}
-      </button>
+        </button>
+      </div>
       <div className="poem">
-        {/* if poem[0] exists and character is simplified */}
+      <div className ="info">
         {poem[0] &&
           localCharacter === "simplified" && (
             <h3 className = "titleClass" onMouseUp={selection}>
@@ -184,13 +186,16 @@ function PoemPage(props) {
             <h3 className = "authorClass" onMouseUp={selection}>
               {poem[0].author_simplified}
             </h3>
-          )}
+        )}
+        </div>
+        <div className = "poemBody">
         {poem[0] &&
           localCharacter === "simplified" && (
             <p onMouseUp={selection}>
               {poem[0].poem_simplified}
             </p>
-          )}
+            )}
+        </div>
 
         {poem[0] &&
           localCharacter === "traditional" && (
