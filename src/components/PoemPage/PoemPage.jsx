@@ -8,6 +8,7 @@ import * as OpenCC from "opencc-js";
 // import css
 import WordPage from "../WordPage/WordPage";
 import EnglishPage from "../EnglishPage/EnglishPage";
+import NextButton from "../NextButton/NextButton";
 
 // import opencc
 // import { OpenCC } from "opencc";
@@ -73,7 +74,7 @@ function PoemPage(props) {
       type: "FETCH_POEM",
       payload: Number(poemNumberParam),
     });
-    
+
     // then set poemTraditional
 
     // set poemTraditional
@@ -201,6 +202,7 @@ function PoemPage(props) {
       </div>
       <EnglishPage />
       <WordPage />
+      <NextButton />
     </div>
   );
 }

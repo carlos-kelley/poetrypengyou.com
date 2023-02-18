@@ -117,7 +117,7 @@ function App() {
           </Route>
         </Switch>
         <BackButton />
-        <NextButton />
+        
         <Footer />
       </div>
     </Router>
