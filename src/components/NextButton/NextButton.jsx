@@ -79,7 +79,7 @@ function NextButton(props) {
     );
     fetchNextPoem();
     console.log("nextPoemLocal:", nextPoemLocal);
-  }, []);
+  }, [params.number]);
 
   // console.log("poem.number:", poem[0].number);
   //   if nextPoem is not null, push nextPoem
