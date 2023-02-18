@@ -13,6 +13,7 @@ const poemRouter = require("./routes/poem.router");
 const wordRouter = require("./routes/word.router");
 const allPoemsRouter = require("./routes/allPoems.router");
 const nextPoemRouter = require("./routes/nextPoem.router");
+const lastPoemRouter = require("./routes/lastPoem.router");
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -33,6 +34,7 @@ app.use("/api/poem", poemRouter);
 app.use("/api/word", wordRouter);
 app.use("/api/allpoems", allPoemsRouter);
 app.use("/api/nextpoem", nextPoemRouter);
+app.use("/api/lastpoem", lastPoemRouter);
 
 // Serve static files
 app.use(express.static("build"));

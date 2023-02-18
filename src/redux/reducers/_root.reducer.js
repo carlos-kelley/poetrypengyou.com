@@ -5,6 +5,7 @@ import poem from './poem.reducer';
 import word from './word.reducer';
 import character from './character.reducer';
 import nextPoem from './nextPoem.reducer';
+import lastPoem from './lastPoem.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   word, // will have word data
   character, // will have character data
   nextPoem, // will have next poem data
+  lastPoem, // will have last poem data
 });
 
 export default rootReducer;

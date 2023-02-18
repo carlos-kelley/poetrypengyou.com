@@ -12,7 +12,7 @@ import { useParams } from "react-router-dom";
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name TemplateFunction with the name for the new component.
-function NextButton(props) {
+function LastButton(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
   const history = useHistory();
@@ -27,11 +27,11 @@ function NextButton(props) {
   const location = useLocation();
   const dispatch = useDispatch();
   // nextPoemLocal setter
-  const [nextPoemLocal, setNextPoemLocal] =
+  const [lastPoemLocal, setLastPoemLocal] =
     useState(null);
 
-  const nextPoem = useSelector(
-    (store) => store.nextPoem
+  const lastPoem = useSelector(
+    (store) => store.lastPoem
   );
   //   function pushNext() {
   // dispatch({
@@ -40,35 +40,35 @@ function NextButton(props) {
   // });
 
   //   axios call to get next poem
-  function fetchNextPoem() {
+  function fetchLastPoem() {
     console.log(
-      "In fetchNextPoem, param number is:",
+      "In fetchLastPoem, param number is:",
       Number(poemNumber)
     );
     axios({
       method: "GET",
-      url: `/api/nextpoem/${params.number}`,
+      url: `/api/lastpoem/${params.number}`,
     })
       .then((response) => {
         console.log(
-          "nextpoem response.data:",
+          "lastpoem response.data:",
           response.data
         );
         console.log(
-          "Next poem will be",
-          response.data[0].min
+          "Last poem will be",
+          response.data[0].max
         );
-        setNextPoemLocal(
-          Number(response.data[0].min)
+        setLastPoemLocal(
+          Number(response.data[0].max)
         );
 
         console.log(
-          "nextPoemLocal:",
-          nextPoemLocal
+          "lastPoemLocal:",
+          lastPoemLocal
         );
       })
       .catch((error) => {
-        console.log("error in nextpoem:", error);
+        console.log("error in lastpoem:", error);
       });
   }
 
@@ -77,23 +77,23 @@ function NextButton(props) {
       "in useEffect, poemNumber:",
       params.number
     );
-    fetchNextPoem();
-    console.log("nextPoemLocal:", nextPoemLocal);
+    fetchLastPoem();
+    console.log("lastPoemLocal:", lastPoemLocal);
   }, [params.number]);
 
   // console.log("poem.number:", poem[0].number);
   //   if nextPoem is not null, push nextPoem
 
-  function pushNext() {
-    if (nextPoemLocal !== null) {
+  function pushLast() {
+    if (lastPoemLocal !== null) {
       console.log(
-        "nextPoem push is:,",
-        nextPoemLocal
+        "lastPoem push is:,",
+        lastPoemLocal
       );
-      history.push(`/poem/${nextPoemLocal}`);
-      // if nextPoem is null, log it
+      history.push(`/poem/${lastPoemLocal}`);
+      // if lastPoem is null, log it
     } else {
-      console.log("nextPoem is null");
+      console.log("lastPoem is null");
     }
   }
 
@@ -112,9 +112,9 @@ function NextButton(props) {
 
   return (
     <div>
-      <button onClick={pushNext}> Next </button>
+      <button onClick={pushLast}> Back </button>
     </div>
   );
 }
 
-export default NextButton;
+export default LastButton;

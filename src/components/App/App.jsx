@@ -27,7 +27,7 @@ import WordPage from "../WordPage/WordPage";
 import NextButton from "../NextButton/NextButton";
 import "./App.css";
 import PoemPage from "../PoemPage/PoemPage";
-import BackButton from "../BackButton/BackButton";
+import LastButton from "../LastButton/LastButton";
 
 function App() {
   const dispatch = useDispatch();
@@ -116,7 +116,6 @@ function App() {
             <h1>404</h1>
           </Route>
         </Switch>
-        <BackButton />
         
         <Footer />
       </div>

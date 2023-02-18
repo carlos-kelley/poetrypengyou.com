@@ -9,6 +9,7 @@ import * as OpenCC from "opencc-js";
 import WordPage from "../WordPage/WordPage";
 import EnglishPage from "../EnglishPage/EnglishPage";
 import NextButton from "../NextButton/NextButton";
+import LastButton from "../LastButton/LastButton";
 
 // import opencc
 // import { OpenCC } from "opencc";
@@ -202,6 +203,7 @@ function PoemPage(props) {
       </div>
       <EnglishPage />
       <WordPage />
+      <LastButton />
       <NextButton />
     </div>
   );
