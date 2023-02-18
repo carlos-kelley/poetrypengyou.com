@@ -115,10 +115,14 @@ function NextButton(props) {
     <div>
       {/* button using navigatenexticon */}
       {nextPoemLocal !== 0   && (
-      <NavigateNextIcon
+        <NavigateNextIcon
+          className="navButton"
         onClick={pushNext}
-        sx={{ fontSize: 50 }}
-        color = "disabled"
+          sx={{
+            fontSize: 50,
+            color: "hsl(0, 0%, 20%)",
+            display: "inline"
+          }}
         />
       )}
     </div>

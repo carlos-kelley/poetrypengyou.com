@@ -11,6 +11,7 @@ import EnglishPage from "../EnglishPage/EnglishPage";
 import NextButton from "../NextButton/NextButton";
 import LastButton from "../LastButton/LastButton";
 import BackButton from "../BackButton/BackButton";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 // import opencc
 // import { OpenCC } from "opencc";
@@ -122,7 +123,9 @@ function PoemPage(props) {
   return (
     <div>
       {/* onclick set local character to traditional */}
+      <BackButton />
       <button
+        className="characterButton"
         onClick={() => {
           dispatch({
             type: "UNSET_WORD",
@@ -164,19 +167,17 @@ function PoemPage(props) {
           );
         }}
       >
-        {localCharacter === "simplified" &&
-          "Switch to Traditional"}
+        {localCharacter === "simplified" && "繁"}
         {localCharacter === "traditional" &&
-          "Switch to Simplified"}
+          "简 "}
       </button>
-
       <div className="poem">
         {/* if poem[0] exists and character is simplified */}
         {poem[0] &&
           localCharacter === "simplified" && (
-            <h2 onMouseUp={selection}>
+            <h3 onMouseUp={selection}>
               {poem[0].title_simplified}
-            </h2>
+            </h3>
           )}
         {poem[0] &&
           localCharacter === "simplified" && (
@@ -193,9 +194,9 @@ function PoemPage(props) {
 
         {poem[0] &&
           localCharacter === "traditional" && (
-            <h2 onMouseUp={selection}>
+            <h3 onMouseUp={selection}>
               {titleTraditional}
-            </h2>
+            </h3>
           )}
         {poem[0] &&
           localCharacter === "traditional" && (
@@ -212,9 +213,8 @@ function PoemPage(props) {
       </div>
       <EnglishPage />
       <WordPage />
-      <LastButton />
-      <NextButton />
-      <BackButton />
+      <LastButton className="navButton" />
+      <NextButton className="navButton" />
     </div>
   );
 }

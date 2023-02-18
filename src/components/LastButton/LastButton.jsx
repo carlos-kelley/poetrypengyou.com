@@ -117,8 +117,12 @@ function LastButton(props) {
       {lastPoemLocal !== 0 && (
         <NavigateBeforeIcon
           onClick={pushLast}
-          sx={{ fontSize: 50 }}
-          color = "disabled"
+          sx={{
+            fontSize: 50,
+            color: "hsl(0, 0%, 20%)",
+            display: "inline"
+          }}
+
         />
       )}
     </div>
