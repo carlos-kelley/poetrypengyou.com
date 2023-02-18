@@ -178,6 +178,9 @@ function PoemPage(props) {
             "繁 "}
         </button>
       </div>
+
+      {poem[0] &&
+        localCharacter === "simplified" && (
       <div className="poem">
         <div className="info">
           {poem[0] &&
@@ -210,11 +213,14 @@ function PoemPage(props) {
             </p>
           )}
       </div>
+        )}
 
-      <div className="poem">
       {poem[0] &&
         localCharacter === "traditional" && (
-          
+        <div className="poem">
+          <div className="info">
+      {poem[0] &&
+        localCharacter === "traditional" && (
           <h3
             className="titleClass"
             onMouseUp={selection}
@@ -230,7 +236,8 @@ function PoemPage(props) {
           >
             {authorTraditional}
           </h3>
-        )}
+              )}
+          </div>
       {poem[0] &&
         localCharacter === "traditional" && (
           <p
@@ -241,6 +248,7 @@ function PoemPage(props) {
           </p>
           )}
       </div>
+        )}
 
       <EnglishPage />
       <WordPage />
