@@ -7,6 +7,10 @@
     "node": "16.x"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/icons-material": "^5.11.9",
+    "@mui/material": "^5.11.9",
     "ajax": "^0.0.4",
     "axios": "^0.21.4",
     "bcryptjs": "^2.4.3",

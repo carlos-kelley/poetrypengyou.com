@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -113,11 +114,13 @@ function LastButton(props) {
   return (
     <div>
       {/* if lastpoemlocal exists */}
-      {lastPoemLocal !== 0   && (
-        <button onClick={pushLast}> Last Poem </button>
+      {lastPoemLocal !== 0 && (
+        <NavigateBeforeIcon
+          onClick={pushLast}
+          sx={{ fontSize: 50 }}
+          color = "disabled"
+        />
       )}
-
-          
     </div>
   );
 }

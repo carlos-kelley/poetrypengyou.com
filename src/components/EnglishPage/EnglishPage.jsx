@@ -4,6 +4,7 @@ import React, {
 } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import FontDownloadIcon from "@mui/icons-material/FontDownload";
 // import css
 
 // Basic functional component structure for React with default state
@@ -23,7 +24,7 @@ function EnglishPage(props) {
 
   return (
     <div>
-      <button
+      <FontDownloadIcon
         onClick={() => {
           dispatch({
             type: "UNSET_WORD",
@@ -36,12 +37,16 @@ function EnglishPage(props) {
             englishToggle
           );
         }}
+        // change color to disabled if no english
+        color={
+          englishToggle === true ? "" : "disabled"
+        }
       >
         {englishToggle === true && "Hide English"}
 
         {englishToggle === false &&
           "Show English"}
-      </button>
+      </FontDownloadIcon>
       <div className="englishTitleClass">
         {englishToggle === true && poem[0] && (
           <h2>{poem[0].title_english}</h2>

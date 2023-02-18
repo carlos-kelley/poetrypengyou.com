@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -112,8 +113,13 @@ function NextButton(props) {
 
   return (
     <div>
-       {nextPoemLocal !== 0   && (
-        <button onClick={pushNext}> Next Poem </button>
+      {/* button using navigatenexticon */}
+      {nextPoemLocal !== 0   && (
+      <NavigateNextIcon
+        onClick={pushNext}
+        sx={{ fontSize: 50 }}
+        color = "disabled"
+        />
       )}
     </div>
   );
