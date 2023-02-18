@@ -4,6 +4,7 @@ import React, {
 } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
 import { ReactComponent as FontDownloadIcon } from "./font_download.svg";
 import { ReactComponent as FontDownloadOffIcon } from "./font_download_off.svg";
 // import css
@@ -14,6 +15,7 @@ import { ReactComponent as FontDownloadOffIcon } from "./font_download_off.svg";
 function EnglishPage(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
+  const params = useParams();
   const dispatch = useDispatch();
   const poem = useSelector((store) => store.poem);
   const [englishToggle, setEnglishToggle] =
@@ -58,21 +60,23 @@ function EnglishPage(props) {
         ></FontDownloadIcon>
       )}
 
-      <div className="englishTitleClass">
+      <div className="englishInfo">
         {englishToggle === true && poem[0] && (
-          <h2>{poem[0].title_english}</h2>
+          <h3 className="englishTitleClass">
+            {poem[0].title_english}
+          </h3>
+        )}
+        {englishToggle === true && poem[0] && (
+          <h3 className="englishAuthorClass">
+            {poem[0].author_english}
+          </h3>
         )}
       </div>
-      <div className="englishAuthorClass">
-        {englishToggle === true && poem[0] && (
-          <h3>{poem[0].author_english}</h3>
-        )}
-      </div>
-      <div className="englishPoemClass">
-        {englishToggle === true && poem[0] && (
-          <p>{poem[0].poem_english}</p>
-        )}
-      </div>
+      {englishToggle === true && poem[0] && (
+        <p className="englishPoemClass">
+          {poem[0].poem_english}
+        </p>
+      )}
     </div>
   );
 }

@@ -6,9 +6,8 @@ body {
 h2 {
   font-family: "Noto Sans JP", sans-serif;
   font-size: 1.5rem;
-  /* margin: 0;
-  margin-bottom: 10px; */
 }
+
 
 .titleClass {
   font-family: "Noto Sans JP", sans-serif;
@@ -17,20 +16,39 @@ h2 {
   margin: auto;
 }
 
+.englishTitleClass {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 1rem;
+  color: rgb(68, 67, 67);
+  margin: 0;
+}
+
 .authorClass {
   font-family: "Noto Sans JP", sans-serif;
   font-size: 1.3rem;
-  /* margin-left: 10px;
-  margin-bottom: 10px; */
   color: rgb(68, 67, 67);
-  /* display: inline; */
   margin: auto;
+}
+.englishAuthorClass{
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 1rem;
+  color: rgb(68, 67, 67);
+  margin: 0;
 }
 
 p {
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 400;
   font-size: 1.9rem;
+  margin-left: 9.2px;
+  margin-top: 10px;
+  /* margin-bottom: 10px; */
+  color: rgb(117, 117, 117);
+}
+
+.englishPoemClass {
+  font-weight: 400;
+  font-size: 1.3rem;
   margin-left: 9.2px;
   margin-top: 10px;
   /* margin-bottom: 10px; */
@@ -114,6 +132,19 @@ Form Treatment
   flex-direction: column;
   align-items: center;
   margin-top:35%;
+}
+
+.infoTrad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 35%;
+}
+
+.englishInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .navContainer {

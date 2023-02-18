@@ -12,7 +12,6 @@ import NextButton from "../NextButton/NextButton";
 import LastButton from "../LastButton/LastButton";
 import BackButton from "../BackButton/BackButton";
 
-
 // import opencc
 // import { OpenCC } from "opencc";
 
@@ -64,9 +63,9 @@ function PoemPage(props) {
       "titleTraditional:",
       titleTraditional
     );
-    setTitleTraditional("");
-    setPoemTraditional("");
-    setAuthorTraditional("");
+    // setTitleTraditional("");
+    // setPoemTraditional("");
+    // setAuthorTraditional("");
 
     dispatch({
       type: "UNSET_WORD",
@@ -174,7 +173,7 @@ function PoemPage(props) {
         >
           {localCharacter === "simplified" &&
             "简"}
-          
+
           {localCharacter === "traditional" &&
             "繁 "}
         </button>
@@ -212,24 +211,36 @@ function PoemPage(props) {
           )}
       </div>
 
+      <div className="poem">
       {poem[0] &&
         localCharacter === "traditional" && (
-          <h3 onMouseUp={selection}>
+          
+          <h3
+            className="titleClass"
+            onMouseUp={selection}
+          >
             {titleTraditional}
           </h3>
         )}
       {poem[0] &&
         localCharacter === "traditional" && (
-          <h3 onMouseUp={selection}>
+          <h3
+            className="authorClass"
+            onMouseUp={selection}
+          >
             {authorTraditional}
           </h3>
         )}
       {poem[0] &&
         localCharacter === "traditional" && (
-          <p onMouseUp={selection}>
+          <p
+            classname="poemBody"
+            onMouseUp={selection}
+          >
             {poemTraditional}
           </p>
-        )}
+          )}
+      </div>
 
       <EnglishPage />
       <WordPage />
