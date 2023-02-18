@@ -16,9 +16,7 @@ function WordPage(props) {
   const dispatch = useDispatch();
   const word = useSelector((store) => store.word);
 
-  useEffect(() => {
-    // dispatch to get all poems
-  }, []);
+
 
   return (
     <div>

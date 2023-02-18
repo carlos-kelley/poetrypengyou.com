@@ -173,11 +173,15 @@ function PoemPage(props) {
         {/* if poem[0] exists and character is simplified */}
         {poem[0] &&
           localCharacter === "simplified" && (
-            <h2>{poem[0].title_simplified}</h2>
+            <h2 onMouseUp={selection}>
+              {poem[0].title_simplified}
+            </h2>
           )}
         {poem[0] &&
           localCharacter === "simplified" && (
-            <h3>{poem[0].author_simplified}</h3>
+            <h3 onMouseUp={selection}>
+              {poem[0].author_simplified}
+            </h3>
           )}
         {poem[0] &&
           localCharacter === "simplified" && (
@@ -188,11 +192,15 @@ function PoemPage(props) {
 
         {poem[0] &&
           localCharacter === "traditional" && (
-            <h2>{titleTraditional}</h2>
+            <h2 onMouseUp={selection}>
+              {titleTraditional}
+            </h2>
           )}
         {poem[0] &&
           localCharacter === "traditional" && (
-            <h3>{authorTraditional}</h3>
+            <h3 onMouseUp={selection}>
+              {authorTraditional}
+            </h3>
           )}
         {poem[0] &&
           localCharacter === "traditional" && (
