@@ -10,6 +10,7 @@ import WordPage from "../WordPage/WordPage";
 import EnglishPage from "../EnglishPage/EnglishPage";
 import NextButton from "../NextButton/NextButton";
 import LastButton from "../LastButton/LastButton";
+import BackButton from "../BackButton/BackButton";
 
 // import opencc
 // import { OpenCC } from "opencc";
@@ -213,6 +214,7 @@ function PoemPage(props) {
       <WordPage />
       <LastButton />
       <NextButton />
+      <BackButton />
     </div>
   );
 }

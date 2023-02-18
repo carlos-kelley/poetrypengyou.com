@@ -112,7 +112,7 @@ function NextButton(props) {
 
   return (
     <div>
-      <button onClick={pushNext}> Next </button>
+      <button onClick={pushNext}> Next Poem </button>
     </div>
   );
 }

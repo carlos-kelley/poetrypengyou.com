@@ -112,7 +112,7 @@ function LastButton(props) {
 
   return (
     <div>
-      <button onClick={pushLast}> Back </button>
+      <button onClick={pushLast}> Last Poem </button>
     </div>
   );
 }
