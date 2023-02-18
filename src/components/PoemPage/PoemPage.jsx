@@ -175,13 +175,13 @@ function PoemPage(props) {
         {/* if poem[0] exists and character is simplified */}
         {poem[0] &&
           localCharacter === "simplified" && (
-            <h3 onMouseUp={selection}>
+            <h3 className = "titleClass" onMouseUp={selection}>
               {poem[0].title_simplified}
             </h3>
           )}
         {poem[0] &&
           localCharacter === "simplified" && (
-            <h3 onMouseUp={selection}>
+            <h3 className = "authorClass" onMouseUp={selection}>
               {poem[0].author_simplified}
             </h3>
           )}
