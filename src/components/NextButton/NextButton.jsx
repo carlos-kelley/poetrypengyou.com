@@ -34,11 +34,7 @@ function NextButton(props) {
   const nextPoem = useSelector(
     (store) => store.nextPoem
   );
-  //   function pushNext() {
-  // dispatch({
-  //   type: "FETCH_NEXT_POEM",
-  //   payload: poem[0].number,
-  // });
+ 
 
   //   axios call to get next poem
   function fetchNextPoem() {
@@ -82,8 +78,6 @@ function NextButton(props) {
     console.log("nextPoemLocal:", nextPoemLocal);
   }, [params.number]);
 
-  // console.log("poem.number:", poem[0].number);
-  //   if nextPoem is not null, push nextPoem
 
   function pushNext() {
     if (nextPoemLocal !== null) {
@@ -98,22 +92,9 @@ function NextButton(props) {
     }
   }
 
-  // history.push(`/poem/${nextPoem}`);
-  // //   refresh page
-  // window.location.reload();
-  // //log poem number
-  // console.log(
-  //   "poem.number is now:",
-  //   poem[0].number
-  // );
-
-  //   useEffect(() => {
-  //     fetchData();
-  //   }, [location.key]);
 
   return (
     <div>
-      {/* button using navigatenexticon */}
 
       {nextPoemLocal !== 0 && (
         <NextButtonSVG onClick={pushNext} />

@@ -27,18 +27,13 @@ function LastButton(props) {
 
   const location = useLocation();
   const dispatch = useDispatch();
-  // nextPoemLocal setter
   const [lastPoemLocal, setLastPoemLocal] =
     useState(null);
 
   const lastPoem = useSelector(
     (store) => store.lastPoem
   );
-  //   function pushNext() {
-  // dispatch({
-  //   type: "FETCH_NEXT_POEM",
-  //   payload: poem[0].number,
-  // });
+
 
   //   axios call to get next poem
   function fetchLastPoem() {
@@ -82,8 +77,6 @@ function LastButton(props) {
     console.log("lastPoemLocal:", lastPoemLocal);
   }, [params.number]);
 
-  // console.log("poem.number:", poem[0].number);
-  //   if nextPoem is not null, push nextPoem
 
   function pushLast() {
     if (lastPoemLocal !== null) {
@@ -92,25 +85,12 @@ function LastButton(props) {
         lastPoemLocal
       );
       history.push(`/poem/${lastPoemLocal}`);
-      // if lastPoem is null, log it
     } else {
       console.log("lastPoem is null");
     }
   }
 
-  // history.push(`/poem/${nextPoem}`);
-  // //   refresh page
-  // window.location.reload();
-  // //log poem number
-  // console.log(
-  //   "poem.number is now:",
-  //   poem[0].number
-  // );
-
-  //   useEffect(() => {
-  //     fetchData();
-  //   }, [location.key]);
-
+ 
   return (
     <div>
       {lastPoemLocal !== 0 && (

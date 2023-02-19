@@ -23,11 +23,9 @@ import LoginPage from "../LoginPage/LoginPage";
 import RegisterPage from "../RegisterPage/RegisterPage";
 import CharacterToggle from "../CharacterToggle/CharacterToggle";
 import PoemSelectPage from "../PoemSelectPage/PoemSelectPage";
-import WordPage from "../WordPage/WordPage";
-import NextButton from "../NextButton/NextButton";
 import "./App.css";
 import PoemPage from "../PoemPage/PoemPage";
-import LastButton from "../LastButton/LastButton";
+
 
 
 function App() {
@@ -42,7 +40,7 @@ function App() {
   return (
     <Router>
       <div>
-        {/* <CharacterToggle /> */}
+
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />

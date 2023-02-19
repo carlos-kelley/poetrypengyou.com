@@ -32,19 +32,19 @@ function WordPage(props) {
               {word[0].pinyin}
             </p>
           )}
-          {/* if word[0].tone is 2, change class to pinyinOrangeClass */}
+
           {word[0] && word[0].tone === 2 && (
             <p className="pinyinOrangeClass">
               {word[0].pinyin}
             </p>
           )}
-          {/* if word[0].tone is 3, change class to pinyinGreenClass */}
+
           {word[0] && word[0].tone === 3 && (
             <p className="pinyinGreenClass">
               {word[0].pinyin}
             </p>
           )}
-          {/* if word[0].tone is 4, change class to pinyinBlueClass */}
+
           {word[0] && word[0].tone === 4 && (
             <p className="pinyinBlueClass">
               {word[0].pinyin}

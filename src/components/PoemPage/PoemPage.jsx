@@ -24,7 +24,6 @@ function PoemPage(props) {
   const dispatch = useDispatch();
   const poem = useSelector((store) => store.poem);
 
-  // const OpenCC = require("opencc");
 
   const converter = OpenCC.Converter({
     from: "cn",
@@ -53,8 +52,7 @@ function PoemPage(props) {
 
   const poemNumberParam = params.number;
   const poemTitle = null;
-  // const poemTraditional =
-  //   "";
+
 
   const [poemNumber, setPoemNumber] =
     useState(null);
@@ -77,36 +75,11 @@ function PoemPage(props) {
       payload: Number(poemNumberParam),
     });
 
-    // then set poemTraditional
-
-    // set poemTraditional
+   
   }, [params.number]);
 
-  // useEffect(() => {
-    // if selection is an empty string
-    // if (window.getSelection().toString() === "") {
-      
+  
 
-  // useEffect(() => {
-  //   setPoemTraditional(poem[0].poem_simplified);
-  //   console.log(
-  //     "poemTraditional:",
-  //     poemTraditional
-  //   );
-  // }, [poem]);
-
-  // function setTitleTraditionalFunc() {
-  //   // setPoemTraditional((converter(`${poem[0].poem_simplified}`)));
-  //   console.log(converter(`${poem[0].title_simplified}`))
-
-  // }
-
-  // function logPoemTraditional() {
-  //   console.log(
-  //     "titleTraditional:",
-  //     titleTraditional
-  //   );
-  // }
   function selection() {
     if (window.getSelection)
       console.log(
@@ -115,7 +88,6 @@ function PoemPage(props) {
           window.getSelection().toString()
         )
       );
-    // dispatch to word reducer
     dispatch({
       type: "LOOKUP_WORD",
       payload: converterSimp(
@@ -223,7 +195,6 @@ function PoemPage(props) {
                   "simplified" && (
                   <p
                     className="poemBody"
-                    // onMouseUp={selection}
                   >
                     {poem[0].poem_simplified}
                   </p>

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
   useHistory,
-  useLocation,
 } from "react-router-dom";
 import { ReactComponent as BackButtonIcon } from "./arrow_back.svg";
 // Basic functional component structure for React with default state

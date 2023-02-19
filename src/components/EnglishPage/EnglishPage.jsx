@@ -27,7 +27,6 @@ function EnglishPage(props) {
 
   return (
     <div>
-      {/* if english false */}
       {englishToggle === false && (
         <FontDownloadOffIcon
           className="englishIconClass"
@@ -43,7 +42,6 @@ function EnglishPage(props) {
           }}
         ></FontDownloadOffIcon>
       )}
-      {/* if english true */}
       {englishToggle === true && (
         <FontDownloadIcon
           className="englishIconClass"
