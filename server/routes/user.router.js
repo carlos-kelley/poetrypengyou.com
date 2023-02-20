@@ -19,8 +19,7 @@ router.get(
 );
 
 // Handles POST request with new user data
-// The only thing different from this and every other post we've seen
-// is that the password gets encrypted before being inserted
+// the password gets encrypted before being inserted
 router.post("/register", (req, res, next) => {
   const username = req.body.username;
   const password = encryptLib.encryptPassword(

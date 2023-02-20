@@ -21,7 +21,6 @@ import UserPage from "../UserPage/UserPage";
 import LandingPage from "../LandingPage/LandingPage";
 import LoginPage from "../LoginPage/LoginPage";
 import RegisterPage from "../RegisterPage/RegisterPage";
-import CharacterToggle from "../CharacterToggle/CharacterToggle";
 import PoemSelectPage from "../PoemSelectPage/PoemSelectPage";
 import "./App.css";
 import PoemPage from "../PoemPage/PoemPage";
@@ -43,7 +42,7 @@ function App() {
 
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-          <Redirect exact from="/" to="/home" />
+          <Redirect exact from="/" to="/poemselect" />
 
           {/* Visiting localhost:3000/about will show the about page. */}
           <Route

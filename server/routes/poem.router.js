@@ -2,9 +2,8 @@ const express = require("express");
 const pool = require("../modules/pool");
 const router = express.Router();
 
-/**
- * GET route template
- */
+// GETs the poem corresponding to the param number from the database
+
 router.get("/:number", (req, res) => {
   console.log("in poetry get router");
   const queryString = `SELECT * FROM "poem" WHERE "number" = $1;`;
@@ -19,11 +18,5 @@ router.get("/:number", (req, res) => {
     });
 });
 
-/**
- * POST route template
- */
-router.post("/", (req, res) => {
-  // POST route code here
-});
 
 module.exports = router;

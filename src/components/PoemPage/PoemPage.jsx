@@ -3,17 +3,14 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-// import opencc-js
 import * as OpenCC from "opencc-js";
-// import css
 import WordPage from "../WordPage/WordPage";
 import EnglishPage from "../EnglishPage/EnglishPage";
 import NextButton from "../NextButton/NextButton";
 import LastButton from "../LastButton/LastButton";
 import BackButton from "../BackButton/BackButton";
-
-// import opencc
-// import { OpenCC } from "opencc";
+// import poempage.css
+import "./PoemPage.css";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -23,7 +20,6 @@ function PoemPage(props) {
   // a default value of 'Functional Component'
   const dispatch = useDispatch();
   const poem = useSelector((store) => store.poem);
-
 
   const converter = OpenCC.Converter({
     from: "cn",
@@ -53,7 +49,6 @@ function PoemPage(props) {
   const poemNumberParam = params.number;
   const poemTitle = null;
 
-
   const [poemNumber, setPoemNumber] =
     useState(null);
   useEffect(() => {
@@ -74,11 +69,7 @@ function PoemPage(props) {
       type: "FETCH_POEM",
       payload: Number(poemNumberParam),
     });
-
-   
   }, [params.number]);
-
-  
 
   function selection() {
     if (window.getSelection)
@@ -105,6 +96,7 @@ function PoemPage(props) {
         {/* onclick set local character to traditional */}
         <BackButton />
         <div className="characterButtonClass">
+          {/* Button to conditionally toggle character sets via a Saga */}
           <button
             className="characterButton"
             onClick={() => {
@@ -167,12 +159,12 @@ function PoemPage(props) {
         {poem[0] &&
           localCharacter === "simplified" && (
             <div className="poem">
-              <div className="info">
+              <div className="chineseInfoContainer">
                 {poem[0] &&
                   localCharacter ===
                     "simplified" && (
                     <h3
-                      className="titleClass"
+                      className="chineseTitle"
                       onMouseUp={selection}
                     >
                       {poem[0].title_simplified}
@@ -182,7 +174,7 @@ function PoemPage(props) {
                   localCharacter ===
                     "simplified" && (
                     <h3
-                      className="authorClass"
+                      className="chineseAuthor"
                       onMouseUp={selection}
                     >
                       {poem[0].author_simplified}
@@ -193,9 +185,7 @@ function PoemPage(props) {
               {poem[0] &&
                 localCharacter ===
                   "simplified" && (
-                  <p
-                    className="poemBody"
-                  >
+                  <p className="chinesePoem">
                     {poem[0].poem_simplified}
                   </p>
                 )}
@@ -205,12 +195,12 @@ function PoemPage(props) {
         {poem[0] &&
           localCharacter === "traditional" && (
             <div className="poem">
-              <div className="info">
+              <div className="chineseInfoContainer">
                 {poem[0] &&
                   localCharacter ===
                     "traditional" && (
                     <h3
-                      className="titleClass"
+                      className="chineseTitle"
                       onMouseUp={selection}
                     >
                       {titleTraditional}
@@ -220,7 +210,7 @@ function PoemPage(props) {
                   localCharacter ===
                     "traditional" && (
                     <h3
-                      className="authorClass"
+                      className="chineseAuthor"
                       onMouseUp={selection}
                     >
                       {authorTraditional}
@@ -231,7 +221,7 @@ function PoemPage(props) {
                 localCharacter ===
                   "traditional" && (
                   <p
-                    classname="poemBody"
+                    className="chinesePoem"
                     onMouseUp={selection}
                   >
                     {poemTraditional}

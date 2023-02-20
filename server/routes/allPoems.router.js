@@ -2,9 +2,8 @@ const express = require("express");
 const pool = require("../modules/pool");
 const router = express.Router();
 
-/**
- * GET route template
- */
+
+// GETs all poems from the database in ascending order by number
 router.get("/", (req, res) => {
   console.log("in poetry get all router");
   const queryString = `SELECT * FROM "poem" ORDER BY "number" ASC;`;
@@ -19,11 +18,5 @@ router.get("/", (req, res) => {
     });
 });
 
-/**
- * POST route template
- */
-router.post("/", (req, res) => {
-  // POST route code here
-});
 
 module.exports = router;

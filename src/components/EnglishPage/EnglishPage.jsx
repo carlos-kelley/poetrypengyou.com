@@ -58,7 +58,7 @@ function EnglishPage(props) {
         ></FontDownloadIcon>
       )}
 
-      <div className="englishInfo">
+      <div className="englishInfoContainer">
         {englishToggle === true && poem[0] && (
           <h3 className="englishTitleClass">
             {poem[0].title_english}

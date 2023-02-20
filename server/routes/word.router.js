@@ -2,11 +2,10 @@ const express = require("express");
 const pool = require("../modules/pool");
 const router = express.Router();
 
-/**
- * GET route template
- */
-//query the database where the chinese is the same as after the slash
+
+//query the database where the chinese is the same as the chinese param
 //send back the english
+
 router.get("/:chinese", (req, res) => {
   const queryText = `SELECT * FROM "word" WHERE "simplified" = $1`;
   pool
@@ -24,11 +23,5 @@ router.get("/:chinese", (req, res) => {
     });
 });
 
-/**
- * POST route template
- */
-router.post("/", (req, res) => {
-  // POST route code here
-});
 
 module.exports = router;
