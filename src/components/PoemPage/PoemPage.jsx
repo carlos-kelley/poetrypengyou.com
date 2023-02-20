@@ -9,6 +9,7 @@ import EnglishPage from "../EnglishPage/EnglishPage";
 import NextButton from "../NextButton/NextButton";
 import LastButton from "../LastButton/LastButton";
 import BackButton from "../BackButton/BackButton";
+import NavButtons from "../NavButtons/NavButtons";
 // import poempage.css
 import "./PoemPage.css";
 
@@ -234,15 +235,15 @@ function PoemPage(props) {
         <WordPage />
 
         <div className="navContainer">
-          <div className="leftNav">
+          {/* <div className="leftNav">
             <LastButton />
           </div>
           <div className="rightNav">
-            <NextButton />
+            <NextButton /> */}
+          <NavButtons/>
           </div>
         </div>
       </div>
-    </div>
   );
 }
 

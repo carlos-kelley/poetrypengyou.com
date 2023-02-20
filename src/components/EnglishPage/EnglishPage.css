@@ -1,0 +1,28 @@
+.englishInfoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+/* ------------------- */
+
+}.englishTitleClass {
+  font-size: 1rem;
+  color: rgb(68, 67, 67);
+  margin: 0;
+}
+
+.englishAuthorClass {
+  font-size: 1rem;
+  color: rgb(68, 67, 67);
+  margin: 0;
+}
+
+.englishPoemClass {
+  font-weight: 400;
+  font-size: 1.3rem;
+  margin-left: 9.2px;
+  margin-top: 10px;
+  /* margin-bottom: 10px; */
+  color: rgb(117, 117, 117);
+}
+

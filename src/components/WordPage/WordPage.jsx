@@ -18,15 +18,15 @@ function WordPage(props) {
 
   return (
     <div>
-      <div className="definitionClass">
-        <div className="wordClass">
+      <div className="wordContainer">
+
           {word[0] && (
-            <p className="singleWordClass">
+            <p className="englishDefinition">
               {word[0].english}
             </p>
           )}
-        </div>
-        <div className="pinyinClass">
+
+
           {word[0] && word[0].tone === 1 && (
             <p className="pinyinRedClass">
               {word[0].pinyin}
@@ -50,7 +50,7 @@ function WordPage(props) {
               {word[0].pinyin}
             </p>
           )}
-        </div>
+
       </div>
     </div>
   );

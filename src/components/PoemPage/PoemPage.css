@@ -5,25 +5,53 @@
   margin-top: 35%;
 }
 
+/* ------------------- */
+
 .chineseTitle {
-  font-family: "Noto Sans JP", sans-serif;
   font-size: 1.3rem;
   color: rgb(68, 67, 67);
   margin: auto;
 }
 
 .chineseAuthor {
-  font-family: "Noto Sans JP", sans-serif;
   font-size: 1.3rem;
   color: rgb(68, 67, 67);
   margin: auto;
 }
 
 .chinesePoem {
-  font-family: "Noto Sans JP", sans-serif;
   font-weight: 400;
   font-size: 1.9rem;
   margin-left: 9.2px;
   margin-top: 10px;
   color: rgb(117, 117, 117);
+}
+
+/* ---------------------------- */
+/* These buttons should eventually be componentized  */
+.characterButton {
+  color: #1b1c1d;
+  outline: none;
+  border: none;
+  background-color: #111111;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 500;
+  font-size: 0.975rem;
+  border-radius: 3px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 25px;
+  margin-top: 52.5px;
+}
+
+/*
+* FIX - should not be absolute
+*/
+.englishButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 50px;
+  margin-top: 50px;
 }

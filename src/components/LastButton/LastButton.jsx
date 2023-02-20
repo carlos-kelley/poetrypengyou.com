@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { ReactComponent as LastButtonSVG } from "./navigate_before.svg";
+import "./LastButton.css";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -94,7 +95,7 @@ function LastButton(props) {
   return (
     <div>
       {lastPoemLocal !== 0 && (
-        <LastButtonSVG onClick={pushLast} />
+        <LastButtonSVG className = "lastButton" onClick={pushLast} />
       )}
     </div>
   );

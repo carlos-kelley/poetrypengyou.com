@@ -1,0 +1,11 @@
+.poemSelectHeading {
+  color: rgb(108, 108, 108);
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.poemListItem {
+  color: rgb(168, 168, 168);
+  font-weight: 700;
+  font-size: 1.1rem;
+}

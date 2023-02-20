@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import { ReactComponent as FontDownloadIcon } from "./font_download.svg";
 import { ReactComponent as FontDownloadOffIcon } from "./font_download_off.svg";
 // import css
+import "./EnglishPage.css";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -29,7 +30,7 @@ function EnglishPage(props) {
     <div>
       {englishToggle === false && (
         <FontDownloadOffIcon
-          className="englishIconClass"
+          className="englishButton"
           onClick={() => {
             dispatch({
               type: "UNSET_WORD",
@@ -44,7 +45,7 @@ function EnglishPage(props) {
       )}
       {englishToggle === true && (
         <FontDownloadIcon
-          className="englishIconClass"
+          className="englishButton"
           onClick={() => {
             dispatch({
               type: "UNSET_WORD",

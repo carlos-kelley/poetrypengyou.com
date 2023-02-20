@@ -5,6 +5,7 @@ import React, {
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import "./PoemSelectPage.css";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -40,7 +41,7 @@ function PoemSelectPage(props) {
 
   return (
     <div>
-      <h2>Select a Poem</h2>
+      <h2 className = "poemSelectHeading">Select a Poem</h2>
       {!allPoems ? (
         <p>...loading...</p>
       ) : (
@@ -48,6 +49,7 @@ function PoemSelectPage(props) {
           {allPoems.map((poem, index) => (
             <li
               key={poem.id}
+              className = "poemListItem"
               onClick={() => {
                 goToPoem(poem.number);
               }}

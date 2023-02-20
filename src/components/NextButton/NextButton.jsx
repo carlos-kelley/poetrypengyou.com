@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { ReactComponent as NextButtonSVG } from "./navigate_next.svg";
+import "./NextButton.css"
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -97,7 +98,7 @@ function NextButton(props) {
     <div>
 
       {nextPoemLocal !== 0 && (
-        <NextButtonSVG onClick={pushNext} />
+        <NextButtonSVG className = "nextButton" onClick={pushNext} />
       )}
     </div>
   );
