@@ -6,6 +6,8 @@ const router = express.Router();
 //query the database where the chinese is the same as the chinese param
 //send back the english
 
+
+//??where am I defining this param??
 router.get("/:chinese", (req, res) => {
   const queryText = `SELECT * FROM "word" WHERE "simplified" = $1`;
   pool

@@ -11,21 +11,17 @@ import {
   useSelector,
 } from "react-redux";
 
-
 import Footer from "../Footer/Footer";
-
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
-
 import AboutPage from "../AboutPage/AboutPage";
 import UserPage from "../UserPage/UserPage";
 import LandingPage from "../LandingPage/LandingPage";
 import LoginPage from "../LoginPage/LoginPage";
 import RegisterPage from "../RegisterPage/RegisterPage";
 import PoemSelectPage from "../PoemSelectPage/PoemSelectPage";
-import "./App.css";
 import PoemPage from "../PoemPage/PoemPage";
 
-
+import "./App.css";
 
 function App() {
   const dispatch = useDispatch();
@@ -39,10 +35,13 @@ function App() {
   return (
     <Router>
       <div>
-
         <Switch>
-          {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-          <Redirect exact from="/" to="/poemselect" />
+          {/* Visiting localhost:3000 will redirect to localhost:3000/poemselect */}
+          <Redirect
+            exact
+            from="/"
+            to="/poemselect"
+          />
 
           {/* Visiting localhost:3000/about will show the about page. */}
           <Route
