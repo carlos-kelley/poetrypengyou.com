@@ -251,7 +251,23 @@ function PoemPage(props) {
                   localCharacter ===
                     "simplified" && (
                     <p className="chinesePoem">
-                      {poem[0].poem_simplified}
+                      {splitPoemSimplified.map(
+                        (character, index) => {
+                          return (
+                            <span
+                              key={index}
+                              //onclick get character
+                              onClick={() => {
+                                lookupWord(
+                                  character
+                                );
+                              }}
+                            >
+                              {character}
+                            </span>
+                          );
+                        }
+                      )}
                     </p>
                   )}
               </div>
