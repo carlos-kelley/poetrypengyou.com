@@ -114,6 +114,13 @@ function PoemPage(props) {
 
 
   const splitPoem = poemTraditional.split("");
+  function lookupWord(character) {
+    console.log("character in span:", character);
+    dispatch({
+      type: "LOOKUP_WORD",
+      payload: converterSimp(character),
+    });
+  }
 
   
   return (
@@ -265,11 +272,7 @@ function PoemPage(props) {
                     <span key={index}
                     //onclick get character, convert to simplified, and dispatch to saga
                       onClick={() => {
-                        console.log("character in span:", character);
-                        dispatch({
-                          type: "LOOKUP_WORD",
-                          payload: converterSimp(character),
-                        });
+                        lookupWord(character);
                       }}
                       
                       
@@ -293,6 +296,8 @@ function PoemPage(props) {
       </div>
     </div>
   );
+
+  
 }
 
 export default PoemPage;
