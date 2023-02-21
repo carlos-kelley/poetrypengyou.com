@@ -1,4 +1,5 @@
 body {
   background-color: rgb(27, 28, 29);
   font-family: Noto Sans JP, sans-serif;
+  position: fixed;
 }

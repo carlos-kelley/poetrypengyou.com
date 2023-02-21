@@ -9,31 +9,31 @@
 
 .chineseTitle {
   font-size: 1.3rem;
-  color: rgb(68, 67, 67);
+  color: rgb(167, 165, 165);
   margin: auto;
 }
 
 .chineseAuthor {
   font-size: 1.3rem;
-  color: rgb(68, 67, 67);
+  color: rgb(167, 165, 165);
   margin: auto;
 }
 
 .chinesePoem {
   font-weight: 400;
-  font-size: 1.9rem;
-  margin-left: 9.2px;
+  font-size: 2rem;
+  margin-left: 13px;
   margin-top: 10px;
-  color: rgb(117, 117, 117);
+  color: rgb(255, 255, 255);
 }
 
 /* ---------------------------- */
 /* These buttons should eventually be componentized  */
 .characterButton {
-  color: #1b1c1d;
+  color: #000000;
   outline: none;
   border: none;
-  background-color: #111111;
+  background-color: rgb(189, 168, 142);
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 500;
   font-size: 0.975rem;
