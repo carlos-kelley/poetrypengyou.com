@@ -1,20 +1,5 @@
 const pg = require("pg");
 let pool;
-const url = require("url");
-
-const params = url.parse(
-  process.env.DATABASE_URL
-);
-const auth = params.auth.split(":");
-
-const config = {
-  user: auth[0],
-  password: auth[1],
-  host: params.hostname,
-  port: params.port,
-  database: params.pathname.split("/")[1],
-  idleTimeoutMillis: 30000,
-};
 
 // When our app is deployed to the internet
 // we'll use the DATABASE_URL environment variable
