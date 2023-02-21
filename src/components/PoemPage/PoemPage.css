@@ -1,3 +1,7 @@
+.loader {
+  color: white;
+}
+
 .chineseInfoContainer {
   display: flex;
   flex-direction: column;
@@ -27,14 +31,14 @@
   color: rgb(255, 255, 255);
 }
 
-  @media screen and (min-width: 750px) {
+@media screen and (min-width: 750px) {
   .chineseInfoContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 25%;
   }
-} 
+}
 
 /* ---------------------------- */
 /* These buttons should eventually be componentized  */

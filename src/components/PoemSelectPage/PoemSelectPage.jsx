@@ -65,7 +65,6 @@ function PoemSelectPage(props) {
           ))}
         </ul>
       )}
-      <Footer />
     </div>
   );
 }

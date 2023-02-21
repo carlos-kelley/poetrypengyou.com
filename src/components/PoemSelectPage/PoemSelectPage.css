@@ -1,11 +1,21 @@
 .poemSelectHeading {
   color: rgb(108, 108, 108);
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 2rem;
+  text-align: center;
+  margin-left: 40px;
 }
 
 .poemListItem {
   color: rgb(168, 168, 168);
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  text-align: center;
 }
