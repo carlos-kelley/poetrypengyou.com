@@ -11,7 +11,6 @@ import {
   useSelector,
 } from "react-redux";
 
-import Footer from "../Footer/Footer";
 // import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 // import AboutPage from "../AboutPage/AboutPage";
 // import UserPage from "../UserPage/UserPage";
@@ -113,9 +112,6 @@ function App() {
             <h1>404</h1>
           </Route>
         </Switch>
-
-        <Footer />
-
       </div>
     </Router>
   );

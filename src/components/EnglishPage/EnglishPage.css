@@ -24,5 +24,8 @@
   margin-top: 10px;
   /* margin-bottom: 10px; */
   color: rgb(255, 255, 255);
+  /* max width */
+  /* media query when screen size is 420x420 don't let it get wider */
+  max-width: 770px;
 }
 
