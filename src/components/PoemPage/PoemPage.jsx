@@ -485,19 +485,9 @@ function PoemPage(props) {
           </div>
           <EnglishPage
             // pass down Clicked props
-            titleClicked={titleClicked}
-            authorClicked={authorClicked}
-            poemClicked={poemClicked}
-            setPoemClicked={setPoemClicked}
-            setAuthorClicked={setAuthorClicked}
-            setTitleClicked={setTitleClicked}
-            reset={allReset}
+            allReset={allReset}
           />
-          <WordPage
-            setTitleClicked={setTitleClicked}
-            setPoemClicked={setPoemClicked}
-            setAuthorClicked={setAuthorClicked}
-          />
+          <WordPage allReset={allReset} />
           <div
             className="unsetWord"
             onClick={() => {
@@ -509,7 +499,7 @@ function PoemPage(props) {
           />
 
           <div className="navContainer">
-            <NavButtons />
+            <NavButtons allReset={allReset} />
           </div>
         </>
       )}

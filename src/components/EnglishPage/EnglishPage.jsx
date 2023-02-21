@@ -9,14 +9,7 @@ import { ReactComponent as FontDownloadOffIcon } from "./font_download_off.svg";
 import "./EnglishPage.css";
 
 //this is the EnglishPage component. It is a page that displays the English translation of the poem.
-function EnglishPage({
-  titleClicked,
-  poemClicked,
-  authorClicked,
-  setTitleClicked,
-  setPoemClicked,
-  setAuthorClicked,
-}) {
+function EnglishPage({ allReset }) {
   const dispatch = useDispatch();
   const poem = useSelector((store) => store.poem);
   const [englishToggle, setEnglishToggle] =
@@ -68,18 +61,32 @@ function EnglishPage({
           console.log(
             "englishInfoContainer clicked"
           );
-          setTitleClicked(null);
-          setPoemClicked(null);
-          setAuthorClicked(null);
+          allReset();
         }}
       >
         {englishToggle === true && poem[0] && (
-          <h3 className="englishTitleClass">
+          <h3
+            className="englishTitleClass"
+            onClick={() => {
+              allReset();
+              dispatch({
+                type: "UNSET_WORD",
+              });
+            }}
+          >
             {poem[0].title_english}
           </h3>
         )}
         {englishToggle === true && poem[0] && (
-          <h3 className="englishAuthorClass">
+          <h3
+            className="englishAuthorClass"
+            onClick={() => {
+              allReset();
+              dispatch({
+                type: "UNSET_WORD",
+              });
+            }}
+          >
             {poem[0].author_english}
           </h3>
         )}
@@ -88,9 +95,10 @@ function EnglishPage({
         <p
           className="englishPoemClass"
           onClick={() => {
-            setTitleClicked(null);
-            setPoemClicked(null);
-            setAuthorClicked(null);
+            allReset();
+            dispatch({
+              type: "UNSET_WORD",
+            });
           }}
         >
           {poem[0].poem_english}
