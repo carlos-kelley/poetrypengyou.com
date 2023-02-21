@@ -2,6 +2,13 @@
   color: white;
 }
 
+
+.clicked {
+  /* background turns selection blue */
+  background-color: rgb(177, 199, 255);
+
+}
+
 .chineseInfoContainer {
   display: flex;
   flex-direction: column;
@@ -77,5 +84,4 @@
   top: 0px;
   width: 100%;
   height: 220%;
-
 }

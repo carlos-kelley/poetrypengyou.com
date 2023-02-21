@@ -158,12 +158,19 @@ function PoemPage(props) {
   const splitAuthorSimplified =
     authorSimplified.split("");
 
+  const [state, setState] = useState(-1);
   function lookupWord(character) {
+    console.log("state:", state);
     console.log("character in span:", character);
+    console.log(
+      "target classname:",
+      event.target.className
+    );
     dispatch({
       type: "LOOKUP_WORD",
       payload: converterSimp(character),
     });
+    // event.target.className = "clicked";
   }
 
   return (
@@ -177,7 +184,8 @@ function PoemPage(props) {
           {/* this mouseup is not necessary */}
           <div onMouseUp={selection}>
             <BackButton />
-            <div className="unsetWord"
+            <div
+              className="unsetWord"
               onClick={() => {
                 dispatch({
                   type: "UNSET_WORD",
@@ -235,7 +243,6 @@ function PoemPage(props) {
                                 return (
                                   <span
                                     key={index}
-                                    //onclick get character
                                     onClick={() => {
                                       lookupWord(
                                         character
@@ -290,6 +297,7 @@ function PoemPage(props) {
                             ) => {
                               return (
                                 <span
+                                  // change classname of target to selected
                                   key={index}
                                   //onclick get character
                                   onClick={() => {
@@ -389,9 +397,19 @@ function PoemPage(props) {
                                   key={index}
                                   //onclick get character, convert to simplified, and dispatch to saga
                                   onClick={() => {
+                                    setState(
+                                      index
+                                    );
                                     lookupWord(
                                       character
                                     );
+                                  }}
+                                  style={{
+                                    background:
+                                      state ===
+                                      index
+                                        ? "lightblue"
+                                        : null,
                                   }}
                                 >
                                   {character}
@@ -411,6 +429,13 @@ function PoemPage(props) {
               onClick={() => {
                 dispatch({
                   type: "UNSET_WORD",
+                });
+                // fetch poem
+                dispatch({
+                  type: "FETCH_POEM",
+                  payload: Number(
+                    poemNumberParam
+                  ),
                 });
               }}
             />
