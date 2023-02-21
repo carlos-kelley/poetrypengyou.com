@@ -264,9 +264,24 @@ function PoemPage(props) {
                     "traditional" && (
                     <h3
                       className="chineseAuthor"
-                      onMouseUp={selection}
                     >
-                      {authorTraditional}
+                      {splitAuthorTraditional.map(
+                        (character, index) => {
+                          return (
+                            <span
+                              key={index}
+                              //onclick get character, convert to simplified, and dispatch to saga
+                              onClick={() => {
+                                lookupWord(
+                                  character
+                                );
+                              }}
+                            >
+                              {character}
+                            </span>
+                          );
+                        }
+                      )}
                     </h3>
                   )}
               </div>
