@@ -99,10 +99,8 @@ function PoemPage(props) {
     if (window.getSelection)
       console.log(
         "selected:",
-        converterSimp(
-          // get the clicked on span
-
-        )
+        converterSimp()
+        // get the clicked on span
       );
     dispatch({
       type: "LOOKUP_WORD",
@@ -112,8 +110,13 @@ function PoemPage(props) {
     });
   }
 
+  const splitPoemTraditional =
+    poemTraditional.split("");
+  const splitTitleTraditional =
+    titleTraditional.split("");
+  const splitAuthorTraditional =
+    authorTraditional.split("");
 
-  const splitPoem = poemTraditional.split("");
   function lookupWord(character) {
     console.log("character in span:", character);
     dispatch({
@@ -122,17 +125,8 @@ function PoemPage(props) {
     });
   }
 
-  
   return (
     <div>
-      {/* button which runs splitPoem */}
-      <button
-        onClick={() => {
-          console.log("splitPoem:", splitPoem);
-        }}
-      >
-        splitPoem
-      </button>
       {/* FIX: should not happen on mouse up but on touch, but how to get the word then? */}
       <div onMouseUp={selection}>
         <BackButton />
@@ -244,11 +238,25 @@ function PoemPage(props) {
                 {poem[0] &&
                   localCharacter ===
                     "traditional" && (
-                    <h3
-                      className="chineseTitle"
-                      onMouseUp={selection}
-                    >
-                      {titleTraditional}
+                    // map over the split title and display each character with no spaces
+                    <h3 className="chineseTitle">
+                      {splitTitleTraditional.map(
+                        (character, index) => {
+                          return (
+                            <span
+                              key={index}
+                              //onclick get character, convert to simplified, and dispatch to saga
+                              onClick={() => {
+                                lookupWord(
+                                  character
+                                );
+                              }}
+                            >
+                              {character}
+                            </span>
+                          );
+                        }
+                      )}
                     </h3>
                   )}
                 {poem[0] &&
@@ -266,24 +274,26 @@ function PoemPage(props) {
                 localCharacter ===
                   "traditional" && (
                   // map over the split poem and display each character with no spaces
-              <p className="chinesePoem">
-                {splitPoem.map((character, index) => { 
-                  return (
-                    <span key={index}
-                    //onclick get character, convert to simplified, and dispatch to saga
-                      onClick={() => {
-                        lookupWord(character);
-                      }}
-                      
-                      
-                    >
-                      {character}
-                    </span>
-                  );
-                })}
-              </p>
-              )}
-            
+                  <p className="chinesePoem">
+                    {splitPoemTraditional.map(
+                      (character, index) => {
+                        return (
+                          <span
+                            key={index}
+                            //onclick get character, convert to simplified, and dispatch to saga
+                            onClick={() => {
+                              lookupWord(
+                                character
+                              );
+                            }}
+                          >
+                            {character}
+                          </span>
+                        );
+                      }
+                    )}
+                  </p>
+                )}
             </div>
           )}
 
@@ -296,8 +306,6 @@ function PoemPage(props) {
       </div>
     </div>
   );
-
-  
 }
 
 export default PoemPage;
