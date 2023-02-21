@@ -9,7 +9,14 @@ import { ReactComponent as FontDownloadOffIcon } from "./font_download_off.svg";
 import "./EnglishPage.css";
 
 //this is the EnglishPage component. It is a page that displays the English translation of the poem.
-function EnglishPage(props) {
+function EnglishPage({
+  titleClicked,
+  poemClicked,
+  authorClicked,
+  setTitleClicked,
+  setPoemClicked,
+  setAuthorClicked,
+}) {
   const dispatch = useDispatch();
   const poem = useSelector((store) => store.poem);
   const [englishToggle, setEnglishToggle] =
@@ -55,7 +62,17 @@ function EnglishPage(props) {
       )}
 
       {/* this is the english translation, which conditionally renders based on the toggle */}
-      <div className="englishInfoContainer">
+      <div
+        className="englishInfoContainer"
+        onClick={() => {
+          console.log(
+            "englishInfoContainer clicked"
+          );
+          setTitleClicked(null);
+          setPoemClicked(null);
+          setAuthorClicked(null);
+        }}
+      >
         {englishToggle === true && poem[0] && (
           <h3 className="englishTitleClass">
             {poem[0].title_english}
@@ -68,7 +85,14 @@ function EnglishPage(props) {
         )}
       </div>
       {englishToggle === true && poem[0] && (
-        <p className="englishPoemClass">
+        <p
+          className="englishPoemClass"
+          onClick={() => {
+            setTitleClicked(null);
+            setPoemClicked(null);
+            setAuthorClicked(null);
+          }}
+        >
           {poem[0].poem_english}
         </p>
       )}

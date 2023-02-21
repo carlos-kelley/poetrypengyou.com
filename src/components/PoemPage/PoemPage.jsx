@@ -128,22 +128,6 @@ function PoemPage(props) {
     }, 4);
   }, [poem]);
 
-  //get the word that is selected. FIX: should be on hover instead of mouseup
-  function selection() {
-    if (window.getSelection)
-      console.log(
-        "selected:",
-        converterSimp()
-        // get the clicked on span
-      );
-    dispatch({
-      type: "LOOKUP_WORD",
-      payload: converterSimp(
-        window.getSelection().toString()
-      ),
-    });
-  }
-
   const splitPoemTraditional =
     poemTraditional.split("");
   const splitTitleTraditional =
@@ -205,158 +189,82 @@ function PoemPage(props) {
         <>
           {/* FIX: should not happen on mouse up but on touch, but how to get the word then? */}
           {/* this mouseup is not necessary */}
-          <div onMouseUp={selection}>
-            <BackButton />
-            <div
-              className="unsetWord"
+          <BackButton />
+          <div
+            className="unsetWord"
+            onClick={() => {
+              dispatch({
+                type: "UNSET_WORD",
+              });
+            }}
+          />
+          <div className="characterButtonClass">
+            {/* Button to conditionally toggle character sets via a Saga */}
+            <button
+              className="characterButton"
               onClick={() => {
-                dispatch({
-                  type: "UNSET_WORD",
-                });
+                // dispatch({
+                //   type: "UNSET_WORD",
+                // });
+                localCharacter === "simplified"
+                  ? setLocalCharacter(
+                      "traditional"
+                    )
+                  : setLocalCharacter(
+                      "simplified"
+                    );
+                console.log(
+                  "character:",
+                  localCharacter
+                );
               }}
-            />
-            <div className="characterButtonClass">
-              {/* Button to conditionally toggle character sets via a Saga */}
-              <button
-                className="characterButton"
-                onClick={() => {
-                  // dispatch({
-                  //   type: "UNSET_WORD",
-                  // });
-                  localCharacter === "simplified"
-                    ? setLocalCharacter(
-                        "traditional"
-                      )
-                    : setLocalCharacter(
-                        "simplified"
-                      );
-                  console.log(
-                    "character:",
-                    localCharacter
-                  );
-                }}
-              >
-                {localCharacter ===
-                  "simplified" && "简"}
+            >
+              {localCharacter === "simplified" &&
+                "简"}
 
-                {localCharacter ===
-                  "traditional" && "繁 "}
-              </button>
-            </div>
+              {localCharacter === "traditional" &&
+                "繁 "}
+            </button>
+          </div>
 
-            {/* this is where the simplified poem is displayed */}
-            {/* this should be componentized */}
-            <div className="poemContainerSimplified">
-              {poem[0] &&
-                localCharacter ===
-                  "simplified" && (
-                  <div className="poem">
-                    <div className="chineseInfoContainer">
-                      {/* if poem exists and character sets are simplified, show the chinese TITLE */}
-                      {poem[0] &&
-                        localCharacter ===
-                          "simplified" && (
-                          //map over the split title and display each character with no spaces
-                          <h3 className="chineseTitle">
-                            {splitTitleSimplified.map(
-                              (
-                                character,
-                                index
-                              ) => {
-                                return (
-                                  <span
-                                    key={index}
-                                    onClick={() => {
-                                      setTitleClicked(
-                                        index
-                                      );
-                                      titleReset();
-                                      lookupWord(
-                                        character
-                                      );
-                                    }}
-                                    style={{
-                                      background:
-                                        titleClicked ===
-                                        index
-                                          ? "lightblue"
-                                          : null,
-                                    }}
-                                  >
-                                    {character}
-                                  </span>
-                                );
-                              }
-                            )}
-                          </h3>
-                        )}
-                      {/* if poem exists and character sets are simplified, show the chinese AUTHOR */}
-                      {poem[0] &&
-                        localCharacter ===
-                          "simplified" && (
-                          // map over the split author and display each character with no spaces
-                          <h3 className="chineseAuthor">
-                            {splitAuthorSimplified.map(
-                              (
-                                character,
-                                index
-                              ) => {
-                                return (
-                                  <span
-                                    key={index}
-                                    //onclick get character
-                                    onClick={() => {
-                                      setAuthorClicked(
-                                        index
-                                      );
-                                      authorReset();
-                                      lookupWord(
-                                        character
-                                      );
-                                    }}
-                                    style={{
-                                      background:
-                                        authorClicked ===
-                                        index
-                                          ? "lightblue"
-                                          : null,
-                                    }}
-                                  >
-                                    {character}
-                                  </span>
-                                );
-                              }
-                            )}
-                          </h3>
-                        )}
-                    </div>
-                    {/* if poem exists and character sets are simplified, show the chinese POEM  */}
+          {/* this is where the simplified poem is displayed */}
+          {/* this should be componentized */}
+          <div className="poemContainerSimplified">
+            {poem[0] &&
+              localCharacter === "simplified" && (
+                <div className="poem">
+                  <div
+                    className="chineseInfoContainer"
+                    // onClick={() => {
+                    //   allReset();
+                    // }}
+                  >
+                    {/* if poem exists and character sets are simplified, show the chinese TITLE */}
                     {poem[0] &&
                       localCharacter ===
                         "simplified" && (
-                        <p className="chinesePoem">
-                          {splitPoemSimplified.map(
+                        //map over the split title and display each character with no spaces
+                        <h3 className="chineseTitle">
+                          {splitTitleSimplified.map(
                             (
                               character,
                               index
                             ) => {
                               return (
                                 <span
-                                  // change classname of target to selected
                                   key={index}
-                                  //onclick get character
                                   onClick={() => {
-                                    setPoemClicked(
+                                    setTitleClicked(
                                       index
                                     );
-                                    poemReset();
+                                    titleReset();
                                     lookupWord(
                                       character
                                     );
                                   }}
                                   style={{
                                     background:
-                                      poemClicked ===
+                                      titleClicked ===
                                       index
                                         ? "lightblue"
                                         : null,
@@ -367,106 +275,104 @@ function PoemPage(props) {
                               );
                             }
                           )}
-                        </p>
+                        </h3>
+                      )}
+                    {/* if poem exists and character sets are simplified, show the chinese AUTHOR */}
+                    {poem[0] &&
+                      localCharacter ===
+                        "simplified" && (
+                        // map over the split author and display each character with no spaces
+                        <h3 className="chineseAuthor">
+                          {splitAuthorSimplified.map(
+                            (
+                              character,
+                              index
+                            ) => {
+                              return (
+                                <span
+                                  key={index}
+                                  //onclick get character
+                                  onClick={() => {
+                                    setAuthorClicked(
+                                      index
+                                    );
+                                    authorReset();
+                                    lookupWord(
+                                      character
+                                    );
+                                  }}
+                                  style={{
+                                    background:
+                                      authorClicked ===
+                                      index
+                                        ? "lightblue"
+                                        : null,
+                                  }}
+                                >
+                                  {character}
+                                </span>
+                              );
+                            }
+                          )}
+                        </h3>
                       )}
                   </div>
-                )}
-            </div>
+                  {/* if poem exists and character sets are simplified, show the chinese POEM  */}
+                  {poem[0] &&
+                    localCharacter ===
+                      "simplified" && (
+                      <p className="chinesePoem">
+                        {splitPoemSimplified.map(
+                          (character, index) => {
+                            return (
+                              <span
+                                // change classname of target to selected
+                                key={index}
+                                //onclick get character
+                                onClick={() => {
+                                  setPoemClicked(
+                                    index
+                                  );
+                                  poemReset();
+                                  lookupWord(
+                                    character
+                                  );
+                                }}
+                                style={{
+                                  background:
+                                    poemClicked ===
+                                    index
+                                      ? "lightblue"
+                                      : null,
+                                }}
+                              >
+                                {character}
+                              </span>
+                            );
+                          }
+                        )}
+                      </p>
+                    )}
+                </div>
+              )}
+          </div>
 
-            {/* this is where the traditional poem is displayed */}
-            {/* this should be componentized */}
-            {/* useContext to pass all the hooks? */}
-            <div className="poemContainerTraditional">
-              {poem[0] &&
-                localCharacter ===
-                  "traditional" && (
-                  <div className="poem">
-                    <div className="chineseInfoContainer">
-                      {/* if poem exists and character sets are traditional, show the chinese TITLE */}
-                      {poem[0] &&
-                        localCharacter ===
-                          "traditional" && (
-                          // map over the split title and display each character with no spaces
-                          <h3 className="chineseTitle">
-                            {splitTitleTraditional.map(
-                              (
-                                character,
-                                index
-                              ) => {
-                                return (
-                                  <span
-                                    key={index}
-                                    //onclick get character, convert to simplified, and dispatch to saga
-                                    onClick={() => {
-                                      setTitleClicked(
-                                        index
-                                      );
-                                      titleReset();
-                                      lookupWord(
-                                        character
-                                      );
-                                    }}
-                                    style={{
-                                      background:
-                                        titleClicked ===
-                                        index
-                                          ? "lightblue"
-                                          : null,
-                                    }}
-                                  >
-                                    {character}
-                                  </span>
-                                );
-                              }
-                            )}
-                          </h3>
-                        )}
-                      {/* if poem exists and character sets are traditional, show the chinese AUTHOR */}
-                      {poem[0] &&
-                        localCharacter ===
-                          "traditional" && (
-                          <h3 className="chineseAuthor">
-                            {splitAuthorTraditional.map(
-                              (
-                                character,
-                                index
-                              ) => {
-                                return (
-                                  <span
-                                    key={index}
-                                    //onclick get character, convert to simplified, and dispatch to saga
-                                    onClick={() => {
-                                      setAuthorClicked(
-                                        index
-                                      );
-                                      authorReset();
-                                      lookupWord(
-                                        character
-                                      );
-                                    }}
-                                    style={{
-                                      background:
-                                        authorClicked ===
-                                        index
-                                          ? "lightblue"
-                                          : null,
-                                    }}
-                                  >
-                                    {character}
-                                  </span>
-                                );
-                              }
-                            )}
-                          </h3>
-                        )}
-                    </div>
-                    {/* if poem exists and character sets are traditional, show the chinese POEM  */}
+          {/* this is where the traditional poem is displayed */}
+          {/* this should be componentized */}
+          {/* useContext to pass all the hooks? */}
+          <div className="poemContainerTraditional">
+            {poem[0] &&
+              localCharacter ===
+                "traditional" && (
+                <div className="poem">
+                  <div className="chineseInfoContainer">
+                    {/* if poem exists and character sets are traditional, show the chinese TITLE */}
                     {poem[0] &&
                       localCharacter ===
                         "traditional" && (
-                        // map over the split poem and display each character with no spaces
-                        <p className="chinesePoem">
-                          {splitPoemTraditional.map(
+                        // map over the split title and display each character with no spaces
+                        <h3 className="chineseTitle">
+                          {splitTitleTraditional.map(
                             (
                               character,
                               index
@@ -476,17 +382,17 @@ function PoemPage(props) {
                                   key={index}
                                   //onclick get character, convert to simplified, and dispatch to saga
                                   onClick={() => {
-                                    setPoemClicked(
+                                    setTitleClicked(
                                       index
                                     );
-                                    poemReset();
+                                    titleReset();
                                     lookupWord(
                                       character
                                     );
                                   }}
                                   style={{
                                     background:
-                                      poemClicked ===
+                                      titleClicked ===
                                       index
                                         ? "lightblue"
                                         : null,
@@ -497,26 +403,113 @@ function PoemPage(props) {
                               );
                             }
                           )}
-                        </p>
+                        </h3>
+                      )}
+                    {/* if poem exists and character sets are traditional, show the chinese AUTHOR */}
+                    {poem[0] &&
+                      localCharacter ===
+                        "traditional" && (
+                        <h3 className="chineseAuthor">
+                          {splitAuthorTraditional.map(
+                            (
+                              character,
+                              index
+                            ) => {
+                              return (
+                                <span
+                                  key={index}
+                                  //onclick get character, convert to simplified, and dispatch to saga
+                                  onClick={() => {
+                                    setAuthorClicked(
+                                      index
+                                    );
+                                    authorReset();
+                                    lookupWord(
+                                      character
+                                    );
+                                  }}
+                                  style={{
+                                    background:
+                                      authorClicked ===
+                                      index
+                                        ? "lightblue"
+                                        : null,
+                                  }}
+                                >
+                                  {character}
+                                </span>
+                              );
+                            }
+                          )}
+                        </h3>
                       )}
                   </div>
-                )}
-            </div>
-            <EnglishPage />
-            <WordPage />
-            <div
-              className="unsetWord"
-              onClick={() => {
-                dispatch({
-                  type: "UNSET_WORD",
-                });
-                allReset();
-              }}
-            />
+                  {/* if poem exists and character sets are traditional, show the chinese POEM  */}
+                  {poem[0] &&
+                    localCharacter ===
+                      "traditional" && (
+                      // map over the split poem and display each character with no spaces
+                      <p className="chinesePoem">
+                        {splitPoemTraditional.map(
+                          (character, index) => {
+                            return (
+                              <span
+                                key={index}
+                                //onclick get character, convert to simplified, and dispatch to saga
+                                onClick={() => {
+                                  setPoemClicked(
+                                    index
+                                  );
+                                  poemReset();
+                                  lookupWord(
+                                    character
+                                  );
+                                }}
+                                style={{
+                                  background:
+                                    poemClicked ===
+                                    index
+                                      ? "lightblue"
+                                      : null,
+                                }}
+                              >
+                                {character}
+                              </span>
+                            );
+                          }
+                        )}
+                      </p>
+                    )}
+                </div>
+              )}
+          </div>
+          <EnglishPage
+            // pass down Clicked props
+            titleClicked={titleClicked}
+            authorClicked={authorClicked}
+            poemClicked={poemClicked}
+            setPoemClicked={setPoemClicked}
+            setAuthorClicked={setAuthorClicked}
+            setTitleClicked={setTitleClicked}
+            reset={allReset}
+          />
+          <WordPage
+            setTitleClicked={setTitleClicked}
+            setPoemClicked={setPoemClicked}
+            setAuthorClicked={setAuthorClicked}
+          />
+          <div
+            className="unsetWord"
+            onClick={() => {
+              dispatch({
+                type: "UNSET_WORD",
+              });
+              allReset();
+            }}
+          />
 
-            <div className="navContainer">
-              <NavButtons />
-            </div>
+          <div className="navContainer">
+            <NavButtons />
           </div>
         </>
       )}
