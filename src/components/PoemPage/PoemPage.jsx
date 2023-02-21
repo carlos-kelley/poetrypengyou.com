@@ -100,7 +100,8 @@ function PoemPage(props) {
       console.log(
         "selected:",
         converterSimp(
-          window.getSelection().toString()
+          // get the clicked on span
+
         )
       );
     dispatch({
@@ -111,8 +112,20 @@ function PoemPage(props) {
     });
   }
 
+
+  const splitPoem = poemTraditional.split("");
+
+  
   return (
     <div>
+      {/* button which runs splitPoem */}
+      <button
+        onClick={() => {
+          console.log("splitPoem:", splitPoem);
+        }}
+      >
+        splitPoem
+      </button>
       {/* FIX: should not happen on mouse up but on touch, but how to get the word then? */}
       <div onMouseUp={selection}>
         <BackButton />
@@ -245,13 +258,29 @@ function PoemPage(props) {
               {poem[0] &&
                 localCharacter ===
                   "traditional" && (
-                  <p
-                    className="chinesePoem"
-                    onMouseUp={selection}
-                  >
-                    {poemTraditional}
-                  </p>
-                )}
+                  // map over the split poem and display each character with no spaces
+              <p className="chinesePoem">
+                {splitPoem.map((character, index) => { 
+                  return (
+                    <span key={index}
+                    //onclick get character, convert to simplified, and dispatch to saga
+                      onClick={() => {
+                        console.log("character in span:", character);
+                        dispatch({
+                          type: "LOOKUP_WORD",
+                          payload: converterSimp(character),
+                        });
+                      }}
+                      
+                      
+                    >
+                      {character}
+                    </span>
+                  );
+                })}
+              </p>
+              )}
+            
             </div>
           )}
 
