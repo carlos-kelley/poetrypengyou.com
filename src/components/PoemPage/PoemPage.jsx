@@ -44,10 +44,7 @@ function PoemPage(props) {
     useState(null);
 
   useEffect(() => {
-    console.log(
-      "titleTraditional:",
-      titleTraditional
-    );
+    console.log("PARAM CHANGED, REFERESHING");
     // setTitleTraditional("");
     // setPoemTraditional("");
     // setAuthorTraditional("");
@@ -63,6 +60,39 @@ function PoemPage(props) {
       payload: Number(poemNumberParam),
     });
   }, [params.number]);
+
+  useEffect(() => {
+    console.log("poem changed, refreshing");
+    // this is the opencc conversion
+    // if character set is traditional, set the hook to the traditional variants
+
+    setTimeout(() => {
+      localCharacter === "traditional" &&
+        setPoemTraditional(
+          converter(poem[0].poem_simplified)
+        );
+      setTitleTraditional(
+        converter(poem[0].title_simplified)
+      );
+      setAuthorTraditional(
+        converter(poem[0].author_simplified)
+      );
+    }, 4);
+
+    //i think this has to run because when the page loads, titleTraditional is still empty
+    setTimeout(() => {
+      titleTraditional === "" &&
+        setTitleTraditional(
+          converter(poem[0].title_simplified)
+        );
+      setPoemTraditional(
+        converter(poem[0].poem_simplified)
+      );
+      setAuthorTraditional(
+        converter(poem[0].author_simplified)
+      );
+    }, 4);
+  }, [poem]);
 
   //get the word that is selected. FIX: should be on hover instead of mouseup
   function selection() {
@@ -105,43 +135,38 @@ function PoemPage(props) {
               // this is the opencc conversion
               //FIX: THIS ONLY HAPPENS ON BUTTONCLICK, NOT ON PAGE LOAD
               // if character set is traditional, set the hook to the traditional variants
-              localCharacter === "traditional" &&
-                setPoemTraditional(
-                  converter(
-                    poem[0].poem_simplified
-                  )
-                );
-              setTitleTraditional(
-                converter(
-                  poem[0].title_simplified
-                )
-              );
-              setAuthorTraditional(
-                converter(
-                  poem[0].author_simplified
-                )
-              );
+              // localCharacter === "traditional" &&
+              //   setPoemTraditional(
+              //     converter(
+              //       poem[0].poem_simplified
+              //     )
+              //   );
+              // setTitleTraditional(
+              //   converter(
+              //     poem[0].title_simplified
+              //   )
+              // );
+              // setAuthorTraditional(
+              //   converter(
+              //     poem[0].author_simplified
+              //   )
+              // );
 
-              //i think this has to run because when the page loads, titleTraditional is still empty
-              titleTraditional === "" &&
-                setTitleTraditional(
-                  converter(
-                    poem[0].title_simplified
-                  )
-                );
-              setPoemTraditional(
-                converter(poem[0].poem_simplified)
-              );
-              setAuthorTraditional(
-                converter(
-                  poem[0].author_simplified
-                )
-              );
-
-              console.log(
-                "titleTraditional:",
-                titleTraditional
-              );
+              // //i think this has to run because when the page loads, titleTraditional is still empty
+              // titleTraditional === "" &&
+              //   setTitleTraditional(
+              //     converter(
+              //       poem[0].title_simplified
+              //     )
+              //   );
+              // setPoemTraditional(
+              //   converter(poem[0].poem_simplified)
+              // );
+              // setAuthorTraditional(
+              //   converter(
+              //     poem[0].author_simplified
+              //   )
+              // );
             }}
           >
             {localCharacter === "simplified" &&
