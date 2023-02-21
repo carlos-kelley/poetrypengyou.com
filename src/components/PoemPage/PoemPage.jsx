@@ -56,7 +56,7 @@ function PoemPage(props) {
     // setTitleTraditional("");
     // setPoemTraditional("");
     // setAuthorTraditional("");
-
+    allReset();
     dispatch({
       type: "UNSET_WORD",
     });
@@ -165,6 +165,25 @@ function PoemPage(props) {
   const [authorClicked, setAuthorClicked] =
     useState(null);
 
+  // TODO: make DRY!
+  const titleReset = () => {
+    setAuthorClicked(null);
+    setPoemClicked(null);
+  };
+  const poemReset = () => {
+    setAuthorClicked(null);
+    setTitleClicked(null);
+  };
+  const authorReset = () => {
+    setPoemClicked(null);
+    setTitleClicked(null);
+  };
+  const allReset = () => {
+    setAuthorClicked(null);
+    setPoemClicked(null);
+    setTitleClicked(null);
+  };
+
   function lookupWord(character) {
     console.log("character in span:", character);
     console.log(
@@ -251,6 +270,7 @@ function PoemPage(props) {
                                       setTitleClicked(
                                         index
                                       );
+                                      titleReset();
                                       lookupWord(
                                         character
                                       );
@@ -289,6 +309,7 @@ function PoemPage(props) {
                                       setAuthorClicked(
                                         index
                                       );
+                                      authorReset();
                                       lookupWord(
                                         character
                                       );
@@ -328,6 +349,7 @@ function PoemPage(props) {
                                     setPoemClicked(
                                       index
                                     );
+                                    poemReset();
                                     lookupWord(
                                       character
                                     );
@@ -379,6 +401,7 @@ function PoemPage(props) {
                                       setTitleClicked(
                                         index
                                       );
+                                      titleReset();
                                       lookupWord(
                                         character
                                       );
@@ -416,6 +439,7 @@ function PoemPage(props) {
                                       setAuthorClicked(
                                         index
                                       );
+                                      authorReset();
                                       lookupWord(
                                         character
                                       );
@@ -455,6 +479,7 @@ function PoemPage(props) {
                                     setPoemClicked(
                                       index
                                     );
+                                    poemReset();
                                     lookupWord(
                                       character
                                     );
@@ -485,6 +510,7 @@ function PoemPage(props) {
                 dispatch({
                   type: "UNSET_WORD",
                 });
+                allReset();
               }}
             />
 
