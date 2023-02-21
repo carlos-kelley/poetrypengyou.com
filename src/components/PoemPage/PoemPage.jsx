@@ -106,18 +106,36 @@ function PoemPage(props) {
               //FIX: THIS ONLY HAPPENS ON BUTTONCLICK, NOT ON PAGE LOAD
               // if character set is traditional, set the hook to the traditional variants
               localCharacter === "traditional" &&
-                setTitleTraditional(
+                setPoemTraditional(
                   converter(
-                    poem[0].title_simplified
+                    poem[0].poem_simplified
                   )
                 );
+              setTitleTraditional(
+                converter(
+                  poem[0].title_simplified
+                )
+              );
               setAuthorTraditional(
                 converter(
                   poem[0].author_simplified
                 )
               );
+
+              //i think this has to run because when the page loads, titleTraditional is still empty
+              titleTraditional === "" &&
+                setTitleTraditional(
+                  converter(
+                    poem[0].title_simplified
+                  )
+                );
               setPoemTraditional(
                 converter(poem[0].poem_simplified)
+              );
+              setAuthorTraditional(
+                converter(
+                  poem[0].author_simplified
+                )
               );
 
               console.log(
