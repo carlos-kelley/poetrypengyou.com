@@ -52,7 +52,7 @@ function PoemPage(props) {
 
   const [loader, setLoader] = useState(false);
   useEffect(() => {
-    console.log("PARAM CHANGED, REFERESHING");
+    console.log("READY TO START");
     // setTitleTraditional("");
     // setPoemTraditional("");
     // setAuthorTraditional("");
