@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 .englishDefinition {
@@ -13,30 +13,40 @@
   font-weight: 700;
   border: 0;
   outline: 0;
+  line-height: 0.01;
+  margin-bottom: 60px;
 }
 
 .pinyinRedClass {
   /* dark red */
   color: #b00000;
   font-weight: 800;
-   border: 0;
+  border: 0;
   outline: 0;
+  line-height: 0.01;
+  margin-bottom: 60px;
 }
 .pinyinOrangeClass {
   color: #ffa162;
   font-weight: 800;
-   border: 0;
+  border: 0;
   outline: 0;
+  line-height: 0.01;
+  margin-bottom: 60px;
 }
 .pinyinGreenClass {
   color: #00ff00;
   font-weight: 800;
-   border: 0;
+  border: 0;
   outline: 0;
+  line-height: 0.01;
+  margin-bottom: 60px;
 }
 .pinyinBlueClass {
   color: #0000ff;
   font-weight: 800;
-   border: 0;
+  border: 0;
   outline: 0;
+  line-height: 0.01;
+  margin-bottom: 60px;
 }

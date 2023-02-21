@@ -1,5 +1,5 @@
 .poemSelectHeading {
-  color: rgb(108, 108, 108);
+  color: rgb(167, 165, 165);
   font-weight: 700;
   font-size: 2rem;
   text-align: center;
@@ -7,7 +7,7 @@
 }
 
 .poemListItem {
-  color: rgb(168, 168, 168);
+  color: white;
   font-weight: 700;
   font-size: 1.3rem;
   margin-top: 50px;

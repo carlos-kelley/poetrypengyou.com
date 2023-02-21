@@ -174,16 +174,24 @@ function PoemPage(props) {
       {loader === true && (
         <>
           {/* FIX: should not happen on mouse up but on touch, but how to get the word then? */}
+          {/* this mouseup is not necessary */}
           <div onMouseUp={selection}>
             <BackButton />
+            <div className="unsetWord"
+              onClick={() => {
+                dispatch({
+                  type: "UNSET_WORD",
+                });
+              }}
+            />
             <div className="characterButtonClass">
               {/* Button to conditionally toggle character sets via a Saga */}
               <button
                 className="characterButton"
                 onClick={() => {
-                  dispatch({
-                    type: "UNSET_WORD",
-                  });
+                  // dispatch({
+                  //   type: "UNSET_WORD",
+                  // });
                   localCharacter === "simplified"
                     ? setLocalCharacter(
                         "traditional"
@@ -398,6 +406,14 @@ function PoemPage(props) {
             </div>
             <EnglishPage />
             <WordPage />
+            <div
+              className="unsetWord"
+              onClick={() => {
+                dispatch({
+                  type: "UNSET_WORD",
+                });
+              }}
+            />
 
             <div className="navContainer">
               <NavButtons />

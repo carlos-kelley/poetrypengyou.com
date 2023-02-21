@@ -27,9 +27,9 @@ function EnglishPage(props) {
         <FontDownloadOffIcon
           className="englishButton"
           onClick={() => {
-            dispatch({
-              type: "UNSET_WORD",
-            });
+            // dispatch({
+            //   type: "UNSET_WORD",
+            // });
             setEnglishToggle(true);
             console.log(
               "englishToggle:",
@@ -42,9 +42,9 @@ function EnglishPage(props) {
         <FontDownloadIcon
           className="englishButton"
           onClick={() => {
-            dispatch({
-              type: "UNSET_WORD",
-            });
+            // dispatch({
+            //   type: "UNSET_WORD",
+            // });
             setEnglishToggle(false);
             console.log(
               "englishToggle:",
