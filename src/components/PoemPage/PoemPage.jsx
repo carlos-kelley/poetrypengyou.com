@@ -158,9 +158,14 @@ function PoemPage(props) {
   const splitAuthorSimplified =
     authorSimplified.split("");
 
-  const [state, setState] = useState(-1);
+  const [titleClicked, setTitleClicked] =
+    useState(null);
+  const [poemClicked, setPoemClicked] =
+    useState(null);
+  const [authorClicked, setAuthorClicked] =
+    useState(null);
+
   function lookupWord(character) {
-    console.log("state:", state);
     console.log("character in span:", character);
     console.log(
       "target classname:",
@@ -170,7 +175,6 @@ function PoemPage(props) {
       type: "LOOKUP_WORD",
       payload: converterSimp(character),
     });
-    // event.target.className = "clicked";
   }
 
   return (
@@ -229,7 +233,7 @@ function PoemPage(props) {
                   "simplified" && (
                   <div className="poem">
                     <div className="chineseInfoContainer">
-                      {/* if poem exists and character sets are simplified, show the chinese title */}
+                      {/* if poem exists and character sets are simplified, show the chinese TITLE */}
                       {poem[0] &&
                         localCharacter ===
                           "simplified" && (
@@ -244,9 +248,19 @@ function PoemPage(props) {
                                   <span
                                     key={index}
                                     onClick={() => {
+                                      setTitleClicked(
+                                        index
+                                      );
                                       lookupWord(
                                         character
                                       );
+                                    }}
+                                    style={{
+                                      background:
+                                        titleClicked ===
+                                        index
+                                          ? "lightblue"
+                                          : null,
                                     }}
                                   >
                                     {character}
@@ -256,7 +270,7 @@ function PoemPage(props) {
                             )}
                           </h3>
                         )}
-                      {/* if poem exists and character sets are simplified, show the chinese author */}
+                      {/* if poem exists and character sets are simplified, show the chinese AUTHOR */}
                       {poem[0] &&
                         localCharacter ===
                           "simplified" && (
@@ -272,9 +286,19 @@ function PoemPage(props) {
                                     key={index}
                                     //onclick get character
                                     onClick={() => {
+                                      setAuthorClicked(
+                                        index
+                                      );
                                       lookupWord(
                                         character
                                       );
+                                    }}
+                                    style={{
+                                      background:
+                                        authorClicked ===
+                                        index
+                                          ? "lightblue"
+                                          : null,
                                     }}
                                   >
                                     {character}
@@ -285,7 +309,7 @@ function PoemPage(props) {
                           </h3>
                         )}
                     </div>
-                    {/* if poem exists and character sets are simplified, show the chinese poem  */}
+                    {/* if poem exists and character sets are simplified, show the chinese POEM  */}
                     {poem[0] &&
                       localCharacter ===
                         "simplified" && (
@@ -301,9 +325,19 @@ function PoemPage(props) {
                                   key={index}
                                   //onclick get character
                                   onClick={() => {
+                                    setPoemClicked(
+                                      index
+                                    );
                                     lookupWord(
                                       character
                                     );
+                                  }}
+                                  style={{
+                                    background:
+                                      poemClicked ===
+                                      index
+                                        ? "lightblue"
+                                        : null,
                                   }}
                                 >
                                   {character}
@@ -319,13 +353,14 @@ function PoemPage(props) {
 
             {/* this is where the traditional poem is displayed */}
             {/* this should be componentized */}
+            {/* useContext to pass all the hooks? */}
             <div className="poemContainerTraditional">
               {poem[0] &&
                 localCharacter ===
                   "traditional" && (
                   <div className="poem">
                     <div className="chineseInfoContainer">
-                      {/* if poem exists and character sets are traditional, show the chinese title onmouseup */}
+                      {/* if poem exists and character sets are traditional, show the chinese TITLE */}
                       {poem[0] &&
                         localCharacter ===
                           "traditional" && (
@@ -341,9 +376,19 @@ function PoemPage(props) {
                                     key={index}
                                     //onclick get character, convert to simplified, and dispatch to saga
                                     onClick={() => {
+                                      setTitleClicked(
+                                        index
+                                      );
                                       lookupWord(
                                         character
                                       );
+                                    }}
+                                    style={{
+                                      background:
+                                        titleClicked ===
+                                        index
+                                          ? "lightblue"
+                                          : null,
                                     }}
                                   >
                                     {character}
@@ -353,7 +398,7 @@ function PoemPage(props) {
                             )}
                           </h3>
                         )}
-                      {/* if poem exists and character sets are traditional, show the chinese author */}
+                      {/* if poem exists and character sets are traditional, show the chinese AUTHOR */}
                       {poem[0] &&
                         localCharacter ===
                           "traditional" && (
@@ -368,9 +413,19 @@ function PoemPage(props) {
                                     key={index}
                                     //onclick get character, convert to simplified, and dispatch to saga
                                     onClick={() => {
+                                      setAuthorClicked(
+                                        index
+                                      );
                                       lookupWord(
                                         character
                                       );
+                                    }}
+                                    style={{
+                                      background:
+                                        authorClicked ===
+                                        index
+                                          ? "lightblue"
+                                          : null,
                                     }}
                                   >
                                     {character}
@@ -381,7 +436,7 @@ function PoemPage(props) {
                           </h3>
                         )}
                     </div>
-                    {/* if poem exists and character sets are traditional, show the chinese poem  */}
+                    {/* if poem exists and character sets are traditional, show the chinese POEM  */}
                     {poem[0] &&
                       localCharacter ===
                         "traditional" && (
@@ -397,7 +452,7 @@ function PoemPage(props) {
                                   key={index}
                                   //onclick get character, convert to simplified, and dispatch to saga
                                   onClick={() => {
-                                    setState(
+                                    setPoemClicked(
                                       index
                                     );
                                     lookupWord(
@@ -406,7 +461,7 @@ function PoemPage(props) {
                                   }}
                                   style={{
                                     background:
-                                      state ===
+                                      poemClicked ===
                                       index
                                         ? "lightblue"
                                         : null,
@@ -429,13 +484,6 @@ function PoemPage(props) {
               onClick={() => {
                 dispatch({
                   type: "UNSET_WORD",
-                });
-                // fetch poem
-                dispatch({
-                  type: "FETCH_POEM",
-                  payload: Number(
-                    poemNumberParam
-                  ),
                 });
               }}
             />
