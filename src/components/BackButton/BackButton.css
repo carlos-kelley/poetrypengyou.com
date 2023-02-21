@@ -1,8 +1,6 @@
 /* 
 * FIX - should not be absolute
 */
-*/
-
 .backButton {
   position: absolute;
   top: 0;

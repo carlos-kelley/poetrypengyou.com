@@ -4,22 +4,15 @@ import React, {
 } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-// import css
 import "./WordPage.css";
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TemplateFunction with the name for the new component.
+// This component displays the english word and pinyin
 function WordPage(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
-  const dispatch = useDispatch();
   const word = useSelector((store) => store.word);
 
   return (
     <div>
       <div className="wordContainer">
-
           {word[0] && (
             <p className="englishDefinition">
               {word[0].english}

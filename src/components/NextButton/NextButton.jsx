@@ -5,37 +5,24 @@ import {
   useLocation,
 } from "react-router-dom";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { ReactComponent as NextButtonSVG } from "./navigate_next.svg";
 import "./NextButton.css"
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TemplateFunction with the name for the new component.
+// This is the NextButton component. It is a button that takes the user to the next poem.
 function NextButton(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
+
   const history = useHistory();
-  const poem = useSelector((store) => store.poem);
-  // useParam
   const params = useParams();
   const poemNumberParam = params.number;
   const [poemNumber, setPoemNumber] = useState(
     poemNumberParam
   );
 
-  const location = useLocation();
-  const dispatch = useDispatch();
   // nextPoemLocal setter
   const [nextPoemLocal, setNextPoemLocal] =
     useState(null);
-
-  const nextPoem = useSelector(
-    (store) => store.nextPoem
-  );
- 
 
   //   axios call to get next poem
   function fetchNextPoem() {
@@ -56,6 +43,7 @@ function NextButton(props) {
           "Next poem will be",
           response.data[0].min
         );
+        // set the hook to the next poem
         setNextPoemLocal(
           Number(response.data[0].min)
         );

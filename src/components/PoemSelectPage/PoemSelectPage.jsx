@@ -7,12 +7,9 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import "./PoemSelectPage.css";
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TemplateFunction with the name for the new component.
+//this is the page that displays all the poems
 function PoemSelectPage(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
+
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -36,6 +33,7 @@ function PoemSelectPage(props) {
       "In PoemSelectPage, goToPoem, poemNumber:",
       poemNumber
     );
+    //push to the selected poem page
     history.push(`/poem/${poemNumber}`);
   };
 
@@ -43,8 +41,10 @@ function PoemSelectPage(props) {
     <div>
       <h2 className = "poemSelectHeading">Select a Poem</h2>
       {!allPoems ? (
+        //if allPoems is not loaded yet, display loading
         <p>...loading...</p>
       ) : (
+          //map through all poems and display them
         <ul>
           {allPoems.map((poem, index) => (
             <li

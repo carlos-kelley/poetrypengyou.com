@@ -4,30 +4,25 @@ import React, {
 } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
 import { ReactComponent as FontDownloadIcon } from "./font_download.svg";
 import { ReactComponent as FontDownloadOffIcon } from "./font_download_off.svg";
-// import css
 import "./EnglishPage.css";
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TemplateFunction with the name for the new component.
+//this is the EnglishPage component. It is a page that displays the English translation of the poem.
 function EnglishPage(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
-  const params = useParams();
   const dispatch = useDispatch();
   const poem = useSelector((store) => store.poem);
   const [englishToggle, setEnglishToggle] =
     useState(false);
 
+  //by default the page does not show english
   useEffect(() => {
     setEnglishToggle(false);
   }, []);
 
   return (
     <div>
+      {/* this button toggles the english translation on and off */}
       {englishToggle === false && (
         <FontDownloadOffIcon
           className="englishButton"
@@ -59,6 +54,7 @@ function EnglishPage(props) {
         ></FontDownloadIcon>
       )}
 
+      {/* this is the english translation, which conditionally renders based on the toggle */}
       <div className="englishInfoContainer">
         {englishToggle === true && poem[0] && (
           <h3 className="englishTitleClass">

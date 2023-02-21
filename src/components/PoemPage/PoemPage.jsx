@@ -6,19 +6,13 @@ import { useParams } from "react-router-dom";
 import * as OpenCC from "opencc-js";
 import WordPage from "../WordPage/WordPage";
 import EnglishPage from "../EnglishPage/EnglishPage";
-import NextButton from "../NextButton/NextButton";
-import LastButton from "../LastButton/LastButton";
 import BackButton from "../BackButton/BackButton";
 import NavButtons from "../NavButtons/NavButtons";
-// import poempage.css
 import "./PoemPage.css";
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TemplateFunction with the name for the new component.
+// This component displays the Chinese poem and contains the buttons. 
+//TODO: Those buttons should be moved to a separate component later.
 function PoemPage(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
   const dispatch = useDispatch();
   const poem = useSelector((store) => store.poem);
 
@@ -30,12 +24,9 @@ function PoemPage(props) {
     from: "hk",
     to: "cn",
   });
-  const character = useSelector(
-    (store) => store.character
-  );
+
   const [localCharacter, setLocalCharacter] =
     useState("simplified");
-
   const [titleTraditional, setTitleTraditional] =
     useState("");
   const [poemTraditional, setPoemTraditional] =
@@ -48,10 +39,11 @@ function PoemPage(props) {
   const params = useParams();
 
   const poemNumberParam = params.number;
-  const poemTitle = null;
 
   const [poemNumber, setPoemNumber] =
     useState(null);
+  
+  
   useEffect(() => {
     console.log(
       "titleTraditional:",
@@ -61,17 +53,20 @@ function PoemPage(props) {
     // setPoemTraditional("");
     // setAuthorTraditional("");
 
+    
     dispatch({
       type: "UNSET_WORD",
     });
     setPoemNumber(poemNumberParam);
 
+    // fetch the poem on page load
     dispatch({
       type: "FETCH_POEM",
       payload: Number(poemNumberParam),
     });
   }, [params.number]);
 
+  //get the word that is selected. FIX: should be on hover instead of mouseup
   function selection() {
     if (window.getSelection)
       console.log(
@@ -90,11 +85,11 @@ function PoemPage(props) {
 
   return (
     <div>
+
+      {/* FIX: should not happen on mouse up but on touch, but how to get the word then? */}
       <div
-        className="selectionField"
         onMouseUp={selection}
       >
-        {/* onclick set local character to traditional */}
         <BackButton />
         <div className="characterButtonClass">
           {/* Button to conditionally toggle character sets via a Saga */}
@@ -157,6 +152,8 @@ function PoemPage(props) {
           </button>
         </div>
 
+        
+        {/* this is where the poem is displayed */}
         {poem[0] &&
           localCharacter === "simplified" && (
             <div className="poem">
@@ -235,11 +232,6 @@ function PoemPage(props) {
         <WordPage />
 
         <div className="navContainer">
-          {/* <div className="leftNav">
-            <LastButton />
-          </div>
-          <div className="rightNav">
-            <NextButton /> */}
           <NavButtons/>
           </div>
         </div>

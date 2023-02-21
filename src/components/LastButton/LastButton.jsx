@@ -1,42 +1,26 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
 import {
   useHistory,
-  useLocation,
 } from "react-router-dom";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { ReactComponent as LastButtonSVG } from "./navigate_before.svg";
 import "./LastButton.css";
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TemplateFunction with the name for the new component.
+// This is the LastButton component. It is a button that takes the user to the last poem.
 function LastButton(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
   const history = useHistory();
-  const poem = useSelector((store) => store.poem);
-  // useParam
   const params = useParams();
   const poemNumberParam = params.number;
+
   const [poemNumber, setPoemNumber] = useState(
     poemNumberParam
   );
-
-  const location = useLocation();
-  const dispatch = useDispatch();
   const [lastPoemLocal, setLastPoemLocal] =
     useState(null);
 
-  const lastPoem = useSelector(
-    (store) => store.lastPoem
-  );
-
-
-  //   axios call to get next poem
+  //   axios call to get last poem
   function fetchLastPoem() {
     console.log(
       "In fetchLastPoem, param number is:",
@@ -55,6 +39,7 @@ function LastButton(props) {
           "Last poem will be",
           response.data[0].max
         );
+        // set the hook to the last poem
         setLastPoemLocal(
           Number(response.data[0].max)
         );
@@ -74,11 +59,12 @@ function LastButton(props) {
       "in useEffect, poemNumber:",
       params.number
     );
+    //   fetch the last poem on page load
     fetchLastPoem();
     console.log("lastPoemLocal:", lastPoemLocal);
   }, [params.number]);
 
-
+//  push to the last poem on click
   function pushLast() {
     if (lastPoemLocal !== null) {
       console.log(
