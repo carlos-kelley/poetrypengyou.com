@@ -85,11 +85,8 @@ function PoemPage(props) {
 
   return (
     <div>
-
       {/* FIX: should not happen on mouse up but on touch, but how to get the word then? */}
-      <div
-        onMouseUp={selection}
-      >
+      <div onMouseUp={selection}>
         <BackButton />
         <div className="characterButtonClass">
           {/* Button to conditionally toggle character sets via a Saga */}
@@ -152,12 +149,12 @@ function PoemPage(props) {
           </button>
         </div>
 
-        
         {/* this is where the poem is displayed */}
         {poem[0] &&
           localCharacter === "simplified" && (
             <div className="poem">
               <div className="chineseInfoContainer">
+                {/* if poem exists and character sets are simplified, show the chinese title onmouseup */}
                 {poem[0] &&
                   localCharacter ===
                     "simplified" && (
@@ -168,6 +165,7 @@ function PoemPage(props) {
                       {poem[0].title_simplified}
                     </h3>
                   )}
+                {/* if poem exists and character sets are simplified, show the chinese author onmouseup */}
                 {poem[0] &&
                   localCharacter ===
                     "simplified" && (
@@ -179,7 +177,7 @@ function PoemPage(props) {
                     </h3>
                   )}
               </div>
-
+              {/* if poem exists and character sets are simplified, show the chinese poem onmouseup */}
               {poem[0] &&
                 localCharacter ===
                   "simplified" && (
@@ -194,6 +192,7 @@ function PoemPage(props) {
           localCharacter === "traditional" && (
             <div className="poem">
               <div className="chineseInfoContainer">
+                {/* if poem exists and character sets are simplified, show the chinese title onmouseup */}
                 {poem[0] &&
                   localCharacter ===
                     "traditional" && (
@@ -232,10 +231,10 @@ function PoemPage(props) {
         <WordPage />
 
         <div className="navContainer">
-          <NavButtons/>
-          </div>
+          <NavButtons />
         </div>
       </div>
+    </div>
   );
 }
 

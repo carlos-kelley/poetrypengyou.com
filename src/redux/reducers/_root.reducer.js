@@ -19,7 +19,7 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   poem, // will have poem data
   word, // will have word data
-  character, // will have character data
+  // character, // will have character data
   nextPoem, // will have next poem data
   lastPoem, // will have last poem data
   allPoems, // will have all poems data
