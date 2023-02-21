@@ -98,6 +98,12 @@ function PoemPage(props) {
         poem[0].author_simplified
       );
     }, 4);
+    setTimeout(() => {
+      console.log(
+        "titleSimplified after timeout:",
+        titleSimplified
+      );
+    }, 1000);
 
     //i think this has to run because when the page loads, titleTraditional is still empty
     setTimeout(() => {
@@ -193,23 +199,54 @@ function PoemPage(props) {
                   {poem[0] &&
                     localCharacter ===
                       "simplified" && (
+                      //map over the split title and display each character with no spaces
                       <h3 className="chineseTitle">
-                        {poem[0].title_simplified}
+                        {splitTitleSimplified.map(
+                          (character, index) => {
+                            return (
+                              <span
+                                key={index}
+                                //onclick get character
+                                onClick={() => {
+                                  lookupWord(
+                                    character
+                                  );
+                                }}
+                              >
+                                {character}
+                              </span>
+                            );
+                          }
+                        )}
                       </h3>
                     )}
                   {/* if poem exists and character sets are simplified, show the chinese author */}
                   {poem[0] &&
                     localCharacter ===
                       "simplified" && (
+                      // map over the split author and display each character with no spaces
                       <h3 className="chineseAuthor">
-                        {
-                          poem[0]
-                            .author_simplified
-                        }
+                        {splitAuthorSimplified.map(
+                          (character, index) => {
+                            return (
+                              <span
+                                key={index}
+                                //onclick get character
+                                onClick={() => {
+                                  lookupWord(
+                                    character
+                                  );
+                                }}
+                              >
+                                {character}
+                              </span>
+                            );
+                          }
+                        )}
                       </h3>
                     )}
                 </div>
-                {/* if poem exists and character sets are simplified, show the chinese poem onmouseup */}
+                {/* if poem exists and character sets are simplified, show the chinese poem  */}
                 {poem[0] &&
                   localCharacter ===
                     "simplified" && (
@@ -228,7 +265,7 @@ function PoemPage(props) {
             localCharacter === "traditional" && (
               <div className="poem">
                 <div className="chineseInfoContainer">
-                  {/* if poem exists and character sets are simplified, show the chinese title onmouseup */}
+                  {/* if poem exists and character sets are traditional, show the chinese title onmouseup */}
                   {poem[0] &&
                     localCharacter ===
                       "traditional" && (
@@ -253,6 +290,7 @@ function PoemPage(props) {
                         )}
                       </h3>
                     )}
+                  {/* if poem exists and character sets are traditional, show the chinese author */}
                   {poem[0] &&
                     localCharacter ===
                       "traditional" && (
@@ -277,6 +315,7 @@ function PoemPage(props) {
                       </h3>
                     )}
                 </div>
+                {/* if poem exists and character sets are traditional, show the chinese poem  */}
                 {poem[0] &&
                   localCharacter ===
                     "traditional" && (
