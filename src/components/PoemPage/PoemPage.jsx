@@ -10,7 +10,7 @@ import BackButton from "../BackButton/BackButton";
 import NavButtons from "../NavButtons/NavButtons";
 import "./PoemPage.css";
 
-// This component displays the Chinese poem and contains the buttons. 
+// This component displays the Chinese poem and contains the buttons.
 //TODO: Those buttons should be moved to a separate component later.
 function PoemPage(props) {
   const dispatch = useDispatch();
@@ -42,8 +42,7 @@ function PoemPage(props) {
 
   const [poemNumber, setPoemNumber] =
     useState(null);
-  
-  
+
   useEffect(() => {
     console.log(
       "titleTraditional:",
@@ -53,7 +52,6 @@ function PoemPage(props) {
     // setPoemTraditional("");
     // setAuthorTraditional("");
 
-    
     dispatch({
       type: "UNSET_WORD",
     });
@@ -104,36 +102,23 @@ function PoemPage(props) {
                 localCharacter
               );
 
+              // this is the opencc conversion
+              //FIX: THIS ONLY HAPPENS ON BUTTONCLICK, NOT ON PAGE LOAD
+              // if character set is traditional, set the hook to the traditional variants
               localCharacter === "traditional" &&
                 setTitleTraditional(
                   converter(
                     poem[0].title_simplified
                   )
                 );
-              setPoemTraditional(
-                converter(poem[0].poem_simplified)
-              );
               setAuthorTraditional(
                 converter(
                   poem[0].author_simplified
                 )
               );
-
-              titleTraditional === "" &&
-                setTitleTraditional(
-                  converter(
-                    poem[0].title_simplified
-                  )
-                );
               setPoemTraditional(
                 converter(poem[0].poem_simplified)
               );
-              setAuthorTraditional(
-                converter(
-                  poem[0].author_simplified
-                )
-              );
-              // wait 1 second then clear
 
               console.log(
                 "titleTraditional:",
