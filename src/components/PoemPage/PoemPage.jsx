@@ -8,6 +8,8 @@ import WordPage from "../WordPage/WordPage";
 import EnglishPage from "../EnglishPage/EnglishPage";
 import BackButton from "../BackButton/BackButton";
 import NavButtons from "../NavButtons/NavButtons";
+require("dotenv").config();
+
 import "./PoemPage.css";
 
 // This component displays the Chinese poem and contains the buttons.
