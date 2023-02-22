@@ -52,7 +52,10 @@ function PoemPage(props) {
 
   const [loader, setLoader] = useState(false);
   useEffect(() => {
-    console.log("READY TO START");
+    console.log(
+      "READY TO START, key: ",
+      process.env.DATABASE_URL
+    );
     // setTitleTraditional("");
     // setPoemTraditional("");
     // setAuthorTraditional("");
