@@ -8,7 +8,6 @@ import WordPage from "../WordPage/WordPage";
 import EnglishPage from "../EnglishPage/EnglishPage";
 import BackButton from "../BackButton/BackButton";
 import NavButtons from "../NavButtons/NavButtons";
-require("dotenv").config();
 
 import "./PoemPage.css";
 
@@ -55,8 +54,8 @@ function PoemPage(props) {
   const [loader, setLoader] = useState(false);
   useEffect(() => {
     console.log(
-      "READY TO START, key: ",
-      process.env.DATABASE_URL
+      "READY TO START, key is: ",
+      process.env.REACT_APP_DATABASE_URL
     );
     // setTitleTraditional("");
     // setPoemTraditional("");
