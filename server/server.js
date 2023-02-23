@@ -6,6 +6,7 @@ const app = express();
 
 const sessionMiddleware = require("./modules/session-middleware");
 const passport = require("./strategies/user.strategy");
+const cors = require("cors");
 
 // Route includes
 const userRouter = require("./routes/user.router");
@@ -39,6 +40,8 @@ app.use("/api/lastpoem", lastPoemRouter);
 
 // Serve static files
 app.use(express.static("build"));
+
+app.use(cors());
 
 // App Set //
 const PORT = process.env.PORT || 5001;

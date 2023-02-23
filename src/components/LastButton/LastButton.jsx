@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import {
-  useHistory,
-} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
-import axios from "axios";
 import { useParams } from "react-router-dom";
 import { ReactComponent as LastButtonSVG } from "./navigate_before.svg";
 import "./LastButton.css";
+import { CapacitorHttp } from "@capacitor/core";
 
 // This is the LastButton component. It is a button that takes the user to the last poem.
 function LastButton(props) {
@@ -21,37 +19,28 @@ function LastButton(props) {
     useState(null);
 
   //   axios call to get last poem
-  function fetchLastPoem() {
+  async function fetchLastPoem() {
     console.log(
       "In fetchLastPoem, param number is:",
       Number(poemNumber)
     );
-    axios({
-      method: "GET",
-      url: `/api/lastpoem/${params.number}`,
-    })
-      .then((response) => {
-        console.log(
-          "lastpoem response.data:",
-          response.data
-        );
-        console.log(
-          "Last poem will be",
-          response.data[0].max
-        );
-        // set the hook to the last poem
-        setLastPoemLocal(
-          Number(response.data[0].max)
-        );
-
-        console.log(
-          "lastPoemLocal:",
-          lastPoemLocal
-        );
-      })
-      .catch((error) => {
-        console.log("error in lastpoem:", error);
-      });
+    const config = {
+      url: `https://poetrypengyou.com/api/lastpoem/${params.number}`,
+      params: {
+        size: "XL",
+      },
+    };
+    const response = await CapacitorHttp.get(
+      config
+    );
+    console.log(
+      "Last poem will be",
+      response.data[0].max
+    );
+    // set the hook to the last poem
+    setLastPoemLocal(
+      Number(response.data[0].max)
+    );
   }
 
   useEffect(() => {
@@ -64,7 +53,7 @@ function LastButton(props) {
     console.log("lastPoemLocal:", lastPoemLocal);
   }, [params.number]);
 
-//  push to the last poem on click
+  //  push to the last poem on click
   function pushLast() {
     if (lastPoemLocal !== null) {
       console.log(
@@ -77,11 +66,13 @@ function LastButton(props) {
     }
   }
 
- 
   return (
     <div>
       {lastPoemLocal !== 0 && (
-        <LastButtonSVG className = "lastButton" onClick={pushLast} />
+        <LastButtonSVG
+          className="lastButton"
+          onClick={pushLast}
+        />
       )}
     </div>
   );

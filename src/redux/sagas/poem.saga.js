@@ -1,14 +1,27 @@
-import axios from "axios";
 import {
   put,
   takeLatest,
 } from "redux-saga/effects";
+import { CapacitorHttp } from "@capacitor/core";
 
 function* fetchPoem(action) {
   //get poem from the poem router
   try {
-    const response = yield axios.get(
-      `/api/poem/${action.payload}`
+    const config = {
+      url: `https://poetrypengyou.com/api/poem/${action.payload}`,
+      // headers: {
+      //   "Content-Type": "application/json",
+      //   "Access-Control-Allow-Origin": "*",
+      //   "Access-Control-Allow-Methods":
+      //     "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+      // },
+      params: {
+        size: "XL",
+      },
+    };
+
+    const response = yield CapacitorHttp.get(
+      config
     );
     console.log(
       "poem response.data:",

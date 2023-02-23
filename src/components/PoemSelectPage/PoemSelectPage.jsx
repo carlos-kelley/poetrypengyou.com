@@ -5,8 +5,6 @@ import React, {
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-
-import Footer from "../Footer/Footer";
 import "./PoemSelectPage.css";
 
 //this is the page that displays all the poems

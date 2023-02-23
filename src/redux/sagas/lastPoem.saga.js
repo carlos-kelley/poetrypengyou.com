@@ -1,14 +1,23 @@
-import axios from "axios";
 import {
   put,
   takeLatest,
 } from "redux-saga/effects";
+import { CapacitorHttp } from "@capacitor/core";
 
-function* fetchLastPoem(action) {
-  //get poem from the poem router
+function* fetchLastPoem() {
+  //get last poem from the poem router
   try {
-    const response = yield axios.get(
-      `/api/lastpoem/${action.payload}`
+    const config = {
+      url: "https://poetrypengyou.com/api/lastpoem/${action.payload}",
+      // headers: {
+      // }
+      params: {
+        size: "XL",
+      },
+    };
+
+    const response = yield CapacitorHttp.get(
+      config
     );
     console.log(
       "last poem response.data:",
@@ -25,6 +34,7 @@ function* fetchLastPoem(action) {
     );
   }
 }
+
 function* fetchLastPoemSaga() {
   yield takeLatest(
     "FETCH_LAST_POEM",

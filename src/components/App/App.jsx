@@ -19,6 +19,9 @@ import {
 // import RegisterPage from "../RegisterPage/RegisterPage";
 import PoemSelectPage from "../PoemSelectPage/PoemSelectPage";
 import PoemPage from "../PoemPage/PoemPage";
+// import AppUrlListener from "../AppUrlListener";
+import TestBackground from "../TestBackground/TestBackground";
+import TestRoute from "../TestRoute/TestRoute";
 
 import "./App.css";
 
@@ -31,7 +34,7 @@ function App() {
     dispatch({ type: "FETCH_USER" });
   }, [dispatch]);
 
-// Auth functionality is included but not currently used
+  // Auth functionality is included but not currently used
   return (
     <Router>
       <div>
@@ -42,6 +45,9 @@ function App() {
             from="/"
             to="/poemselect"
           />
+          <Route exact path="/poemselect">
+            <PoemSelectPage />
+          </Route>
 
           {/* <Route
             // shows AboutPage at all times (logged in or not)
@@ -50,13 +56,6 @@ function App() {
           >
             <AboutPage />
           </Route> */}
-
-          <Route
-            exact
-            path="/poemselect"
-          >
-            <PoemSelectPage />
-          </Route>
 
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
@@ -114,6 +113,7 @@ function App() {
         </Switch>
       </div>
     </Router>
+    // </AppUrlListener>
   );
 }
 
