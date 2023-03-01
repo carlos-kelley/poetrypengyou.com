@@ -12,14 +12,14 @@ This app is live at [poetrypengyou.com](https://poetrypengyou.com/). It was test
 
 This app is functional, but the database only contains a small sample of poems. More poems will be added soon.
 
-### How to Use
+## How to Use
 
 - Tap or click a poem on the **Poem Select** page to see the full poem
 - Tap or click the **简/繁** button to switch between Simplified or Traditional Mandarin
 - Tap or click the **A** button to see the poem in English
 - Tap or click a word to see the word's English translation, alongside its pinyin (Chinese pronunciation). The words are colored according to their tone.
 
-### Built With
+## Built With
 
 - [![React][react.js]][react-url]
 - [![Redux][redux.js]][redux-url]
