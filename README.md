@@ -47,6 +47,7 @@ English translations are by Witter Bynner.
 - [ ] Add audio readings of the poems
 - [ ] Add other styles of poetry
 - [ ] Improve accessibility by adding light mode and user-selectable tone colors
+- [ ] Add search and favorites 
 
 See the [Projects page](https://github.com/users/sdnii/projects/2) for a full list of planned features.
 
