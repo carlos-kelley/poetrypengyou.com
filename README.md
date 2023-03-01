@@ -2,7 +2,7 @@
 
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-[![ProtonMail][protonmail-shield]][protonmail-url]
+[![ProtonMail][protonmail-shield]][mailto:carloskelley@protonmail.com]
 
 # Poetry Pengyou
 
