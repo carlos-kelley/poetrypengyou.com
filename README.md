@@ -6,17 +6,17 @@
 
 # poetrypengyou.com
 
-Pengyou (朋友) is a Manadarin word meaning "friend.” Poetry Pengyou is a web app that allows users to explore classic Tang dynasty poetry in Simplified and Traditional Mandarin and in English.
+_Pengyou_ (朋友) is a Manadarin word meaning "friend.” **Poetry Pengyou** is a web app that allows users to explore classic Tang dynasty poetry in Simplified and Traditional Mandarin and in English.
 
-This app is live at [poetrypengyou.com](https://poetrypengyou.com/). It was tested on Chrome on desktop and Safari on mobile. This is a mobile-first app, so it is best viewed on a mobile device. It is also available as a native iOS app, but it is not yet deployed on the App Store.
+This app is live at [poetrypengyou.com](https://poetrypengyou.com/). It was tested Safari on mobile and Chrome on desktop. This is a mobile-first app, so it is best viewed on a mobile device. It is also available as a native iOS app, but it is not yet deployed on the App Store.
 
 This app is functional, but the database only contains a small sample of poems. More poems will be added soon.
 
 ### How to Use
 
-- Tap or click a poem on the Poem Select page to see the full poem
-- Tap or click the 简/繁 button to switch between Simplified or Traditional Mandarin
-- Tap or click the A button to see the poem in English
+- Tap or click a poem on the **Poem Select** page to see the full poem
+- Tap or click the **简/繁** button to switch between Simplified or Traditional Mandarin
+- Tap or click the **A** button to see the poem in English
 - Tap or click a word to see the word's English translation, alongside its pinyin (Chinese pronunciation). The words are colored according to their tone.
 
 ### Built With
@@ -32,8 +32,8 @@ This app is functional, but the database only contains a small sample of poems. 
 - [![Heroku][heroku]][heroku-url]
 - [![NPM][npm]][npm-url]
 - [![OpenCC-JS](https://img.shields.io/badge/OpenCC--JS-1.0.4-blue)]
-- [!LightSail][lightsail]][lightsail-url]
-- [!Capacitor](capacitor-url)]
+- [[!LightSail][lightsail]][lightsail-url]
+- [[!Capacitor][capacitor]][capacitor-url]
 
 A full list of dependencies can be found in `package.json`.
 
