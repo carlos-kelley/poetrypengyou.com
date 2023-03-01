@@ -8,7 +8,7 @@ function* lookupWord(action) {
   //get word from word router using the word in the word reducer
   try {
     const config = {
-      url: `https://poetrypengyou.com/api/word/${action.payload}`,
+      url: `https://evening-fortress-34828.herokuapp.com/https://poetrypengyou.com/api/word/${action.payload}`,
       // headers: {
       // },
       params: {

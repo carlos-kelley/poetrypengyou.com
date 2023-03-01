@@ -7,10 +7,10 @@ let pool;
 // eg:
 //  DATABASE_URL=postgresql://jDoe354:secretPw123@some.db.com/prime_app
 pool = new pg.Pool({
-  user: DATABASE_USER,
-  host: DATABASE_HOST,
-  database: DATABASE_NAME,
-  password: DATABASE_PASSWORD,
+  user: process.env.DATABASE_USER,
+  host: process.env.DATABASE_HOST,
+  database: process.env.DATABASE_NAME,
+  password: process.env.DATABASE_PASSWORD,
   port: 5432,
 });
 

@@ -26,7 +26,7 @@ function NextButton(props) {
       Number(poemNumber)
     );
     const config = {
-      url: `https://poetrypengyou.com/api/nextpoem/${params.number}`,
+      url: `https://evening-fortress-34828.herokuapp.com/https://poetrypengyou.com/api/nextpoem/${params.number}`,
       params: {
         size: "XL",
       },

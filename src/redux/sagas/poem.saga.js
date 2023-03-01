@@ -8,7 +8,7 @@ function* fetchPoem(action) {
   //get poem from the poem router
   try {
     const config = {
-      url: `https://poetrypengyou.com/api/poem/${action.payload}`,
+      url: `https://evening-fortress-34828.herokuapp.com/https://poetrypengyou.com/api/poem/${action.payload}`,
       // headers: {
       //   "Content-Type": "application/json",
       //   "Access-Control-Allow-Origin": "*",

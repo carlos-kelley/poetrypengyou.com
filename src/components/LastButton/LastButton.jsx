@@ -25,7 +25,7 @@ function LastButton(props) {
       Number(poemNumber)
     );
     const config = {
-      url: `https://poetrypengyou.com/api/lastpoem/${params.number}`,
+      url: `https://evening-fortress-34828.herokuapp.com/https://poetrypengyou.com/api/lastpoem/${params.number}`,
       params: {
         size: "XL",
       },
