@@ -1,121 +1,104 @@
-<!-- TODO: write this -->
-# Prime Solo Project Starting Repo
-This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
+<!-- PROJECT SHIELDS -->
 
-We **STRONGLY** recommend following these instructions carefully. It's a lot, and will take some time to set up, but your life will be much easier this way in the long run.
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin.com/in/carloskelley]
+[![ProtonMail][protonmail-shield]][mailto:carloskelley@protonmail.com]
 
-## Use the Template for This Repository (Don't Clone)
+# Poetry Pengyou
 
-- Don't Fork or Clone. Instead, click the `Use this Template` button, and make a copy to your personal account. Make the project `PUBLIC`!
+Pengyou (朋友) is a Manadarin word meaning "friend.” Poetry Pengyou is a web app that allows users to explore classic Tang dynasty poetry in Simplified and Traditional Mandarin and in English.
 
+This app is live at [poetrypengyou.com](https://poetrypengyou.com/). It was tested on Chrome on desktop and Safari on mobile. This is a mobile-first app, so it is best viewed on a mobile device. It is also available as a native iOS app, but it is not yet deployed on the App Store.
 
-## Prerequisites
+This app is functional, but the database only contains a small sample of poems. More poems will be added soon.
 
-Before you get started, make sure you have the following software installed on your computer:
+### How to Use
 
-- [Node.js](https://nodejs.org/en/)
-- [PostrgeSQL](https://www.postgresql.org/)
-- [Nodemon](https://nodemon.io/)
+- Tap or click a poem on the Poem Select page to see the full poem
+- Tap or click the 简/繁 button to switch between Simplified or Traditional Mandarin
+- Tap or click the A button to see the poem in English
+- Tap or click a word to see the word's English translation, alongside its pinyin (Chinese pronunciation). The words are colored according to their tone.
 
-## Create database and table
+### Built With
 
-Create a new database called `prime_app` and create a `user` table:
+- [![React][react.js]][react-url]
+- [![Redux][redux.js]][redux-url]
+- [![Redux-Saga][redux-saga.js]][redux-saga-url]
+- [![PostgreSQL][postgresql]][postgresql-url]
+- [![Express][express.js]][express-url]
+- [![Node][node.js]][node-url]
+- [![Markdown][markdown]][markdown-url]
+- [![React-Router][react-router]][react-router-url]
+- [![Heroku][heroku]][heroku-url]
+- [![NPM][npm]][npm-url]
+- [![OpenCC-JS](https://img.shields.io/badge/OpenCC--JS-1.0.4-blue)]
+- [!LightSail][lightsail]][lightsail-url]
+- [!Capacitor](capacitor-url)]
 
-```SQL
-CREATE TABLE "user" (
-    "id" SERIAL PRIMARY KEY,
-    "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
-);
-```
+A full list of dependencies can be found in `package.json`.
 
-If you would like to name your database something else, you will need to change `prime_app` to the name of your new database name in `server/modules/pool.js`
+English translations are by Witter Bynner.
 
-## Development Setup Instructions
+## Roadmap
 
-- Run `npm install`
-- Create a `.env` file at the root of the project and paste this line into the file:
-  ```
-  SERVER_SESSION_SECRET=superDuperSecret
-  ```
-  While you're in your new `.env` file, take the time to replace `superDuperSecret` with some long random string like `25POUbVtx6RKVNWszd9ERB9Bb6` to keep your application secure. Here's a site that can help you: [https://passwordsgenerator.net/](https://passwordsgenerator.net/). If you don't do this step, create a secret with less than eight characters, or leave it as `superDuperSecret`, you will get a warning.
-- Start postgres if not running already by using `brew services start postgresql`
-- Run `npm run server`
-- Run `npm run client`
-- Navigate to `localhost:3000`
+- [ ] Fix up some styling issues
+- [ ] Make the code more DRY!
+- [ ] Allow two-character word lookups
+- [ ] Add audio readings of the poems
+- [ ] Add other styles of poetry
+- [ ] Improve accessibility by adding light mode and user-selectable tone colors
 
-## Debugging
+See the [Projects page](https://github.com/sdnii/poetrypengyou/projects) for a full list of planned features.
 
-To debug, you will need to run the client-side separately from the server. Start the client by running the command `npm run client`. Start the debugging server by selecting the Debug button.
-
-![VSCode Toolbar](documentation/images/vscode-toolbar.png)
-
-Then make sure `Launch Program` is selected from the dropdown, then click the green play arrow.
-
-![VSCode Debug Bar](documentation/images/vscode-debug-bar.png)
-
-## Testing Routes with Postman
-
-To use Postman with this repo, you will need to set up requests in Postman to register a user and login a user at a minimum.
-
-Keep in mind that once you using the login route, Postman will manage your session cookie for you just like a browser, ensuring it is sent with each subsequent request. If you delete the `localhost` cookie in Postman, it will effectively log you out.
-
-1. Start the server - `npm run server`
-2. Import the sample routes JSON file [v2](./PostmanPrimeSoloRoutesv2.json) by clicking `Import` in Postman. Select the file.
-3. Click `Collections` and `Send` the following three calls in order:
-   1. `POST /api/user/register` registers a new user, see body to change username/password
-   2. `POST /api/user/login` will login a user, see body to change username/password
-   3. `GET /api/user` will get user information, by default it's not very much
-
-After running the login route above, you can try any other route you've created that requires a logged in user!
-
-## Production Build
-
-Before pushing to Heroku, run `npm run build` in terminal. This will create a build folder that contains the code Heroku will be pointed at. You can test this build by typing `npm start`. Keep in mind that `npm start` will let you preview the production build but will **not** auto update.
-
-- Start postgres if not running already by using `brew services start postgresql`
-- Run `npm start`
-- Navigate to `localhost:5000`
-
-## Lay of the Land
-
-There are a few videos linked below that show a walkthrough the client and sever setup to help acclimatize to the boilerplate. Please take some time to watch the videos in order to get a better understanding of what the boilerplate is like.
-
-- [Initial Set](https://vimeo.com/453297271)
-- [Server Walkthrough](https://vimeo.com/453297212)
-- [Client Walkthrough](https://vimeo.com/453297124)
-
-Directory Structure:
+## Directory Structure:
 
 - `src/` contains the React application
-- `public/` contains static assets for the client-side
-- `build/` after you build the project, contains the transpiled code from `src/` and `public/` that will be viewed on the production site
+- `build/` contains the transpiled code from `src/` and `public/` that will be viewed on the production site
 - `server/` contains the Express App
+- `ios/` contains the iOS app built with Capacitor
 
-This code is also heavily commented. We recommend reading through the comments, getting a lay of the land, and becoming comfortable with how the code works before you start making too many changes. If you're wondering where to start, consider reading through component file comments in the following order:
+## Contact
 
-- src/components
-  - App/App
-  - Footer/Footer
-  - Nav/Nav
-  - AboutPage/AboutPage
-  - InfoPage/InfoPage
-  - UserPage/UserPage
-  - LoginPage/LoginPage
-  - RegisterPage/RegisterPage
-  - LogOutButton/LogOutButton
-  - ProtectedRoute/ProtectedRoute
+Carlos Kelley - [LinkedIn](https://linkedin.com/in/carloskelley) - [Gmail](mailto:carloskelley@protonmail.com)
 
-## Deployment
+Project Link: [Poetry Pengyou](https://github.com/sdnii/poetrypengyou)
 
-1. Create a new Heroku project
-1. Link the Heroku project to the project GitHub Repo
-1. Create an Heroku Postgres database
-1. Connect to the Heroku Postgres database from Postico
-1. Create the necessary tables
-1. Add an environment variable for `SERVER_SESSION_SECRET` with a nice random string for security
-1. In the deploy section, select manual deploy
+## License
 
-## Update Documentation
+Distributed under the MIT License.
 
-Customize this ReadMe and the code comments in this project to read less like a starter repo and more like a project. Here is an example: https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white
+[linkedin-url]: https://linkedin.com/in/the-marc-mccarthy
+[product-screenshot]: images/screenshot.png
+[react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[react-url]: https://reactjs.org/
+[redux.js]: https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white
+[redux-url]: https://redux.js.org/
+[postgresql]: https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white
+[postgresql-url]: https://www.postgresql.org/
+[redux-saga.js]: https://img.shields.io/badge/Redux%20saga-86D46B?style=for-the-badge&logo=redux%20saga&logoColor=999999
+[redux-saga-url]: https://redux-saga.js.org/
+[markdown]: https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white
+[markdown-url]: https://duckduckgo.com/?q=markdown&t=brave&ia=web
+[heroku]: https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white
+[heroku-url]: https://heroku.com
+[node.js]: https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white
+[node-url]: https://nodejs.org/en/
+[express.js]: https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white
+[express-url]: https://expressjs.com/
+[npm]: https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white
+[npm-url]: https://www.npmjs.com
+[react-router]: https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white
+[react-router-url]: https://react-router.js.org/
+[lightsail]: https://img.shields.io/badge/Amazon%20Lightsail-232F3E?style=for-the-badge&logo=amazon%20lightsail&logoColor=white
+[lightsail-url]: https://lightsail.aws.amazon.com/
+[protonmail]: https://img.shields.io/badge/ProtonMail-8B89CC?style=for-the-badge&logo=protonmail&logoColor=white
+[protonmail-url]: https://protonmail.com
+[opencc-js]: https://img.shields.io/badge/OpenCC--JS-1.0.4-blue
+[capacitor]: https://img.shields.io/badge/Capacitor-2396F3?style=for-the-badge&logo=capacitor&logoColor=white
+[capacitor-url]: https://capacitorjs.com/
