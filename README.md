@@ -48,7 +48,7 @@ English translations are by Witter Bynner.
 - [ ] Add other styles of poetry
 - [ ] Improve accessibility by adding light mode and user-selectable tone colors
 
-See the [Projects page](https://github.com/sdnii/poetrypengyou/projects) for a full list of planned features.
+See the [Projects page](https://github.com/users/sdnii/projects/2) for a full list of planned features.
 
 ## Directory Structure:
 
@@ -59,7 +59,7 @@ See the [Projects page](https://github.com/sdnii/poetrypengyou/projects) for a f
 
 ## Contact
 
-Carlos Kelley - [LinkedIn](https://linkedin.com/in/carloskelley) - [Gmail](mailto:carloskelley@protonmail.com)
+Carlos Kelley - [LinkedIn](https://linkedin.com/in/carloskelley) - [Protonmail](mailto:carloskelley@protonmail.com)
 
 Project Link: [Poetry Pengyou](https://github.com/sdnii/poetrypengyou)
 
@@ -100,6 +100,6 @@ Distributed under the MIT License.
 [protonmail-shield]: https://img.shields.io/badge/ProtonMail-8B89CC?style=for-the-badge&logo=protonmail&logoColor=white
 [protonmail-url]: mailto:carloskelley@protonmail.com
 [opencc-js-shield]: https://img.shields.io/badge/OpenCC--JS-1.0.4-bluez
-[opencc-js-url]: https://img.shields.io/badge/OpenCC--JS-1.0.4-blue)
+[opencc-js-url]: https://github.com/nk2028/opencc-js
 [capacitor-shield]: https://img.shields.io/badge/Capacitor-2396F3?style=for-the-badge&logo=capacitor&logoColor=white
-[capacitor-url]: https://capacitorjs.com/
+[capacitor-url]: https://capacitorjs.com
