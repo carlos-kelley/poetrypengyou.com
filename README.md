@@ -2,7 +2,7 @@
 
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-[![ProtonMail][protonmail-shield]][mailto:carloskelley@protonmail.com]
+[![ProtonMail][protonmail-shield]][protonmail-url]
 
 # Poetry Pengyou
 
@@ -97,7 +97,7 @@ Distributed under the MIT License.
 [react-router-url]: https://react-router.js.org/
 [lightsail]: https://img.shields.io/badge/Amazon%20Lightsail-232F3E?style=for-the-badge&logo=amazon%20lightsail&logoColor=white
 [lightsail-url]: https://lightsail.aws.amazon.com/
-[protonmail]: https://img.shields.io/badge/ProtonMail-8B89CC?style=for-the-badge&logo=protonmail&logoColor=white
+[protonmail-shield]: https://img.shields.io/badge/ProtonMail-8B89CC?style=for-the-badge&logo=protonmail&logoColor=white
 [protonmail-url]: mailto:carloskelley@protonmail.com
 [opencc-js]: https://img.shields.io/badge/OpenCC--JS-1.0.4-blue
 [capacitor]: https://img.shields.io/badge/Capacitor-2396F3?style=for-the-badge&logo=capacitor&logoColor=white
