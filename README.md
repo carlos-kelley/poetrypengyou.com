@@ -31,9 +31,9 @@ This app is functional, but the database only contains a small sample of poems. 
 - [![React-Router][react-router]][react-router-url]
 - [![Heroku][heroku]][heroku-url]
 - [![NPM][npm]][npm-url]
-- [![OpenCC-JS](https://img.shields.io/badge/OpenCC--JS-1.0.4-blue)]
-- [[!LightSail][lightsail]][lightsail-url]
-- [[!Capacitor][capacitor]][capacitor-url]
+- [![OpenCC-JS][opencc-js-shield]][opencc-js-url]
+- [[!LightSail][lightsail-shield]][lightsail-url]
+- [[!Capacitor][capacitor-shield]][capacitor-url]
 
 A full list of dependencies can be found in `package.json`.
 
@@ -95,10 +95,11 @@ Distributed under the MIT License.
 [npm-url]: https://www.npmjs.com
 [react-router]: https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white
 [react-router-url]: https://react-router.js.org/
-[lightsail]: https://img.shields.io/badge/Amazon%20Lightsail-232F3E?style=for-the-badge&logo=amazon%20lightsail&logoColor=white
+[lightsail-shield]: https://img.shields.io/badge/Amazon%20Lightsail-232F3E?style=for-the-badge&logo=amazon%20lightsail&logoColor=white
 [lightsail-url]: https://lightsail.aws.amazon.com/
 [protonmail-shield]: https://img.shields.io/badge/ProtonMail-8B89CC?style=for-the-badge&logo=protonmail&logoColor=white
 [protonmail-url]: mailto:carloskelley@protonmail.com
-[opencc-js]: https://img.shields.io/badge/OpenCC--JS-1.0.4-blue
-[capacitor]: https://img.shields.io/badge/Capacitor-2396F3?style=for-the-badge&logo=capacitor&logoColor=white
+[opencc-js-shield]: https://img.shields.io/badge/OpenCC--JS-1.0.4-bluez
+[opencc-js-url]: https://img.shields.io/badge/OpenCC--JS-1.0.4-blue)
+[capacitor-shield]: https://img.shields.io/badge/Capacitor-2396F3?style=for-the-badge&logo=capacitor&logoColor=white
 [capacitor-url]: https://capacitorjs.com/
