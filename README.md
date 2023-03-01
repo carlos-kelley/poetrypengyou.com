@@ -10,7 +10,7 @@ _Pengyou_ (朋友) is a Manadarin word meaning "friend.” **Poetry Pengyou** is
 
 This app is live at [poetrypengyou.com](https://poetrypengyou.com/). It was tested Safari on mobile and Chrome on desktop. This is a mobile-first app, so it is best viewed on a mobile device. The styling is not 100% perfect on all platforms but all functions are working. It is also available as a native iOS app, but it is not yet deployed on the App Store.
 
-This app is functional, but the database only contains a small sample of poems. More poems will be added soon.
+Currently the database only contains a small sample of poems. More poems will be added soon.
 
 ## How to Use
 
