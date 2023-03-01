@@ -1,7 +1,7 @@
 <!-- PROJECT SHIELDS -->
 
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin.com/in/carloskelley]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 [![ProtonMail][protonmail-shield]][mailto:carloskelley@protonmail.com]
 
 # Poetry Pengyou
@@ -73,7 +73,7 @@ Distributed under the MIT License.
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white
-[linkedin-url]: https://linkedin.com/in/the-marc-mccarthy
+[linkedin-url]: https://linkedin.com/in/carloskelley
 [product-screenshot]: images/screenshot.png
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
