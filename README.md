@@ -32,8 +32,8 @@ This app is functional, but the database only contains a small sample of poems. 
 - [![Heroku][heroku]][heroku-url]
 - [![NPM][npm]][npm-url]
 - [![OpenCC-JS][opencc-js-shield]][opencc-js-url]
-- [[!LightSail][lightsail-shield]][lightsail-url]
-- [[!Capacitor][capacitor-shield]][capacitor-url]
+- [![LightSail][lightsail-shield]][lightsail-url]
+- [![Capacitor][capacitor-shield]][capacitor-url]
 
 A full list of dependencies can be found in `package.json`.
 
