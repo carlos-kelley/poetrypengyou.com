@@ -6,11 +6,11 @@
 
 # poetrypengyou.com
 
-_Pengyou_ (朋友) is a Manadarin word meaning "friend.” **Poetry Pengyou** is a web app that allows users to explore classic Tang dynasty poetry in Simplified and Traditional Mandarin and in English.
+_Péngyou_ (朋友) is a Manadarin word meaning "friend.” **Poetry Pengyou** is a web app that allows users to explore classic Tang dynasty (~600-900 CE) poetry in Simplified and Traditional Mandarin and in English.
 
-This app is live at [poetrypengyou.com](https://poetrypengyou.com/). It was tested Safari on mobile and Chrome on desktop. This is a mobile-first app, so it is best viewed on a mobile device. It is also available as a native iOS app, but it is not yet deployed on the App Store.
+This app is live at [poetrypengyou.com](https://poetrypengyou.com/). It was tested in Safari on mobile and Chrome on desktop. The styling is not 100% perfect on all platforms but all functions are working. It is also available as a native iOS app, but it is not yet deployed on the App Store.
 
-This app is functional, but the database only contains a small sample of poems. More poems will be added soon.
+Currently the database only contains a small sample of poems. More poems will be added soon.
 
 ## How to Use
 
@@ -47,6 +47,9 @@ English translations are by Witter Bynner.
 - [ ] Add audio readings of the poems
 - [ ] Add other styles of poetry
 - [ ] Improve accessibility by adding light mode and user-selectable tone colors
+- [ ] Add search and favorites 
+- [ ] Reduce unecessary side-effects
+- [ ] Add more loading bars
 
 See the [Projects page](https://github.com/users/sdnii/projects/2) for a full list of planned features.
 
