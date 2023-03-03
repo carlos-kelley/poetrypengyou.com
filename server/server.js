@@ -1,5 +1,4 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 require("dotenv").config();
 
 
@@ -13,13 +12,6 @@ const allPoemsRouter = require("./routes/allPoems.router");
 const nextPoemRouter = require("./routes/nextPoem.router");
 const lastPoemRouter = require("./routes/lastPoem.router");
 //end of route includes
-
-// Body parser middleware
-app.use(bodyParser.json());
-app.use(
-  bodyParser.urlencoded({ extended: true })
-);
-
 
 
 /* Routes */
