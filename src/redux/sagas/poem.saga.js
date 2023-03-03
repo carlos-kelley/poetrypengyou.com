@@ -6,21 +6,8 @@ import {
 function* fetchPoem(action) {
   //get poem from the poem router
   try {
-    const config = {
-      url: `https://evening-fortress-34828.herokuapp.com/https://poetrypengyou.com/api/poem/${action.payload}`,
-      // headers: {
-      //   "Content-Type": "application/json",
-      //   "Access-Control-Allow-Origin": "*",
-      //   "Access-Control-Allow-Methods":
-      //     "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-      // },
-      params: {
-        size: "XL",
-      },
-    };
-
-    const response = yield CapacitorHttp.get(
-      config
+    const response = yield axios.get(
+      `https://sdnii-cors-anywhere.herokuapp.com/https://poetrypengyou.com/api/poem/${action.payload}`
     );
     console.log(
       "poem response.data:",

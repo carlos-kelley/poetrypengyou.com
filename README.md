@@ -33,7 +33,6 @@ Currently the database only contains a small sample of poems. More poems will be
 - [![NPM][npm]][npm-url]
 - [![OpenCC-JS][opencc-js-shield]][opencc-js-url]
 - [![LightSail][lightsail-shield]][lightsail-url]
-- [![Capacitor][capacitor-shield]][capacitor-url]
 
 A full list of dependencies can be found in `package.json`.
 
@@ -58,7 +57,6 @@ See the [Projects page](https://github.com/users/sdnii/projects/2) for a full li
 - `src/` contains the React application
 - `build/` contains the transpiled code from `src/` and `public/` that will be viewed on the production site
 - `server/` contains the Express App
-- `ios/` contains the iOS app built with Capacitor
 
 ## Contact
 
@@ -104,5 +102,4 @@ Distributed under the MIT License.
 [protonmail-url]: mailto:carloskelley@protonmail.com
 [opencc-js-shield]: https://img.shields.io/badge/OpenCC--JS-1.0.4-bluez
 [opencc-js-url]: https://github.com/nk2028/opencc-js
-[capacitor-shield]: https://img.shields.io/badge/Capacitor-2396F3?style=for-the-badge&logo=capacitor&logoColor=white
-[capacitor-url]: https://capacitorjs.com
+

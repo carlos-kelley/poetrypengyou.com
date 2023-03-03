@@ -13,22 +13,18 @@ import {
 
 import PoemSelectPage from "../PoemSelectPage/PoemSelectPage";
 import PoemPage from "../PoemPage/PoemPage";
-// import AppUrlListener from "../AppUrlListener";
-import TestBackground from "../TestBackground/TestBackground";
-import TestRoute from "../TestRoute/TestRoute";
 
 import "./App.css";
 
 function App() {
   const dispatch = useDispatch();
 
-  const user = useSelector((store) => store.user);
 
   useEffect(() => {
     dispatch({ type: "FETCH_USER" });
   }, [dispatch]);
 
-  // Auth functionality is included but not currently used
+
   return (
     <Router>
       <div>
@@ -58,7 +54,6 @@ function App() {
         </Switch>
       </div>
     </Router>
-    // </AppUrlListener>
   );
 }
 

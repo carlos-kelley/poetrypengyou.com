@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources>
-    <string name="app_name">Poetry Pengyou</string>
-    <string name="title_activity_main">Poetry Pengyou</string>
-    <string name="package_name">come.poetrypengyou.app</string>
-    <string name="custom_url_scheme">come.poetrypengyou.app</string>
-</resources>

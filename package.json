@@ -7,8 +7,6 @@
     "node": "16.x"
   },
   "dependencies": {
-    "@mui/icons-material": "^5.11.9",
-    "@mui/material": "^5.11.9",
     "axios": "^0.21.4",
     "dotenv": "^8.6.0",
     "express": "^4.17.1",
@@ -33,7 +31,6 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "@capacitor/cli": "^4.0.0",
     "nodemon": "^2.0.4"
   },
   "browserslist": [
