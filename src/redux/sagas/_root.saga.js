@@ -15,8 +15,6 @@ import fetchAllPoemsSaga from "./allPoems.saga";
 // and login triggers setting the user
 export default function* rootSaga() {
   yield all([
-    loginSaga(), // login saga is now registered
-    userSaga(),
     fetchPoemSaga(),
     lookupWordSaga(),
     fetchAllPoemsSaga(),

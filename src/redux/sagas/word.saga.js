@@ -2,7 +2,6 @@ import {
   put,
   takeLatest,
 } from "redux-saga/effects";
-import { CapacitorHttp } from "@capacitor/core";
 
 function* lookupWord(action) {
   //get word from word router using the word in the word reducer

@@ -2,7 +2,6 @@ import {
   put,
   takeLatest,
 } from "redux-saga/effects";
-import { CapacitorHttp } from "@capacitor/core";
 
 function* fetchPoem(action) {
   //get poem from the poem router
