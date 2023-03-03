@@ -10,6 +10,7 @@ import BackButton from "../BackButton/BackButton";
 import NavButtons from "../NavButtons/NavButtons";
 
 import "./PoemPage.css";
+import ChineseText from "./ChineseText";
 
 // This component displays the Chinese poem and contains the buttons.
 //TODO: Those buttons should be moved to a separate component later.
@@ -67,7 +68,6 @@ function PoemPage(props) {
   }, [params.number]);
 
   useEffect(() => {
-
     setTimeout(() => {
       setLoader(true);
     }, 500);
@@ -98,8 +98,7 @@ function PoemPage(props) {
         poem[0].author_simplified
       );
     }, 4);
-    setTimeout(() => {
-    }, 4);
+    setTimeout(() => {}, 4);
 
     //i think this has to run because when the page loads, titleTraditional is still empty
     setTimeout(() => {
@@ -193,10 +192,10 @@ function PoemPage(props) {
               }}
             >
               {localCharacter === "simplified" &&
-                "简"}
+                "繁"}
 
               {localCharacter === "traditional" &&
-                "繁 "}
+                "简 "}
             </button>
           </div>
 
@@ -206,121 +205,61 @@ function PoemPage(props) {
             {poem[0] &&
               localCharacter === "simplified" && (
                 <div className="poem">
-                  <div
-                    className="chineseInfoContainer"
-                  >
-                    {/* if poem exists and character sets are simplified, show the chinese TITLE */}
-                    {poem[0] &&
-                      localCharacter ===
-                        "simplified" && (
-                        //map over the split title and display each character with no spaces
-                        <h3 className="chineseTitle">
-                          {splitTitleSimplified.map(
-                            (
-                              character,
-                              index
-                            ) => {
-                              return (
-                                <span
-                                  key={index}
-                                  onClick={() => {
-                                    setTitleClicked(
-                                      index
-                                    );
-                                    titleReset();
-                                    lookupWord(
-                                      character
-                                    );
-                                  }}
-                                  style={{
-                                    background:
-                                      titleClicked ===
-                                      index
-                                        ? "lightblue"
-                                        : null,
-                                  }}
-                                >
-                                  {character}
-                                </span>
-                              );
-                            }
-                          )}
-                        </h3>
-                      )}
-                    {/* if poem exists and character sets are simplified, show the chinese AUTHOR */}
-                    {poem[0] &&
-                      localCharacter ===
-                        "simplified" && (
-                        // map over the split author and display each character with no spaces
-                        <h3 className="chineseAuthor">
-                          {splitAuthorSimplified.map(
-                            (
-                              character,
-                              index
-                            ) => {
-                              return (
-                                <span
-                                  key={index}
-                                  //onclick get character
-                                  onClick={() => {
-                                    setAuthorClicked(
-                                      index
-                                    );
-                                    authorReset();
-                                    lookupWord(
-                                      character
-                                    );
-                                  }}
-                                  style={{
-                                    background:
-                                      authorClicked ===
-                                      index
-                                        ? "lightblue"
-                                        : null,
-                                  }}
-                                >
-                                  {character}
-                                </span>
-                              );
-                            }
-                          )}
-                        </h3>
-                      )}
+                  <div className="chineseInfoContainer">
+                    <ChineseText
+                      characters={
+                        splitTitleSimplified
+                      }
+                      clickedIndex={titleClicked}
+                      onclick={(index) => {
+                        setTitleClicked(index);
+                        titleReset();
+                        lookupWord(
+                          splitTitleSimplified[
+                            index
+                          ]
+                        );
+                      }}
+                    />
+                    <ChineseText
+                      characters={
+                        splitAuthorSimplified
+                      }
+                      clickedIndex={authorClicked}
+                      onClick={(index) => {
+                        setAuthorClicked(index);
+                        authorReset();
+                        lookupWord(
+                          splitAuthorSimplified[
+                            index
+                          ]
+                        );
+                      }}
+                    />
                   </div>
+
                   {/* if poem exists and character sets are simplified, show the chinese POEM  */}
                   {poem[0] &&
                     localCharacter ===
                       "simplified" && (
                       <p className="chinesePoem">
-                        {splitPoemSimplified.map(
-                          (character, index) => {
-                            return (
-                              <span
-                                // change classname of target to selected
-                                key={index}
-                                //onclick get character
-                                onClick={() => {
-                                  setPoemClicked(
-                                    index
-                                  );
-                                  poemReset();
-                                  lookupWord(
-                                    character
-                                  );
-                                }}
-                                style={{
-                                  background:
-                                    poemClicked ===
-                                    index
-                                      ? "lightblue"
-                                      : null,
-                                }}
-                              >
-                                {character}
-                              </span>
-                            );
+                        <ChineseText
+                          characters={
+                            splitPoemSimplified
                           }
-                        )}
+                          clickedIndex={
+                            poemClicked
+                          }
+                          onClick={(index) => {
+                            setPoemClicked(index);
+                            poemReset();
+                            lookupWord(
+                              splitPoemSimplified[
+                                index
+                              ]
+                            );
+                          }}
+                        />
                       </p>
                     )}
                 </div>
