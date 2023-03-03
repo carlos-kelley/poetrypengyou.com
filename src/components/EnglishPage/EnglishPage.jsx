@@ -27,12 +27,12 @@ function EnglishPage({ allReset }) {
         }
       />
       {/* if the button is on, show the EnglishPageContent */}
-      {englishToggle && (
+      {englishToggle ? (
         <EnglishPageContent
           allReset={allReset}
           poem={poem}
         />
-      )}
+      ) : null}
     </div>
   );
 }
