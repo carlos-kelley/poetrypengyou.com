@@ -10,10 +10,6 @@ function* fetchAllPoems() {
     const response = yield axios.get(
       `/api/allpoems`
     );
-    console.log(
-      "allPoems response.data:",
-      response.data
-    );
     yield put({
       type: "SET_ALL_POEMS",
       payload: response.data,
@@ -23,8 +19,6 @@ function* fetchAllPoems() {
       "Error with allPoems GET:",
       error
     );
-
-    
   }
 }
 

@@ -15,17 +15,9 @@ function PoemSelectPage(props) {
 
   useEffect(() => {
     dispatch({ type: "FETCH_ALL_POEMS" });
-    console.log(
-      "In PoemSelectPage, allPoems:",
-      allPoems
-    );
   }, []);
 
   const goToPoem = (poemNumber) => {
-    console.log(
-      "In PoemSelectPage, goToPoem, poemNumber:",
-      poemNumber
-    );
     history.push(`/poem/${poemNumber}`);
   };
 

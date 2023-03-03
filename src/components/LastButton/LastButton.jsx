@@ -23,14 +23,8 @@ function LastButton(props) {
 
   function pushLast() {
     if (lastPoemLocal !== null) {
-      console.log(
-        "LastPoem push is:",
-        lastPoemLocal
-      );
       history.push(`/poem/${lastPoemLocal}`);
-    } else {
-      console.log("LastPoem is null");
-    }
+    } 
   }
 
   return (

@@ -14,13 +14,8 @@ router.get("/:chinese", (req, res) => {
     .query(queryText, [req.params.chinese])
     .then((result) => {
       res.send(result.rows);
-      console.log("result.rows:", result.rows);
     })
     .catch((err) => {
-      console.log(
-        "Error completing SELECT word query",
-        err
-      );
       res.sendStatus(500);
     });
 });

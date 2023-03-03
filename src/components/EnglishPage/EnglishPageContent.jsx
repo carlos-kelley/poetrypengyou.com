@@ -12,9 +12,6 @@ function EnglishPageContent({ allReset, poem }) {
     <div
       className="englishInfoContainer"
       onClick={() => {
-        console.log(
-          "englishInfoContainer clicked"
-        );
         handleClick();
       }}
     >

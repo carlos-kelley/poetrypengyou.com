@@ -23,13 +23,7 @@ function NextButton(props) {
 
   function pushNext() {
     if (nextPoemLocal !== null) {
-      console.log(
-        "NextPoem push is:",
-        nextPoemLocal
-      );
       history.push(`/poem/${nextPoemLocal}`);
-    } else {
-      console.log("NextPoem is null");
     }
   }
 

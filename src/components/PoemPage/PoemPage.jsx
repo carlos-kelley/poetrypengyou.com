@@ -67,7 +67,6 @@ function PoemPage(props) {
   }, [params.number]);
 
   useEffect(() => {
-    console.log("poem changed, refreshing");
 
     setTimeout(() => {
       setLoader(true);
@@ -100,10 +99,6 @@ function PoemPage(props) {
       );
     }, 4);
     setTimeout(() => {
-      console.log(
-        "titleSimplified after timeout:",
-        titleSimplified
-      );
     }, 4);
 
     //i think this has to run because when the page loads, titleTraditional is still empty
@@ -161,11 +156,6 @@ function PoemPage(props) {
   };
 
   function lookupWord(character) {
-    console.log("character in span:", character);
-    console.log(
-      "target classname:",
-      event.target.className
-    );
     dispatch({
       type: "LOOKUP_WORD",
       payload: converterSimp(character),
@@ -200,10 +190,6 @@ function PoemPage(props) {
                   : setLocalCharacter(
                       "simplified"
                     );
-                console.log(
-                  "character:",
-                  localCharacter
-                );
               }}
             >
               {localCharacter === "simplified" &&

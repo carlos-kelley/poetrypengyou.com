@@ -6,7 +6,6 @@ const router = express.Router();
 //gets the number from the params
 
 router.get("/:number", (req, res) => {
-  console.log("in poetry get router");
   const queryString = `SELECT MIN (DISTINCT number) 
 FROM poem
 WHERE number > $1;`;
@@ -14,13 +13,8 @@ WHERE number > $1;`;
     .query(queryString, [req.params.number])
     .then((results) => {
       res.send(results.rows);
-      console.log(
-        "Next poem is Number",
-        results.rows
-      );
     })
     .catch((err) => {
-      console.log(err);
       res.sendStatus(500);
     });
 });

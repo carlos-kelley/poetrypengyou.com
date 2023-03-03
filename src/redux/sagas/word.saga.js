@@ -10,16 +10,16 @@ function* lookupWord(action) {
     const response = yield axios.get(
       `/api/word/${action.payload}`
     );
-    console.log(
-      "word response.data:",
-      response.data
-    );
     yield put({
       type: "SET_WORD",
       payload: response.data,
     });
-  } catch (error) {
-    console.log("error in lookupWord:", error);
+  }
+  catch (error) {
+    console.log(
+      "Error with word GET:",
+      error
+    );
   }
 }
 

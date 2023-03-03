@@ -16,9 +16,6 @@ function TestBackgroundFunction(props) {
         <h2
           className="testBackgroundHeader"
           onClick={() => {
-            console.log(
-              "in test background onclick"
-            );
             history.push(`/testroute`);
           }}
         >
