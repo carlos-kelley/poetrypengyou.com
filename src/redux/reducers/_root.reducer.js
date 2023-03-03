@@ -3,7 +3,6 @@ import errors from "./errors.reducer";
 import user from "./user.reducer";
 import poem from "./poem.reducer";
 import word from "./word.reducer";
-import character from "./character.reducer";
 import nextPoem from "./nextPoem.reducer";
 import lastPoem from "./lastPoem.reducer";
 import allPoems from "./allPoems.reducer";
