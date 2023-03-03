@@ -11,12 +11,6 @@ import {
   useSelector,
 } from "react-redux";
 
-// import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
-// import AboutPage from "../AboutPage/AboutPage";
-// import UserPage from "../UserPage/UserPage";
-// import LandingPage from "../LandingPage/LandingPage";
-// import LoginPage from "../LoginPage/LoginPage";
-// import RegisterPage from "../RegisterPage/RegisterPage";
 import PoemSelectPage from "../PoemSelectPage/PoemSelectPage";
 import PoemPage from "../PoemPage/PoemPage";
 // import AppUrlListener from "../AppUrlListener";
@@ -45,62 +39,13 @@ function App() {
             from="/"
             to="/poemselect"
           />
-          <Route exact path="/poemselect">
+
+          <Route
+            exact
+            path="/poemselect"
+          >
             <PoemSelectPage />
           </Route>
-
-          {/* <Route
-            // shows AboutPage at all times (logged in or not)
-            exact
-            path="/about"
-          >
-            <AboutPage />
-          </Route> */}
-
-          {/* For protected routes, the view could show one of several things on the same route.
-            Visiting localhost:3000/user will show the UserPage if the user is logged in.
-            If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
-            Even though it seems like they are different pages, the user is always on localhost:3000/user */}
-          {/* <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
-            exact
-            path="/user"
-          >
-            <UserPage />
-          </ProtectedRoute> */}
-
-          {/* <Route exact path="/login">
-            {user.id ? (
-              // If the user is already logged in,
-              // redirect to the /user page
-              <Redirect to="/user" />
-            ) : (
-              // Otherwise, show the login page
-              <LoginPage />
-            )}
-          </Route> */}
-
-          {/* <Route exact path="/registration">
-            {user.id ? (
-              // If the user is already logged in,
-              // redirect them to the /user page
-              <Redirect to="/user" />
-            ) : (
-              // Otherwise, show the registration page
-              <RegisterPage />
-            )}
-          </Route> */}
-
-          {/* <Route exact path="/home">
-            {user.id ? (
-              // If the user is already logged in,
-              // redirect them to the /user page
-              <Redirect to="/user" />
-            ) : (
-              // Otherwise, show the Landing page
-              <LandingPage />
-            )}
-          </Route> */}
 
           <Route exact path="/poem/:number">
             <PoemPage />

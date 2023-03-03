@@ -53,13 +53,6 @@ function PoemPage(props) {
 
   const [loader, setLoader] = useState(false);
   useEffect(() => {
-    console.log(
-      "READY TO START, key is: ",
-      process.env.REACT_APP_DATABASE_URL
-    );
-    // setTitleTraditional("");
-    // setPoemTraditional("");
-    // setAuthorTraditional("");
     allReset();
     dispatch({
       type: "UNSET_WORD",
@@ -75,16 +68,12 @@ function PoemPage(props) {
 
   useEffect(() => {
     console.log("poem changed, refreshing");
-    // this is the opencc conversion
-    // if character set is traditional, set the hook to the traditional variants
 
     setTimeout(() => {
       setLoader(true);
     }, 500);
 
     setTimeout(() => {
-      // function that switches to true at end of timeout
-
       // this is the opencc conversion
       localCharacter === "traditional" &&
         setPoemTraditional(
@@ -153,7 +142,6 @@ function PoemPage(props) {
   const [authorClicked, setAuthorClicked] =
     useState(null);
 
-  // TODO: make DRY!
   const titleReset = () => {
     setAuthorClicked(null);
     setPoemClicked(null);
@@ -191,8 +179,6 @@ function PoemPage(props) {
       )}
       {loader === true && (
         <>
-          {/* FIX: should not happen on mouse up but on touch, but how to get the word then? */}
-          {/* this mouseup is not necessary */}
           <BackButton />
           <div
             className="unsetWord"
@@ -207,9 +193,6 @@ function PoemPage(props) {
             <button
               className="characterButton"
               onClick={() => {
-                // dispatch({
-                //   type: "UNSET_WORD",
-                // });
                 localCharacter === "simplified"
                   ? setLocalCharacter(
                       "traditional"
@@ -239,9 +222,6 @@ function PoemPage(props) {
                 <div className="poem">
                   <div
                     className="chineseInfoContainer"
-                    // onClick={() => {
-                    //   allReset();
-                    // }}
                   >
                     {/* if poem exists and character sets are simplified, show the chinese TITLE */}
                     {poem[0] &&
@@ -363,7 +343,6 @@ function PoemPage(props) {
 
           {/* this is where the traditional poem is displayed */}
           {/* this should be componentized */}
-          {/* useContext to pass all the hooks? */}
           <div className="poemContainerTraditional">
             {poem[0] &&
               localCharacter ===

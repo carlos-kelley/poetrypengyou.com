@@ -22,12 +22,14 @@
   font-size: 1.3rem;
   color: rgb(167, 165, 165);
   margin: auto;
+  cursor: pointer;
 }
 
 .chineseAuthor {
   font-size: 1.3rem;
   color: rgb(167, 165, 165);
   margin: auto;
+  cursor: pointer;
 }
 
 .chinesePoem {
@@ -36,6 +38,7 @@
   margin-left: 14.9px;
   margin-top: 10px;
   color: rgb(255, 255, 255);
+  cursor: pointer;
 }
 
 @media screen and (min-width: 750px) {
@@ -63,6 +66,7 @@
   right: 0;
   margin-right: 25px;
   margin-top: 52.5px;
+  cursor: pointer;
 }
 
 /*
@@ -74,6 +78,7 @@
   right: 0;
   margin-right: 50px;
   margin-top: 50px;
+  cursor: pointer;
 }
 
 .unsetWord {
