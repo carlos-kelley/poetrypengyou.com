@@ -1,6 +1,4 @@
 import { all } from "redux-saga/effects";
-import loginSaga from "./login.saga";
-import userSaga from "./user.saga";
 import fetchPoemSaga from "./poem.saga";
 import lookupWordSaga from "./word.saga";
 import fetchAllPoemsSaga from "./allPoems.saga";
