@@ -2,12 +2,13 @@ import {
   put,
   takeLatest,
 } from "redux-saga/effects";
+import axios from "axios";
 
 function* fetchAllPoems() {
   //get poem from the poem router
   try {
     const response = yield axios.get(
-      `https://sdnii-cors-anywhere.herokuapp.com/https://poetrypengyou.com/api/allpoems`
+      `/api/allpoems`
     );
     console.log(
       "allPoems response.data:",

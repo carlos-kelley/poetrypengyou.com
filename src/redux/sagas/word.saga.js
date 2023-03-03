@@ -2,21 +2,13 @@ import {
   put,
   takeLatest,
 } from "redux-saga/effects";
+import axios from "axios";
 
 function* lookupWord(action) {
   //get word from word router using the word in the word reducer
   try {
-    const config = {
-      url: `https://evening-fortress-34828.herokuapp.com/https://poetrypengyou.com/api/word/${action.payload}`,
-      // headers: {
-      // },
-      params: {
-        size: "XL",
-      },
-    };
-
-    const response = yield CapacitorHttp.get(
-      config
+    const response = yield axios.get(
+      `/api/word/${action.payload}`
     );
     console.log(
       "word response.data:",
