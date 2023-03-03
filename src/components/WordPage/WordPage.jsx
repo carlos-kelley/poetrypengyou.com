@@ -3,32 +3,33 @@ import { useSelector } from "react-redux";
 import "./WordPage.css";
 
 function WordPage() {
-  const word = useSelector((store) => store.word);
+  const getToneClass = (tone) => {
+    const toneClasses = [
+      "pinyinRedClass",
+      "pinyinOrangeClass",
+      "pinyinGreenClass",
+      "pinyinBlueClass",
+    ];
 
-  const toneClasses = [
-    "pinyinRedClass",
-    "pinyinOrangeClass",
-    "pinyinGreenClass",
-    "pinyinBlueClass",
-  ];
+    return toneClasses[tone - 1] || "";
+  };
+
+  const word = useSelector((store) => store.word);
+  const { english, tone, pinyin } =
+    word?.[0] || {};
 
   return (
     <div>
-      <div className="wordContainer">
-        {word[0] && (
-          <p className="englishDefinition">
-            {word[0].english}
-          </p>
-        )}
-
-        {word[0] && (
-          <p
-            className={
-              toneClasses[word[0].tone - 1]
-            }
-          >
-            {word[0].pinyin}
-          </p>
+      <div className="wordDetailsContainer">
+        {english && (
+          <>
+            <p className="englishDefinition">
+              {english}
+            </p>
+            <p className={getToneClass(tone)}>
+              {pinyin}
+            </p>
+          </>
         )}
       </div>
     </div>

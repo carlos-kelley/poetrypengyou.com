@@ -8,7 +8,6 @@ import {
 
 import {
   useDispatch,
-  useSelector,
 } from "react-redux";
 
 import PoemSelectPage from "../PoemSelectPage/PoemSelectPage";

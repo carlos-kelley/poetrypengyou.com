@@ -1,5 +1,4 @@
 import { combineReducers } from "redux";
-import errors from "./errors.reducer";
 import poem from "./poem.reducer";
 import word from "./word.reducer";
 import allPoems from "./allPoems.reducer";
@@ -11,7 +10,6 @@ import allPoems from "./allPoems.reducer";
 // Lets make a bigger object for our store, with the objects from our reducers.
 // This is what we get when we use 'state' inside of 'mapStateToProps'
 const rootReducer = combineReducers({
-  errors, // contains registrationMessage and loginMessage
   poem, // will have poem data
   word, // will have word data
   allPoems, // will have all poems data

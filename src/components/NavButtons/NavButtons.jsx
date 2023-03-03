@@ -8,9 +8,7 @@ function NavButtons({ allReset }) {
   return (
     <div
       className="navContainer"
-      onClick={() => {
-        allReset();
-      }}
+      onClick={allReset}
     >
       <LastButton />
       <NextButton />

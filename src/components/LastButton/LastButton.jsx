@@ -24,7 +24,7 @@ function LastButton(props) {
   function pushLast() {
     if (lastPoemLocal !== null) {
       history.push(`/poem/${lastPoemLocal}`);
-    } 
+    }
   }
 
   return (
