@@ -64,12 +64,15 @@
   right: 0;
   margin-right: 10px;
   margin-top: 52.5px;
-  width: 20px;
-  height: 20px;
+  max-width: 25.5px;
+  max-height: 25.5px;
+  width: 25.5px;
+  height: 25.5px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 /*
