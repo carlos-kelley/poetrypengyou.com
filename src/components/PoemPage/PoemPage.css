@@ -57,7 +57,7 @@
   background-color: rgb(189, 168, 142);
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 500;
-  font-size: 0.65rem;
+  font-size: 18px;
   border-radius: 3px;
   position: absolute;
   top: 0;
@@ -67,8 +67,9 @@
   width: 25.5px;
   height: 25.5px;
   cursor: pointer;
-  display: flex; 
+  display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 /*
