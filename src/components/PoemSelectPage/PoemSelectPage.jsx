@@ -17,7 +17,7 @@ function PoemSelectPage(props) {
   }, []);
 
   return (
-    <div>
+    <div className="poemSelectContainer">
       <h2 className="poemSelectHeading">
         Select a Poem
       </h2>

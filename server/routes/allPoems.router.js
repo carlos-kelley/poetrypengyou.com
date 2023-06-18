@@ -5,7 +5,7 @@ const router = express.Router();
 
 // GETs all poems from the database in ascending order by number
 router.get("/", (req, res) => {
-  const queryString = `SELECT * FROM "poem" ORDER BY "number" ASC;`;
+  const queryString = `SELECT * FROM "poem" ORDER BY "number" ASC;`;  
   pool
     .query(queryString)
     .then((results) => {

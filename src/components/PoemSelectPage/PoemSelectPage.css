@@ -1,9 +1,17 @@
+/* .poemSelectContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  background-color: red;
+} */
+
 .poemSelectHeading {
   color: rgb(167, 165, 165);
   font-weight: 700;
   font-size: 2rem;
   text-align: center;
-  margin-left: 40px;
+  /* margin-left: 40px; */
 }
 
 .poemListItem {
@@ -12,11 +20,17 @@
   font-size: 1.3rem;
   margin-top: 50px;
   margin-bottom: 50px;
-  text-align: center;
+  /* text-align: center; */
   cursor: pointer;
 }
 
 ul {
   list-style-type: none;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+li {
   text-align: center;
 }
