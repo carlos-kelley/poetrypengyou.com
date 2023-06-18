@@ -1,4 +1,6 @@
 import { useDispatch } from "react-redux";
+import React from "react";
+import "./EnglishPage.css";
 
 function EnglishPageContent({ allReset, poem }) {
   const dispatch = useDispatch();
@@ -7,6 +9,10 @@ function EnglishPageContent({ allReset, poem }) {
     allReset();
     dispatch({ type: "UNSET_WORD" });
   }
+
+  const splitPoemEnglish = poem[0]
+    ? poem[0].poem_english.split("/")
+    : [];
 
   return (
     <div
@@ -36,7 +42,15 @@ function EnglishPageContent({ allReset, poem }) {
           className="englishPoemClass"
           onClick={handleClick}
         >
-          {poem[0].poem_english}
+          {splitPoemEnglish.map((line, index) => (
+            <React.Fragment key={index}>
+              {line}
+              {index <
+                splitPoemEnglish.length - 1 && (
+                <span className="englishLineBreak" />
+              )}
+            </React.Fragment>
+          ))}
         </p>
       )}
     </div>
