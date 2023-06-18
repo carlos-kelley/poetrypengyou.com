@@ -2,11 +2,9 @@
   color: white;
 }
 
-
 .clicked {
   /* background turns selection blue */
   background-color: rgb(177, 199, 255);
-
 }
 
 .chineseInfoContainer {
@@ -54,19 +52,23 @@
 /* These buttons should eventually be componentized  */
 .characterButton {
   color: #000000;
-  outline: 2px solid #000000;
+  outline: 2.5px solid #000000;
   border: none;
   background-color: rgb(189, 168, 142);
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 500;
-  font-size: 0.975rem;
-  /* border-radius: 3px; */
+  font-size: 0.65rem;
+  border-radius: 3px;
   position: absolute;
   top: 0;
   right: 0;
-  margin-right: 25px;
+  margin-right: 19px;
   margin-top: 52.5px;
+  width: 25.5px;
+  height: 25.5px;
   cursor: pointer;
+  display: flex; 
+  justify-content: center;
 }
 
 /*

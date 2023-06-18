@@ -8,8 +8,8 @@ function EnglishPageToggleButton({
   onClick,
 }) {
   const Icon = isOn
-    ? FontDownloadOffIcon
-    : FontDownloadIcon;
+    ? FontDownloadIcon
+    : FontDownloadOffIcon;
   return (
     <Icon
       className="englishButton"
