@@ -8,6 +8,7 @@ import "./EnglishPage.css";
 import EnglishPageToggleButton from "./EnglishPageToggleButton";
 import EnglishPageContent from "./EnglishPageContent";
 
+
 function EnglishPage({
   allReset,
   englishToggle,

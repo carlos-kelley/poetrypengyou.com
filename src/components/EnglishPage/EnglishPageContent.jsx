@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import React from "react";
 import "./EnglishPage.css";
+import NavButtonsBottom from "../NavButtons/NavButtonsBottom";
 
 function EnglishPageContent({ allReset, poem }) {
   const dispatch = useDispatch();
@@ -51,6 +52,11 @@ function EnglishPageContent({ allReset, poem }) {
               )}
             </React.Fragment>
           ))}
+          <div className="navContainerBottom">
+            <NavButtonsBottom
+              allReset={allReset}
+            />
+          </div>
         </p>
       )}
     </div>

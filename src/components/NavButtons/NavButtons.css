@@ -3,4 +3,13 @@
   justify-content: center;
   gap: 80px;
   margin-top: 50px;
+  margin-bottom: 10px;
 }
+.navContainerBottom {
+  display: flex;
+  justify-content: center;
+  gap: 47px;
+  margin-top: 10px;
+
+}
+
