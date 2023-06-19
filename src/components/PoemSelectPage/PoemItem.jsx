@@ -19,7 +19,7 @@ function PoemItem({ poem }) {
       {poem.author_simplified}《
       {poem.title_simplified}》
       <br />
-      {poem.author_english} &nbsp; "
+      {poem.author_english} "
       {poem.title_english}"
     </li>
   );
