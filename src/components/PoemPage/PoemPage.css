@@ -12,6 +12,7 @@
   flex-direction: column;
   align-items: center;
   margin-top: 35%;
+  text-align: center;
 }
 
 /* ------------------- */
@@ -29,6 +30,7 @@
   color: rgb(167, 165, 165);
   margin: auto;
   cursor: pointer;
+  text-align: center;
 }
 
 .chinesePoem {
@@ -36,6 +38,7 @@
   font-size: 2.1rem;
   /* margin-left: 14.9px; */
   margin-top: 10px;
+  margin-bottom: 10px;
   color: rgb(255, 255, 255);
   cursor: pointer;
   text-align: center;
