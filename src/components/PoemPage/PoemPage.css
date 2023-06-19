@@ -21,7 +21,7 @@
   color: rgb(167, 165, 165);
   margin: auto;
   cursor: pointer;
-  /* text-align: center; */
+  text-align: center;
 }
 
 .chineseAuthor {
@@ -96,6 +96,6 @@
   position: absolute;
   z-index: -1;
   top: 0px;
-  width: 100%;
+  width: 99%;
   height: 100%;
 }
