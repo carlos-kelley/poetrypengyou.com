@@ -8,14 +8,12 @@ import "./EnglishPage.css";
 import EnglishPageToggleButton from "./EnglishPageToggleButton";
 import EnglishPageContent from "./EnglishPageContent";
 
-function EnglishPage({ allReset }) {
+function EnglishPage({
+  allReset,
+  englishToggle,
+  setEnglishToggle,
+}) {
   const poem = useSelector((store) => store.poem);
-  const [englishToggle, setEnglishToggle] =
-    useState(false);
-
-  useEffect(() => {
-    setEnglishToggle(false);
-  }, []);
 
   return (
     <div>

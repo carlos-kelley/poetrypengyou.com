@@ -28,6 +28,10 @@ function PoemPage(props) {
     to: "cn",
   });
 
+
+  const [englishToggle, setEnglishToggle] =
+    useState(false);
+
   const [localCharacter, setLocalCharacter] =
     useState("simplified");
   const [titleTraditional, setTitleTraditional] =
@@ -535,6 +539,8 @@ function PoemPage(props) {
 
           <EnglishPage
             // pass down Clicked props
+            englishToggle={englishToggle}
+            setEnglishToggle={setEnglishToggle}
             allReset={allReset}
           />
         </>
