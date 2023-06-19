@@ -66,6 +66,11 @@ function PoemPage(props) {
       type: "FETCH_POEM",
       payload: Number(poemNumberParam),
     });
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
   }, [params.number]);
 
   useEffect(() => {
@@ -190,33 +195,33 @@ function PoemPage(props) {
             {/* if localCharacter is simplified, show TraditionalOff */}
 
             {localCharacter === "simplified" && (
-            <TraditionalOff className="traditionalOff"
-              onClick={() => {
-                localCharacter === "simplified"
-                  ? setLocalCharacter(
-                      "traditional"
-                    )
-                  : setLocalCharacter(
-                      "simplified"
-                    );
-              }}
-              >
-              </TraditionalOff>
-            )} 
-            {/* else */}
-            {localCharacter === "traditional" && (
-              <TraditionalOn className="traditionalOff"
+              <TraditionalOff
+                className="traditionalOff"
                 onClick={() => {
                   localCharacter === "simplified"
                     ? setLocalCharacter(
-                      "traditional"
-                    )
+                        "traditional"
+                      )
                     : setLocalCharacter(
-                      "simplified"
-                    );
+                        "simplified"
+                      );
                 }}
-              >
-              </TraditionalOn>
+              ></TraditionalOff>
+            )}
+            {/* else */}
+            {localCharacter === "traditional" && (
+              <TraditionalOn
+                className="traditionalOff"
+                onClick={() => {
+                  localCharacter === "simplified"
+                    ? setLocalCharacter(
+                        "traditional"
+                      )
+                    : setLocalCharacter(
+                        "simplified"
+                      );
+                }}
+              ></TraditionalOn>
             )}
           </div>
 
