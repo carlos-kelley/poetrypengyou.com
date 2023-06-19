@@ -244,7 +244,6 @@ function PoemPage(props) {
             {poem[0] &&
               localCharacter === "simplified" && (
                 <div className="poem">
-                  <div className="chineseInfoContainer">
                     {poem[0] &&
                       localCharacter ===
                         "simplified" && (
@@ -321,7 +320,6 @@ function PoemPage(props) {
                           )}
                         </h3>
                       )}
-                  </div>
                   {/* if poem exists and character sets are simplified, show the chinese POEM  */}
                   {poem[0] &&
                     localCharacter ===
@@ -385,7 +383,6 @@ function PoemPage(props) {
               localCharacter ===
                 "traditional" && (
                 <div className="poem">
-                  <div className="chineseInfoContainer">
                     {/* if poem exists and character sets are traditional, show the chinese TITLE */}
                     {poem[0] &&
                       localCharacter ===
@@ -463,7 +460,6 @@ function PoemPage(props) {
                           )}
                         </h3>
                       )}
-                  </div>
                   {/* if poem exists and character sets are traditional, show the chinese POEM  */}
                   {poem[0] &&
                     localCharacter ===
