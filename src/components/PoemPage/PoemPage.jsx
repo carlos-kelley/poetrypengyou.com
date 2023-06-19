@@ -180,6 +180,9 @@ function PoemPage(props) {
       {loader === true && (
         <>
           <BackButton />
+          <div className="navContainer">
+            <NavButtons allReset={allReset} />
+          </div>
 
           <div
             className="unsetWord"
@@ -525,10 +528,6 @@ function PoemPage(props) {
             // pass down Clicked props
             allReset={allReset}
           />
-
-          <div className="navContainer">
-            <NavButtons allReset={allReset} />
-          </div>
         </>
       )}
     </div>

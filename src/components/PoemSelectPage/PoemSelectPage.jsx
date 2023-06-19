@@ -22,7 +22,7 @@ function PoemSelectPage(props) {
         Select a Poem
       </h2>
       {!allPoems ? (
-        <p>...loading...</p>
+        <h1 className="loader">loading...</h1>
       ) : (
         <ul>
           {allPoems.map((poem, index) => (
