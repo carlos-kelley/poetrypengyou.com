@@ -8,6 +8,8 @@ import WordPage from "../WordPage/WordPage";
 import EnglishPage from "../EnglishPage/EnglishPage";
 import BackButton from "../BackButton/BackButton";
 import NavButtons from "../NavButtons/NavButtons";
+import { ReactComponent as TraditionalOff } from "./traditional_off.svg";
+import { ReactComponent as TraditionalOn } from "./traditional_on.svg";
 
 import "./PoemPage.css";
 
@@ -183,10 +185,12 @@ function PoemPage(props) {
             }}
           />
 
-          <div className="characterButtonClass">
+          <div>
             {/* Button to conditionally toggle character sets via a Saga */}
-            <button
-              className="characterButton"
+            {/* if localCharacter is simplified, show TraditionalOff */}
+
+            {localCharacter === "simplified" && (
+            <TraditionalOff className="traditionalOff"
               onClick={() => {
                 localCharacter === "simplified"
                   ? setLocalCharacter(
@@ -196,13 +200,24 @@ function PoemPage(props) {
                       "simplified"
                     );
               }}
-            >
-              {localCharacter === "simplified" &&
-                "简"}
-
-              {localCharacter === "traditional" &&
-                "繁"}
-            </button>
+              >
+              </TraditionalOff>
+            )} 
+            {/* else */}
+            {localCharacter === "traditional" && (
+              <TraditionalOn className="traditionalOff"
+                onClick={() => {
+                  localCharacter === "simplified"
+                    ? setLocalCharacter(
+                      "traditional"
+                    )
+                    : setLocalCharacter(
+                      "simplified"
+                    );
+                }}
+              >
+              </TraditionalOn>
+            )}
           </div>
 
           {/* this is where the simplified poem is displayed */}
