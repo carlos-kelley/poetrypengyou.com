@@ -14,7 +14,7 @@
   border: 0;
   outline: 0;
   line-height: 0.01;
-  margin-bottom: 60px;
+  /* margin-bottom: 10px; */
 }
 
 .pinyinRedClass {
@@ -24,7 +24,7 @@
   border: 0;
   outline: 0;
   line-height: 0.01;
-  margin-bottom: 60px;
+  /* margin-bottom: 60px; */
 }
 .pinyinOrangeClass {
   color: #ffa162;
