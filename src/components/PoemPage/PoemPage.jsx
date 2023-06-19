@@ -93,7 +93,6 @@ function PoemPage(props) {
 
     setTimeout(() => {
       // this is the opencc conversion
-      localCharacter === "traditional" &&
         setPoemTraditional(
           converter(poem[0].poem_simplified)
         );
@@ -106,7 +105,6 @@ function PoemPage(props) {
     }, 4);
 
     setTimeout(() => {
-      localCharacter === "simplified" &&
         setPoemSimplified(
           poem[0].poem_simplified
         );
