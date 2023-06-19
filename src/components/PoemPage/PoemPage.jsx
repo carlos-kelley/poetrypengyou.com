@@ -433,9 +433,9 @@ function PoemPage(props) {
                   {/* if poem exists and character sets are traditional, show the chinese POEM  */}
                   {poem[0] &&
                     localCharacter ===
-                      "simplified" && (
+                      "traditional" && (
                       <p className="chinesePoem">
-                        {splitPoemSimplified.map(
+                        {splitPoemTraditional.map(
                           (character, index) => {
                             // Add a newline after comma, period, or question mark
                             const isNewline =
@@ -450,13 +450,19 @@ function PoemPage(props) {
                                 {!isNewline ? (
                                   <span
                                     onClick={() => {
-                                      setPoemClicked(
-                                        index
-                                      );
-                                      poemReset();
-                                      lookupWord(
-                                        character
-                                      );
+                                      if (
+                                        isValidCharacter(
+                                          character
+                                        )
+                                      ) {
+                                        setPoemClicked(
+                                          index
+                                        );
+                                        poemReset();
+                                        lookupWord(
+                                          character
+                                        );
+                                      }
                                     }}
                                     style={{
                                       background:
