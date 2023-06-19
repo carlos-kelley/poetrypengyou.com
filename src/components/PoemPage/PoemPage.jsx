@@ -61,11 +61,20 @@ function PoemPage(props) {
     });
     setPoemNumber(poemNumberParam);
 
-    // fetch the poem on page load
+    // Set loader to true before fetching the poem
+    setLoader(true);
+    console.log("loader is true")
+
+    // Fetch the poem on page load
     dispatch({
       type: "FETCH_POEM",
       payload: Number(poemNumberParam),
     });
+
+    // Set loader to false after the poem is fetched
+    setLoader(false);
+    console.log("loader is false")
+
     window.scrollTo({
       top: 0,
       left: 0,

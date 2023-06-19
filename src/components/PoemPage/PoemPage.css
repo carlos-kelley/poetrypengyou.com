@@ -1,8 +1,9 @@
 .loader {
   display: flex;
   color: white;
-  /* center */
   justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .clicked {
