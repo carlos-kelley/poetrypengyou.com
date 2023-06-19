@@ -1,4 +1,5 @@
 const express = require("express");
+var secure = require("ssl-express-www");
 require("dotenv").config();
 
 
@@ -20,6 +21,7 @@ app.use("/api/word", wordRouter);
 app.use("/api/allpoems", allPoemsRouter);
 app.use("/api/nextpoem", nextPoemRouter);
 app.use("/api/lastpoem", lastPoemRouter);
+app.use(secure);
 
 // Serve static files
 app.use(express.static("build"));
