@@ -423,33 +423,44 @@ function PoemPage(props) {
                   {poem[0] &&
                     localCharacter ===
                       "traditional" && (
-                      // map over the split poem and display each character with no spaces
                       <p className="chinesePoem">
                         {splitPoemTraditional.map(
                           (character, index) => {
+                            // Add a newline after comma or period
+                            const isNewline =
+                              character === "," ||
+                              character === "." ||
+                              character === "?";
                             return (
-                              <span
+                              <React.Fragment
                                 key={index}
-                                //onclick get character, convert to simplified, and dispatch to saga
-                                onClick={() => {
-                                  setPoemClicked(
-                                    index
-                                  );
-                                  poemReset();
-                                  lookupWord(
-                                    character
-                                  );
-                                }}
-                                style={{
-                                  background:
-                                    poemClicked ===
-                                    index
-                                      ? "lightblue"
-                                      : null,
-                                }}
                               >
-                                {character}
-                              </span>
+                                <span
+                                  // change classname of target to selected
+                                  //onclick get character
+                                  onClick={() => {
+                                    setPoemClicked(
+                                      index
+                                    );
+                                    poemReset();
+                                    lookupWord(
+                                      character
+                                    );
+                                  }}
+                                  style={{
+                                    background:
+                                      poemClicked ===
+                                      index
+                                        ? "lightblue"
+                                        : null,
+                                  }}
+                                >
+                                  {character}
+                                </span>
+                                {isNewline && (
+                                  <br />
+                                )}
+                              </React.Fragment>
                             );
                           }
                         )}
