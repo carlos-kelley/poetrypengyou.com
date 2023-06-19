@@ -193,10 +193,10 @@ function PoemPage(props) {
               }}
             >
               {localCharacter === "simplified" &&
-                "繁"}
+                "简"}
 
               {localCharacter === "traditional" &&
-                "简 "}
+                "繁"}
             </button>
           </div>
 
