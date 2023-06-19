@@ -32,7 +32,8 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "@babel/plugin-proposal-private-property-in-object": "^7.14.5"
   },
   "browserslist": [
     ">0.2%",
