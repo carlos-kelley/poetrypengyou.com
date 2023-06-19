@@ -160,6 +160,11 @@ function PoemPage(props) {
     });
   }
 
+  function isValidCharacter(character) {
+    const invalidChars = [",", ".", "?"];
+    return !invalidChars.includes(character);
+  }
+
   return (
     <div>
       {loader === false && (
@@ -303,13 +308,19 @@ function PoemPage(props) {
                                   // change classname of target to selected
                                   //onclick get character
                                   onClick={() => {
-                                    setPoemClicked(
-                                      index
-                                    );
-                                    poemReset();
-                                    lookupWord(
-                                      character
-                                    );
+                                    if (
+                                      isValidCharacter(
+                                        character
+                                      )
+                                    ) {
+                                      setPoemClicked(
+                                        index
+                                      );
+                                      poemReset();
+                                      lookupWord(
+                                        character
+                                      );
+                                    }
                                   }}
                                   style={{
                                     background:
@@ -422,41 +433,44 @@ function PoemPage(props) {
                   {/* if poem exists and character sets are traditional, show the chinese POEM  */}
                   {poem[0] &&
                     localCharacter ===
-                      "traditional" && (
+                      "simplified" && (
                       <p className="chinesePoem">
-                        {splitPoemTraditional.map(
+                        {splitPoemSimplified.map(
                           (character, index) => {
-                            // Add a newline after comma or period
+                            // Add a newline after comma, period, or question mark
                             const isNewline =
                               character === "," ||
                               character === "." ||
                               character === "?";
+
                             return (
                               <React.Fragment
                                 key={index}
                               >
-                                <span
-                                  // change classname of target to selected
-                                  //onclick get character
-                                  onClick={() => {
-                                    setPoemClicked(
-                                      index
-                                    );
-                                    poemReset();
-                                    lookupWord(
-                                      character
-                                    );
-                                  }}
-                                  style={{
-                                    background:
-                                      poemClicked ===
-                                      index
-                                        ? "lightblue"
-                                        : null,
-                                  }}
-                                >
-                                  {character}
-                                </span>
+                                {!isNewline ? (
+                                  <span
+                                    onClick={() => {
+                                      setPoemClicked(
+                                        index
+                                      );
+                                      poemReset();
+                                      lookupWord(
+                                        character
+                                      );
+                                    }}
+                                    style={{
+                                      background:
+                                        poemClicked ===
+                                        index
+                                          ? "lightblue"
+                                          : null,
+                                    }}
+                                  >
+                                    {character}
+                                  </span>
+                                ) : (
+                                  character
+                                )}
                                 {isNewline && (
                                   <br />
                                 )}
