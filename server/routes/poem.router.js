@@ -2,7 +2,7 @@ const express = require("express");
 const pool = require("../modules/pool");
 const router = express.Router();
 
-// GETs the poem corresponding to the param number from the database
+// GETs the poem corresponding to the param number from the db
 
 router.get("/:number", (req, res) => {
   const queryString = `SELECT * FROM "poem" WHERE "number" = $1;`;

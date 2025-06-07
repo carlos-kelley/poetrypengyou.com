@@ -6,7 +6,7 @@ import { ReactComponent as LastButtonSVG } from "./navigate_before.svg";
 import "./LastButton.css";
 import { fetchPoem } from "../../services/api";
 
-// This is the LastButton component. It is a button that takes the user to the last poem.
+// A button that takes the user to the last poem.
 function LastButton(props) {
   const history = useHistory();
   const params = useParams();
