@@ -2,9 +2,7 @@ const express = require("express");
 var secure = require("ssl-express-www");
 require("dotenv").config();
 
-
 const app = express();
-
 
 // Route includes
 const poemRouter = require("./routes/poem.router");
@@ -13,7 +11,6 @@ const allPoemsRouter = require("./routes/allPoems.router");
 const nextPoemRouter = require("./routes/nextPoem.router");
 const lastPoemRouter = require("./routes/lastPoem.router");
 //end of route includes
-
 
 /* Routes */
 app.use("/api/poem", poemRouter);
@@ -31,4 +28,5 @@ const PORT = process.env.PORT || 5001;
 
 /** Listen * */
 app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });

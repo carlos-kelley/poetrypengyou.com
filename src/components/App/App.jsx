@@ -28,7 +28,6 @@ function App() {
     <Router>
       <div>
         <Switch>
-          {/* Visiting localhost:3000 will redirect to localhost:3000/poemselect */}
           <Redirect
             exact
             from="/"

@@ -15,11 +15,11 @@ import "./PoemPage.css";
 
 // This component displays the Chinese poem and contains the buttons.
 //TODO: Those buttons should be moved to a separate component later.
-function PoemPage(props) {
+function PoemPage() {
   const dispatch = useDispatch();
   const poem = useSelector((store) => store.poem);
 
-  const converter = OpenCC.Converter({
+  const converterTrad = OpenCC.Converter({
     from: "cn",
     to: "hk",
   });
@@ -58,7 +58,6 @@ function PoemPage(props) {
 
   const [loader, setLoader] = useState(false);
   useEffect(() => {
-    
     allReset();
     dispatch({
       type: "UNSET_WORD",
@@ -93,13 +92,13 @@ function PoemPage(props) {
     setTimeout(() => {
       // this is the opencc conversion
       setPoemTraditional(
-        converter(poem[0].poem_simplified)
+        converterTrad(poem[0].poem_simplified)
       );
       setTitleTraditional(
-        converter(poem[0].title_simplified)
+        converterTrad(poem[0].title_simplified)
       );
       setAuthorTraditional(
-        converter(poem[0].author_simplified)
+        converterTrad(poem[0].author_simplified)
       );
     }, 4);
 
@@ -118,13 +117,13 @@ function PoemPage(props) {
     setTimeout(() => {
       titleTraditional === "" &&
         setTitleTraditional(
-          converter(poem[0].title_simplified)
+          converterTrad(poem[0].title_simplified)
         );
       setPoemTraditional(
-        converter(poem[0].poem_simplified)
+        converterTrad(poem[0].poem_simplified)
       );
       setAuthorTraditional(
-        converter(poem[0].author_simplified)
+        converterTrad(poem[0].author_simplified)
       );
     }, 4);
   }, [poem]);
@@ -135,7 +134,8 @@ function PoemPage(props) {
     titleTraditional.split("");
   const splitAuthorTraditional =
     authorTraditional.split("");
-
+  
+  
   const splitPoemSimplified =
     poemSimplified.split("");
   const splitTitleSimplified =
